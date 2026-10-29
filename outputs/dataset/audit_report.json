@@ -1,0 +1,240 @@
+{
+  "cautions": [
+    "Query-only / image-only learned shortcut baselines are not measured until the model preliminary study.",
+    "Balanced labels per template do not guarantee every exact query string has a 50:50 label prior.",
+    "Matching fine-grained ID/OOD covariate marginals and paired counterfactual error rates requires subsequent audits.",
+    "These are data/oracle checks, not evidence about representation learning or human cognition."
+  ],
+  "checks": {
+    "closer_margin": "PASS",
+    "counterfactual_integrity": "PASS",
+    "graph_disjointness": "PASS",
+    "holdout_isolation": "PASS",
+    "manifest_hashes": "PASS",
+    "oracle_crosscheck": "PASS",
+    "per_template_answer_balance": "PASS",
+    "primitive_coverage": "PASS",
+    "reference_grounding": "PASS",
+    "role_feasibility": "PASS",
+    "scene_geometry": "PASS",
+    "xor_truth_balance": "PASS"
+  },
+  "counterfactual_pairs_status": "PASS",
+  "non_neural_diagnostics": {
+    "exact_query_majority_accuracy": {
+      "id_dev": {
+        "above": 0.5,
+        "color": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "shape": 0.5,
+        "xor": 0.5
+      },
+      "id_test": {
+        "above": 0.5,
+        "color": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "shape": 0.5,
+        "xor": 0.5
+      },
+      "ood_dev": {
+        "above": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "xor": 0.5
+      },
+      "ood_test": {
+        "above": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "xor": 0.5
+      }
+    },
+    "note": "No image pixels used; unseen query strings default to label 0. Finite sample estimates only."
+  },
+  "pass": true,
+  "splits": {
+    "adapt_test": {
+      "covered_holdout_pairs": {},
+      "covered_visible_pairs": 9,
+      "positive_ratio": {
+        "closer": 0.5
+      },
+      "records": 240,
+      "template_counts": {
+        "closer": 240
+      },
+      "unique_graphs": 240,
+      "unique_query_strings": 24,
+      "xor_truth_pattern_counts": {}
+    },
+    "adapt_train": {
+      "covered_holdout_pairs": {},
+      "covered_visible_pairs": 9,
+      "positive_ratio": {
+        "closer": 0.5
+      },
+      "records": 128,
+      "template_counts": {
+        "closer": 128
+      },
+      "unique_graphs": 128,
+      "unique_query_strings": 24,
+      "xor_truth_pattern_counts": {}
+    },
+    "id_dev": {
+      "covered_holdout_pairs": {},
+      "covered_visible_pairs": 9,
+      "positive_ratio": {
+        "above": 0.5,
+        "color": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "shape": 0.5,
+        "xor": 0.5
+      },
+      "records": 360,
+      "template_counts": {
+        "above": 60,
+        "color": 40,
+        "left": 60,
+        "pair": 40,
+        "shape": 40,
+        "xor": 120
+      },
+      "unique_graphs": 360,
+      "unique_query_strings": 70,
+      "xor_truth_pattern_counts": {
+        "(0, 0)": 30,
+        "(0, 1)": 30,
+        "(1, 0)": 30,
+        "(1, 1)": 30
+      }
+    },
+    "id_test": {
+      "covered_holdout_pairs": {},
+      "covered_visible_pairs": 9,
+      "positive_ratio": {
+        "above": 0.5,
+        "color": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "shape": 0.5,
+        "xor": 0.5
+      },
+      "records": 360,
+      "template_counts": {
+        "above": 60,
+        "color": 40,
+        "left": 60,
+        "pair": 40,
+        "shape": 40,
+        "xor": 120
+      },
+      "unique_graphs": 360,
+      "unique_query_strings": 70,
+      "xor_truth_pattern_counts": {
+        "(0, 0)": 30,
+        "(0, 1)": 30,
+        "(1, 0)": 30,
+        "(1, 1)": 30
+      }
+    },
+    "ood_dev": {
+      "covered_holdout_pairs": {
+        "('blue', 'square')": 136,
+        "('green', 'circle')": 88,
+        "('red', 'triangle')": 136
+      },
+      "covered_visible_pairs": 12,
+      "positive_ratio": {
+        "above": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "xor": 0.5
+      },
+      "records": 360,
+      "template_counts": {
+        "above": 60,
+        "left": 60,
+        "pair": 120,
+        "xor": 120
+      },
+      "unique_graphs": 360,
+      "unique_query_strings": 36,
+      "xor_truth_pattern_counts": {
+        "(0, 0)": 30,
+        "(0, 1)": 30,
+        "(1, 0)": 30,
+        "(1, 1)": 30
+      }
+    },
+    "ood_test": {
+      "covered_holdout_pairs": {
+        "('blue', 'square')": 136,
+        "('green', 'circle')": 88,
+        "('red', 'triangle')": 136
+      },
+      "covered_visible_pairs": 12,
+      "positive_ratio": {
+        "above": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "xor": 0.5
+      },
+      "records": 360,
+      "template_counts": {
+        "above": 60,
+        "left": 60,
+        "pair": 120,
+        "xor": 120
+      },
+      "unique_graphs": 360,
+      "unique_query_strings": 36,
+      "xor_truth_pattern_counts": {
+        "(0, 0)": 30,
+        "(0, 1)": 30,
+        "(1, 0)": 30,
+        "(1, 1)": 30
+      }
+    },
+    "train": {
+      "covered_holdout_pairs": {},
+      "covered_visible_pairs": 9,
+      "positive_ratio": {
+        "above": 0.5,
+        "color": 0.5,
+        "left": 0.5,
+        "pair": 0.5,
+        "shape": 0.5,
+        "xor": 0.5
+      },
+      "records": 1800,
+      "template_counts": {
+        "above": 300,
+        "color": 200,
+        "left": 300,
+        "pair": 200,
+        "shape": 200,
+        "xor": 600
+      },
+      "unique_graphs": 1800,
+      "unique_query_strings": 70,
+      "xor_truth_pattern_counts": {
+        "(0, 0)": 150,
+        "(0, 1)": 150,
+        "(1, 0)": 150,
+        "(1, 1)": 150
+      }
+    }
+  },
+  "structural_feasibility": {
+    "all_configs": 72,
+    "all_four_allowed": 12,
+    "covered_allowed_pairs": 9,
+    "heldout_anchor_configs": 18,
+    "heldout_missing_configs": 12,
+    "visible_all_allowed": 24
+  }
+}

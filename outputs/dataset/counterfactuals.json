@@ -1,0 +1,558 @@
+[
+  {
+    "after_scene": {
+      "A": {
+        "color": "yellow",
+        "shape": "square",
+        "size": "small",
+        "x": 24,
+        "y": 40
+      },
+      "B": {
+        "color": "yellow",
+        "shape": "circle",
+        "size": "small",
+        "x": 38,
+        "y": 26
+      },
+      "C": {
+        "color": "red",
+        "shape": "square",
+        "size": "large",
+        "x": 12,
+        "y": 53
+      }
+    },
+    "before_scene": {
+      "A": {
+        "color": "red",
+        "shape": "circle",
+        "size": "small",
+        "x": 24,
+        "y": 40
+      },
+      "B": {
+        "color": "red",
+        "shape": "square",
+        "size": "large",
+        "x": 12,
+        "y": 53
+      },
+      "C": {
+        "color": "yellow",
+        "shape": "circle",
+        "size": "small",
+        "x": 38,
+        "y": 26
+      }
+    },
+    "changed_fields": [
+      "anchor.color",
+      "anchor.shape"
+    ],
+    "intervened_graph_id": "f92c67402e9ef43228ee2dec",
+    "new_label": 0,
+    "original_id": "e670606e4e551f9b6e41052c",
+    "original_label": 1,
+    "pair_id": "cf_00",
+    "query_tokens": [
+      "EXISTS_PAIR",
+      "red",
+      "circle"
+    ],
+    "split_source": "train",
+    "template": "pair"
+  },
+  {
+    "after_scene": {
+      "A": {
+        "color": "yellow",
+        "shape": "triangle",
+        "size": "large",
+        "x": 53,
+        "y": 53
+      },
+      "B": {
+        "color": "yellow",
+        "shape": "circle",
+        "size": "large",
+        "x": 10,
+        "y": 11
+      },
+      "C": {
+        "color": "blue",
+        "shape": "triangle",
+        "size": "small",
+        "x": 38,
+        "y": 38
+      }
+    },
+    "before_scene": {
+      "A": {
+        "color": "blue",
+        "shape": "circle",
+        "size": "large",
+        "x": 53,
+        "y": 53
+      },
+      "B": {
+        "color": "blue",
+        "shape": "triangle",
+        "size": "small",
+        "x": 38,
+        "y": 38
+      },
+      "C": {
+        "color": "yellow",
+        "shape": "circle",
+        "size": "large",
+        "x": 10,
+        "y": 11
+      }
+    },
+    "changed_fields": [
+      "anchor.color",
+      "anchor.shape"
+    ],
+    "intervened_graph_id": "7381d9b51f52aceda7a30d8c",
+    "new_label": 0,
+    "original_id": "8cfd61589672413f6d8d9af6",
+    "original_label": 1,
+    "pair_id": "cf_01",
+    "query_tokens": [
+      "EXISTS_PAIR",
+      "blue",
+      "circle"
+    ],
+    "split_source": "train",
+    "template": "pair"
+  },
+  {
+    "after_scene": {
+      "A": {
+        "color": "red",
+        "shape": "square",
+        "size": "large",
+        "x": 53,
+        "y": 39
+      },
+      "B": {
+        "color": "red",
+        "shape": "circle",
+        "size": "small",
+        "x": 40,
+        "y": 12
+      },
+      "C": {
+        "color": "yellow",
+        "shape": "square",
+        "size": "small",
+        "x": 10,
+        "y": 26
+      }
+    },
+    "before_scene": {
+      "A": {
+        "color": "yellow",
+        "shape": "circle",
+        "size": "large",
+        "x": 53,
+        "y": 39
+      },
+      "B": {
+        "color": "yellow",
+        "shape": "square",
+        "size": "small",
+        "x": 10,
+        "y": 26
+      },
+      "C": {
+        "color": "red",
+        "shape": "circle",
+        "size": "small",
+        "x": 40,
+        "y": 12
+      }
+    },
+    "changed_fields": [
+      "anchor.color",
+      "anchor.shape"
+    ],
+    "intervened_graph_id": "ba625907686831193b987a8a",
+    "new_label": 0,
+    "original_id": "39026a0ee1fd0dca6549e35c",
+    "original_label": 1,
+    "pair_id": "cf_02",
+    "query_tokens": [
+      "EXISTS_PAIR",
+      "yellow",
+      "circle"
+    ],
+    "split_source": "train",
+    "template": "pair"
+  },
+  {
+    "after_scene": {
+      "A": {
+        "color": "green",
+        "shape": "triangle",
+        "size": "large",
+        "x": 12,
+        "y": 10
+      },
+      "B": {
+        "color": "green",
+        "shape": "square",
+        "size": "small",
+        "x": 40,
+        "y": 39
+      },
+      "C": {
+        "color": "yellow",
+        "shape": "triangle",
+        "size": "large",
+        "x": 54,
+        "y": 52
+      }
+    },
+    "before_scene": {
+      "A": {
+        "color": "green",
+        "shape": "triangle",
+        "size": "large",
+        "x": 40,
+        "y": 10
+      },
+      "B": {
+        "color": "green",
+        "shape": "square",
+        "size": "small",
+        "x": 12,
+        "y": 39
+      },
+      "C": {
+        "color": "yellow",
+        "shape": "triangle",
+        "size": "large",
+        "x": 54,
+        "y": 52
+      }
+    },
+    "changed_fields": [
+      "anchor.x",
+      "same_color_object.x"
+    ],
+    "intervened_graph_id": "82a2f57c459e3a976a6a365f",
+    "new_label": 1,
+    "original_id": "9e85c79d7eb6dc1b31d4eeff",
+    "original_label": 0,
+    "pair_id": "cf_03",
+    "query_tokens": [
+      "LEFT",
+      "REF",
+      "green",
+      "triangle",
+      "REF",
+      "green",
+      "square"
+    ],
+    "split_source": "id_test",
+    "template": "left"
+  },
+  {
+    "after_scene": {
+      "A": {
+        "color": "red",
+        "shape": "circle",
+        "size": "small",
+        "x": 11,
+        "y": 10
+      },
+      "B": {
+        "color": "red",
+        "shape": "square",
+        "size": "large",
+        "x": 26,
+        "y": 52
+      },
+      "C": {
+        "color": "yellow",
+        "shape": "circle",
+        "size": "small",
+        "x": 40,
+        "y": 38
+      }
+    },
+    "before_scene": {
+      "A": {
+        "color": "red",
+        "shape": "circle",
+        "size": "small",
+        "x": 11,
+        "y": 38
+      },
+      "B": {
+        "color": "red",
+        "shape": "square",
+        "size": "large",
+        "x": 26,
+        "y": 52
+      },
+      "C": {
+        "color": "yellow",
+        "shape": "circle",
+        "size": "small",
+        "x": 40,
+        "y": 10
+      }
+    },
+    "changed_fields": [
+      "anchor.y",
+      "same_shape_object.y"
+    ],
+    "intervened_graph_id": "1bcd04aa6894d71f4757f4c2",
+    "new_label": 1,
+    "original_id": "c5927e45598de36e4ed88a00",
+    "original_label": 0,
+    "pair_id": "cf_04",
+    "query_tokens": [
+      "ABOVE",
+      "REF",
+      "red",
+      "circle",
+      "REF",
+      "yellow",
+      "circle"
+    ],
+    "split_source": "id_test",
+    "template": "above"
+  },
+  {
+    "after_scene": {
+      "A": {
+        "color": "green",
+        "shape": "circle",
+        "size": "small",
+        "x": 53,
+        "y": 52
+      },
+      "B": {
+        "color": "green",
+        "shape": "triangle",
+        "size": "small",
+        "x": 11,
+        "y": 38
+      },
+      "C": {
+        "color": "red",
+        "shape": "circle",
+        "size": "large",
+        "x": 24,
+        "y": 10
+      }
+    },
+    "before_scene": {
+      "A": {
+        "color": "green",
+        "shape": "circle",
+        "size": "small",
+        "x": 11,
+        "y": 52
+      },
+      "B": {
+        "color": "green",
+        "shape": "triangle",
+        "size": "small",
+        "x": 53,
+        "y": 38
+      },
+      "C": {
+        "color": "red",
+        "shape": "circle",
+        "size": "large",
+        "x": 24,
+        "y": 10
+      }
+    },
+    "changed_fields": [
+      "anchor.x",
+      "same_color_object.x"
+    ],
+    "intervened_graph_id": "44e9c2b418173dfffdf0990f",
+    "new_label": 0,
+    "original_id": "3737e894b4c6964d512615a8",
+    "original_label": 1,
+    "pair_id": "cf_05",
+    "query_tokens": [
+      "XOR",
+      "LEFT",
+      "REF",
+      "green",
+      "circle",
+      "REF",
+      "green",
+      "triangle",
+      "ABOVE",
+      "REF",
+      "green",
+      "circle",
+      "REF",
+      "red",
+      "circle"
+    ],
+    "split_source": "ood_test",
+    "template": "xor"
+  },
+  {
+    "after_scene": {
+      "A": {
+        "color": "red",
+        "shape": "triangle",
+        "size": "small",
+        "x": 26,
+        "y": 10
+      },
+      "B": {
+        "color": "red",
+        "shape": "square",
+        "size": "small",
+        "x": 11,
+        "y": 39
+      },
+      "C": {
+        "color": "green",
+        "shape": "triangle",
+        "size": "large",
+        "x": 54,
+        "y": 26
+      }
+    },
+    "before_scene": {
+      "A": {
+        "color": "red",
+        "shape": "triangle",
+        "size": "small",
+        "x": 11,
+        "y": 10
+      },
+      "B": {
+        "color": "red",
+        "shape": "square",
+        "size": "small",
+        "x": 26,
+        "y": 39
+      },
+      "C": {
+        "color": "green",
+        "shape": "triangle",
+        "size": "large",
+        "x": 54,
+        "y": 26
+      }
+    },
+    "changed_fields": [
+      "anchor.x",
+      "same_color_object.x"
+    ],
+    "intervened_graph_id": "9c8c65d2617c05322edc858b",
+    "new_label": 1,
+    "original_id": "1178d4ce3171b6879376127c",
+    "original_label": 0,
+    "pair_id": "cf_06",
+    "query_tokens": [
+      "XOR",
+      "LEFT",
+      "REF",
+      "red",
+      "triangle",
+      "REF",
+      "red",
+      "square",
+      "ABOVE",
+      "REF",
+      "red",
+      "triangle",
+      "REF",
+      "green",
+      "triangle"
+    ],
+    "split_source": "ood_test",
+    "template": "xor"
+  },
+  {
+    "after_scene": {
+      "A": {
+        "color": "blue",
+        "shape": "square",
+        "size": "small",
+        "x": 24,
+        "y": 26
+      },
+      "B": {
+        "color": "blue",
+        "shape": "triangle",
+        "size": "small",
+        "x": 54,
+        "y": 12
+      },
+      "C": {
+        "color": "green",
+        "shape": "square",
+        "size": "large",
+        "x": 10,
+        "y": 39
+      }
+    },
+    "before_scene": {
+      "A": {
+        "color": "blue",
+        "shape": "square",
+        "size": "small",
+        "x": 54,
+        "y": 26
+      },
+      "B": {
+        "color": "blue",
+        "shape": "triangle",
+        "size": "small",
+        "x": 24,
+        "y": 12
+      },
+      "C": {
+        "color": "green",
+        "shape": "square",
+        "size": "large",
+        "x": 10,
+        "y": 39
+      }
+    },
+    "changed_fields": [
+      "anchor.x",
+      "same_color_object.x"
+    ],
+    "intervened_graph_id": "a07d109aef7a4bf923b39393",
+    "new_label": 0,
+    "original_id": "91bda5d242702f8c2ea1ebdb",
+    "original_label": 1,
+    "pair_id": "cf_07",
+    "query_tokens": [
+      "XOR",
+      "LEFT",
+      "REF",
+      "blue",
+      "square",
+      "REF",
+      "blue",
+      "triangle",
+      "ABOVE",
+      "REF",
+      "blue",
+      "square",
+      "REF",
+      "green",
+      "square"
+    ],
+    "split_source": "ood_test",
+    "template": "xor"
+  }
+]

@@ -1,0 +1,10 @@
+- gallery.py -> mutate() : _What would the correct answer become if we changed a particular property of the scene_
+- render.py: _How an image is processed into high-quality, well-defined shape of objects before passing to model_
+- generate.py -> task*plan(): \_questions and labels for dataset*
+  - lvl1: recognizing attributes and their combinations
+  - lvl2: spatial relationships (grid)
+  - lvl3: compositional logical reasoning
+- generate.py -> sample*record(): \_Dataset partition preventing data leakage or imbalance among classes / question_type / objects*
+- world.py: _What are the possible objects, colors, sizes, and relationships (and combinations) allowed in training and evaluation and ablation tests_
+- oracle.py -> evaluate(): _provides the correct answer according to a known rule_
+- audit.py -> audit(): _scene geometry, disjoint scene graphs, oracle cross-check, XOR truth patterns, primitive coverage, manifest hashes, unique references, withheld-pair isolation, balanced task labels, CLOSER distance margins, role feasibility, counterfactual integrity_

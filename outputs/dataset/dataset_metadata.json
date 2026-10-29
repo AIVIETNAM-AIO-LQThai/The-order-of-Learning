@@ -1,0 +1,46 @@
+{
+  "config": {
+    "adapt_test": 240,
+    "adapt_train": 128,
+    "eval_per_level": 120,
+    "holdout": [
+      [
+        "blue",
+        "square"
+      ],
+      [
+        "green",
+        "circle"
+      ],
+      [
+        "red",
+        "triangle"
+      ]
+    ],
+    "materialize_all": false,
+    "renderer": "PIL LANCZOS supersampling=4",
+    "seed": 20261025,
+    "train_per_level": 600,
+    "version": "0.1.0"
+  },
+  "config_sha256": "2499a1066d7cc0c4c141f4bdffe7170cafb0321b821da0d82d536505d04b2a46",
+  "manifests_sha256": {
+    "adapt_test.jsonl": "04fd5c788f8efd220ae291ec14001d26102b2cb1095e1f980a25850395962508",
+    "adapt_train.jsonl": "1e289f560ed2201eb78c3b037d4123234f917e65200d763bed1fa8a2b826a360",
+    "id_dev.jsonl": "bcb98cdac003c62da68b3829459a737ab8c6d9a8d60bdc29e87ee4b5a63692c9",
+    "id_test.jsonl": "489e6322a9abe61923e0be90deac1e2a8752aabb3c2c650268db2c39cfb49c7a",
+    "ood_dev.jsonl": "751eb7fb0ebdf5bc8f96faf1c121d53218a5baadc780a358cf2225f01a301b36",
+    "ood_test.jsonl": "4c70352d314f6dfae163db8b709bdb15c9c69eace0547d9d8d219de947f4e537",
+    "train.jsonl": "49887fa41e1d31eaaea18b9c56d5a8f238e2cf05a8aef9e66418a4fee805c89b"
+  },
+  "records": {
+    "adapt_test": 240,
+    "adapt_train": 128,
+    "id_dev": 360,
+    "id_test": 360,
+    "ood_dev": 360,
+    "ood_test": 360,
+    "train": 1800
+  },
+  "unique_scene_graphs": 3608
+}

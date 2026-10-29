@@ -1,0 +1,28 @@
+{
+  "history": [
+    {
+      "accuracy": 0.625,
+      "loss": 0.6592872142791748,
+      "step": 1
+    },
+    {
+      "accuracy": 0.625,
+      "loss": 0.6967079639434814,
+      "step": 2
+    },
+    {
+      "accuracy": 1.0,
+      "loss": 0.48548364639282227,
+      "step": 3
+    }
+  ],
+  "last": {
+    "accuracy": 1.0,
+    "loss": 0.48548364639282227,
+    "step": 3
+  },
+  "note": "Engineering learnability check, not a scientific result.",
+  "samples": 8,
+  "status": "passed",
+  "steps_run": 3
+}

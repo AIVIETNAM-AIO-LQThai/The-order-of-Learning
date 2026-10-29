@@ -1,0 +1,27 @@
+{
+  "generator": "notebooks/generate_research_figures.ipynb",
+  "note": "Charts from stored JSON. Galleries from scene data. Diagrams are explanatory schematics.",
+  "files": [
+    "outputs\\experiments\\visual_grounding_debug\\original_model_color_accuracy.png",
+    "outputs\\experiments\\color_grounding\\color_learning_accuracy.png",
+    "outputs\\experiments\\color_grounding\\color_grounding_controls.png",
+    "outputs\\experiments\\attribute_binding\\attribute_accuracy_curves.png",
+    "outputs\\experiments\\attribute_binding\\attribute_binding_dev_loss.png",
+    "outputs\\experiments\\generalization_controls\\regularization_accuracy_comparison.png",
+    "outputs\\experiments\\generalization_controls\\image_swap_sensitivity.png",
+    "outputs\\experiments\\learning_order\\learning_schedule_final_accuracy.png",
+    "outputs\\experiments\\learning_order\\learning_schedule_binding_trajectories.png",
+    "outputs\\experiments\\learning_order\\binding_image_swap_sensitivity.png",
+    "outputs\\dataset\\synthetic_scene_gallery.png",
+    "outputs\\dataset\\scene_counterfactual_examples.png",
+    "outputs\\dataset\\yellow_presence_distribution.png",
+    "outputs\\dataset\\dataset_generation_flow.png",
+    "outputs\\dataset\\image_rendering_flow.png",
+    "outputs\\experiments\\transformer_baseline\\baseline_architecture.png",
+    "outputs\\experiments\\transformer_baseline\\vision_transformer_overview.png",
+    "outputs\\experiments\\transformer_baseline\\question_token_encoding.png",
+    "outputs\\experiments\\attribute_binding\\attribute_binding_pipeline.png",
+    "outputs\\experiments\\learning_order\\research_measurements.png",
+    "outputs\\experiments\\attribute_binding\\attribute_binding_counterexample.png"
+  ]
+}

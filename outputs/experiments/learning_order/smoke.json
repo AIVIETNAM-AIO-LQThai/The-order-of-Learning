@@ -1,0 +1,153 @@
+{
+  "status": "smoke_only",
+  "dataset_hashes": {
+    "train.jsonl": "49887fa41e1d31eaaea18b9c56d5a8f238e2cf05a8aef9e66418a4fee805c89b",
+    "id_dev.jsonl": "bcb98cdac003c62da68b3829459a737ab8c6d9a8d60bdc29e87ee4b5a63692c9"
+  },
+  "environment": {
+    "torch": "2.9.1+cu128",
+    "cuda_build": "12.8",
+    "cuda_available": true,
+    "num_threads": 4,
+    "device_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+    "capability": [
+      12,
+      0
+    ]
+  },
+  "config": {
+    "schedules": [
+      "mixed",
+      "staged",
+      "reverse"
+    ],
+    "seeds": [
+      42
+    ],
+    "main_epochs": 20,
+    "common_epochs": 4,
+    "batch_size": 32,
+    "lr": 0.002,
+    "augmentation": true,
+    "checkpoint_selector": "min ID-dev CE, diagnostic only",
+    "primary_metric": "fixed-final ID-dev by-template accuracy"
+  },
+  "runs": [
+    {
+      "schedule": "mixed",
+      "seed": 42,
+      "status": "smoke_only",
+      "steps_run": 3,
+      "final": {
+        "step": 3,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.5,
+          "loss": 0.7167372258504232,
+          "by_template": {
+            "color": 0.5,
+            "pair": 0.5,
+            "shape": 0.5
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.5083333333333333,
+          "loss": 0.7157326062520345,
+          "by_template": {
+            "color": 0.5,
+            "pair": 0.525,
+            "shape": 0.5
+          }
+        }
+      },
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      }
+    },
+    {
+      "schedule": "staged",
+      "seed": 42,
+      "status": "smoke_only",
+      "steps_run": 3,
+      "final": {
+        "step": 3,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.5,
+          "loss": 0.7075887203216553,
+          "by_template": {
+            "color": 0.5,
+            "pair": 0.5,
+            "shape": 0.5
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.5,
+          "loss": 0.7061078866322835,
+          "by_template": {
+            "color": 0.5,
+            "pair": 0.5,
+            "shape": 0.5
+          }
+        }
+      },
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      }
+    },
+    {
+      "schedule": "reverse",
+      "seed": 42,
+      "status": "smoke_only",
+      "steps_run": 3,
+      "final": {
+        "step": 3,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.5,
+          "loss": 0.6953755982716878,
+          "by_template": {
+            "color": 0.5,
+            "pair": 0.5,
+            "shape": 0.5
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.525,
+          "loss": 0.694051726659139,
+          "by_template": {
+            "color": 0.5,
+            "pair": 0.5,
+            "shape": 0.575
+          }
+        }
+      },
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      }
+    }
+  ],
+  "duration_sec": 3.33,
+  "warning": "Dev set is reused; one/few seeds cannot support research conclusions. No OOD/test/adapt splits accessed."
+}

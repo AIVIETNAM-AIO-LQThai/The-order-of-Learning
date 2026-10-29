@@ -1,0 +1,689 @@
+{
+  "status": "exploratory_learnability_only",
+  "dataset_hashes": {
+    "train.jsonl": "49887fa41e1d31eaaea18b9c56d5a8f238e2cf05a8aef9e66418a4fee805c89b",
+    "id_dev.jsonl": "bcb98cdac003c62da68b3829459a737ab8c6d9a8d60bdc29e87ee4b5a63692c9"
+  },
+  "environment": {
+    "torch": "2.9.1+cu128",
+    "cuda_build": "12.8",
+    "cuda_available": true,
+    "num_threads": 4,
+    "device_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+    "capability": [
+      12,
+      0
+    ]
+  },
+  "config": {
+    "schedules": [
+      "mixed",
+      "staged",
+      "reverse"
+    ],
+    "seeds": [
+      42
+    ],
+    "main_epochs": 20,
+    "common_epochs": 4,
+    "batch_size": 32,
+    "lr": 0.002,
+    "augmentation": true,
+    "checkpoint_selector": "min ID-dev CE, diagnostic only",
+    "primary_metric": "fixed-final ID-dev by-template accuracy"
+  },
+  "runs": [
+    {
+      "schedule": "mixed",
+      "seed": 42,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.49833333333333335,
+            "loss": 0.691989803314209,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.49,
+              "shape": 0.505
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.525,
+            "loss": 0.6910713195800782,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.5,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.64,
+            "loss": 0.645260264078776,
+            "by_template": {
+              "color": 0.75,
+              "pair": 0.545,
+              "shape": 0.625
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6333333333333333,
+            "loss": 0.6420580546061198,
+            "by_template": {
+              "color": 0.75,
+              "pair": 0.525,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7533333333333333,
+            "loss": 0.4420830217997233,
+            "by_template": {
+              "color": 0.99,
+              "pair": 0.565,
+              "shape": 0.705
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.4365814208984375,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.55,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7733333333333333,
+            "loss": 0.38799368302027387,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.565,
+              "shape": 0.76
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.4086191733678182,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.6,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.81,
+            "loss": 0.3636086201667786,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.63,
+              "shape": 0.8
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7833333333333333,
+            "loss": 0.4139638185501099,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.575,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8083333333333333,
+            "loss": 0.39179510831832887,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.645,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7916666666666666,
+            "loss": 0.39344674348831177,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.65,
+              "shape": 0.75
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8083333333333333,
+          "loss": 0.39179510831832887,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.645,
+            "shape": 0.78
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7916666666666666,
+          "loss": 0.39344674348831177,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.65,
+            "shape": 0.75
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8083333333333333,
+          "loss": 0.39179510831832887,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.645,
+            "shape": 0.78
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7916666666666666,
+          "loss": 0.39344674348831177,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.65,
+            "shape": 0.75
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.65,
+        "swapped_image_accuracy_against_original_labels": 0.35,
+        "prediction_flip_rate": 0.3
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_42_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 42,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.6,
+            "loss": 0.6811587397257487,
+            "by_template": {
+              "color": 0.695,
+              "pair": 0.5,
+              "shape": 0.605
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5916666666666667,
+            "loss": 0.6766974131266276,
+            "by_template": {
+              "color": 0.675,
+              "pair": 0.525,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7466666666666667,
+            "loss": 0.6272347593307495,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.52,
+              "shape": 0.72
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7666666666666667,
+            "loss": 0.6238347927729289,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7566666666666667,
+            "loss": 0.7499802192052205,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.505,
+              "shape": 0.765
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.7457818746566772,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.77,
+            "loss": 0.669658571879069,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.52,
+              "shape": 0.79
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.7199492732683818,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.7716666666666666,
+            "loss": 0.4291030724843343,
+            "by_template": {
+              "color": 0.905,
+              "pair": 0.625,
+              "shape": 0.785
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.5387497742970785,
+            "by_template": {
+              "color": 0.825,
+              "pair": 0.575,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.8733333333333333,
+            "loss": 0.2816550167401632,
+            "by_template": {
+              "color": 0.99,
+              "pair": 0.845,
+              "shape": 0.785
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8666666666666667,
+            "loss": 0.35484357674916583,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.825,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8633333333333333,
+            "loss": 0.28293031692504883,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.81,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8583333333333333,
+            "loss": 0.34289738337198894,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.825,
+              "shape": 0.75
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8633333333333333,
+          "loss": 0.28293031692504883,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.81,
+            "shape": 0.78
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8583333333333333,
+          "loss": 0.34289738337198894,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.825,
+            "shape": 0.75
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8633333333333333,
+          "loss": 0.28293031692504883,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.81,
+            "shape": 0.78
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8583333333333333,
+          "loss": 0.34289738337198894,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.825,
+            "shape": 0.75
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.825,
+        "swapped_image_accuracy_against_original_labels": 0.175,
+        "prediction_flip_rate": 0.65
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "outputs\\experiments\\learning_order\\checkpoints\\staged_seed_42_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 42,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.54,
+            "loss": 0.6871095244089762,
+            "by_template": {
+              "color": 0.515,
+              "pair": 0.64,
+              "shape": 0.465
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5666666666666667,
+            "loss": 0.6828917503356934,
+            "by_template": {
+              "color": 0.525,
+              "pair": 0.575,
+              "shape": 0.6
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.6166666666666667,
+            "loss": 0.6231470330556234,
+            "by_template": {
+              "color": 0.685,
+              "pair": 0.745,
+              "shape": 0.42
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6333333333333333,
+            "loss": 0.628969939549764,
+            "by_template": {
+              "color": 0.725,
+              "pair": 0.7,
+              "shape": 0.475
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.71,
+            "loss": 0.7152195421854655,
+            "by_template": {
+              "color": 0.92,
+              "pair": 0.565,
+              "shape": 0.645
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.7158602873484293,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.6,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7766666666666666,
+            "loss": 0.8370103089014689,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.565,
+              "shape": 0.765
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.9840715885162353,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7716666666666666,
+            "loss": 0.966983036994934,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.51,
+              "shape": 0.805
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7666666666666667,
+            "loss": 1.1321839014689128,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.78,
+            "loss": 0.9734808381398519,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.52,
+              "shape": 0.82
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 1.0645652135213217,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.475,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8516666666666667,
+            "loss": 0.32042300661404927,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.745,
+              "shape": 0.81
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8333333333333334,
+            "loss": 0.39572461843490603,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.725,
+              "shape": 0.775
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8516666666666667,
+          "loss": 0.32042300661404927,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.745,
+            "shape": 0.81
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8333333333333334,
+          "loss": 0.39572461843490603,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.725,
+            "shape": 0.775
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8516666666666667,
+          "loss": 0.32042300661404927,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.745,
+            "shape": 0.81
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8333333333333334,
+          "loss": 0.39572461843490603,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.725,
+            "shape": 0.775
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.725,
+        "swapped_image_accuracy_against_original_labels": 0.275,
+        "prediction_flip_rate": 0.45
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_42_best.pt"
+    }
+  ],
+  "duration_sec": 24.42,
+  "warning": "Dev set is reused; one/few seeds cannot support research conclusions. No OOD/test/adapt splits accessed."
+}
