@@ -2,19 +2,19 @@
 
 ## Completion boundaries
 
-| Component | Status | Evidence |
-|---|---|---|
-| dataset generation manifests, hash audit, scene and query oracle | PASS | Reused unchanged; `outputs/small_world/dataset` |
-| Model input contract (pixels + query tokens) | PASS | `tests/test_learning.py` |
-| ViT encoder + question Transformer + tokenwise cross-attention fusion | IMPLEMENTED | `src/small_visual_world/learning.py` |
-| CPU model forward/backward/optimizer smoke | PASS | `outputs/small_world/experiments/transformer_baseline/smoke_result.json` |
-| 8-example overfit (48-dimensional minimal ViT) | PASS | Reached 100% **training** accuracy after 10 steps in `outputs/small_world/experiments/transformer_baseline/overfit_result.json` |
-| Full training CLI + best checkpoint and metric export | PASS (engineering) | One-epoch end-to-end CPU smoke completed |
-| Text-only / image-only baseline CLI | PASS (engineering) | One-epoch CPU runs completed; cannot establish absence of shortcuts |
-| CLOSER adaptation CLI with stratified internal dev split | PASS (engineering) | Frozen-vision and full-finetune one-step CPU integration test completed |
-| Full-dataset representation learning | **NOT YET DEMONSTRATED** | 12-epoch first-architecture mixed run remained 0.50 ID/OOD-dev; 20-epoch revised-tokenwise-fusion Level-1 diagnostic remained at 0.50 ID/OOD-dev |
-| RTX 5050 execution | **NOT TESTED** | GPU is on user's laptop; only local CPU available here |
-| Progressive/mixed/reverse curriculum comparison | **NOT STARTED** | Requires prior learned baseline |
+| Component                                                             | Status                   | Evidence                                                                                                                                         |
+| --------------------------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| dataset generation manifests, hash audit, scene and query oracle      | PASS                     | Reused unchanged; `outputs/small_world/dataset`                                                                                                  |
+| Model input contract (pixels + query tokens)                          | PASS                     | `valid_tests/test_learning.py`                                                                                                                   |
+| ViT encoder + question Transformer + tokenwise cross-attention fusion | IMPLEMENTED              | `src/small_visual_world/learning.py`                                                                                                             |
+| CPU model forward/backward/optimizer smoke                            | PASS                     | `outputs/small_world/experiments/transformer_baseline/smoke_result.json`                                                                         |
+| 8-example overfit (48-dimensional minimal ViT)                        | PASS                     | Reached 100% **training** accuracy after 10 steps in `outputs/small_world/experiments/transformer_baseline/overfit_result.json`                  |
+| Full training CLI + best checkpoint and metric export                 | PASS (engineering)       | One-epoch end-to-end CPU smoke completed                                                                                                         |
+| Text-only / image-only baseline CLI                                   | PASS (engineering)       | One-epoch CPU runs completed; cannot establish absence of shortcuts                                                                              |
+| CLOSER adaptation CLI with stratified internal dev split              | PASS (engineering)       | Frozen-vision and full-finetune one-step CPU integration test completed                                                                          |
+| Full-dataset representation learning                                  | **NOT YET DEMONSTRATED** | 12-epoch first-architecture mixed run remained 0.50 ID/OOD-dev; 20-epoch revised-tokenwise-fusion Level-1 diagnostic remained at 0.50 ID/OOD-dev |
+| RTX 5050 execution                                                    | **NOT TESTED**           | GPU is on user's laptop; only local CPU available here                                                                                           |
+| Progressive/mixed/reverse curriculum comparison                       | **NOT STARTED**          | Requires prior learned baseline                                                                                                                  |
 
 ## Why a 50% result is important
 

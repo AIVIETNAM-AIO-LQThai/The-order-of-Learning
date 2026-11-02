@@ -1,6 +1,11 @@
 """Pixel-only rendering. Does not encode labels, scene IDs, roles, or split IDs."""
 
 from PIL import Image,ImageDraw
+from pathlib import Path
+import sys
+PROJECT_ROOT = Path().cwd()
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 from src.small_visual_world.world import Scene
 
 PALETTE={'red':(209,84,76),'blue':(69,138,198),'green':(73,156,110),'yellow':(219,176,62)}
