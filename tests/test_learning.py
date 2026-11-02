@@ -1,18 +1,13 @@
 import json
 from pathlib import Path
-import sys
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-# Stable imports when launched from VS Code, another working directory, or a notebook.
-for IMPORT_ROOT in (PROJECT_ROOT, PROJECT_ROOT / "src"):
-    if str(IMPORT_ROOT) not in sys.path:
-        sys.path.insert(0, str(IMPORT_ROOT))
+PROJECT_ROOT = Path().cwd()
     
 import pytest
 torch=pytest.importorskip('torch')
-from src.visual_world.learning import VOCAB,CLOSER_ID,encode_tokens,TinyViTQuestion,VQADataset,make_loader,evaluate
-from src.visual_world.baseline_training import stratified_adaptation_indices
+from src.small_visual_world.learning import VOCAB,CLOSER_ID,encode_tokens,TinyViTQuestion,VQADataset,make_loader,evaluate
+from src.small_visual_world.baseline_training import stratified_adaptation_indices
 
-ROOT=Path(__file__).resolve().parents[1]/'outputs'/'dataset'
+ROOT=PROJECT_ROOT/'outputs'/'small_world'/'dataset'
 
 def test_model_contract_and_operator_is_novel():
     tr=VQADataset(ROOT/'train.jsonl',limit=24)

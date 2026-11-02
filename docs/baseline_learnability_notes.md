@@ -4,11 +4,11 @@
 
 | Component | Status | Evidence |
 |---|---|---|
-| dataset generation manifests, hash audit, scene and query oracle | PASS | Reused unchanged; `outputs/dataset` |
+| dataset generation manifests, hash audit, scene and query oracle | PASS | Reused unchanged; `outputs/small_world/dataset` |
 | Model input contract (pixels + query tokens) | PASS | `tests/test_learning.py` |
-| ViT encoder + question Transformer + tokenwise cross-attention fusion | IMPLEMENTED | `src/visual_world/learning.py` |
-| CPU model forward/backward/optimizer smoke | PASS | `outputs/experiments/transformer_baseline/smoke_result.json` |
-| 8-example overfit (48-dimensional minimal ViT) | PASS | Reached 100% **training** accuracy after 10 steps in `outputs/experiments/transformer_baseline/overfit_result.json` |
+| ViT encoder + question Transformer + tokenwise cross-attention fusion | IMPLEMENTED | `src/small_visual_world/learning.py` |
+| CPU model forward/backward/optimizer smoke | PASS | `outputs/small_world/experiments/transformer_baseline/smoke_result.json` |
+| 8-example overfit (48-dimensional minimal ViT) | PASS | Reached 100% **training** accuracy after 10 steps in `outputs/small_world/experiments/transformer_baseline/overfit_result.json` |
 | Full training CLI + best checkpoint and metric export | PASS (engineering) | One-epoch end-to-end CPU smoke completed |
 | Text-only / image-only baseline CLI | PASS (engineering) | One-epoch CPU runs completed; cannot establish absence of shortcuts |
 | CLOSER adaptation CLI with stratified internal dev split | PASS (engineering) | Frozen-vision and full-finetune one-step CPU integration test completed |

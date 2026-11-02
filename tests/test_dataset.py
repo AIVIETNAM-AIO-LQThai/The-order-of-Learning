@@ -1,16 +1,9 @@
-from pathlib import Path
-import sys
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-# Stable imports when launched from VS Code, another working directory, or a notebook.
-for IMPORT_ROOT in (PROJECT_ROOT, PROJECT_ROOT / "src"):
-    if str(IMPORT_ROOT) not in sys.path:
-        sys.path.insert(0, str(IMPORT_ROOT))
-    
-from src.visual_world.generate import generate
-from src.visual_world.audit import audit
-from src.visual_world.gallery import make_gallery
-from src.visual_world.world import from_dict
-from src.visual_world.render import render
+
+from src.small_visual_world.generate import generate
+from src.small_visual_world.audit import audit
+from src.small_visual_world.gallery import make_gallery
+from src.small_visual_world.world import from_dict
+from src.small_visual_world.render import render
 
 def test_small_end_to_end_and_reproducibility(tmp_path):
     a=tmp_path/'one';b=tmp_path/'two'

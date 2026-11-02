@@ -1,18 +1,13 @@
 import itertools
 from dataclasses import replace
-from pathlib import Path
-import sys
-PROJECT_ROOT = Path().cwd()
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
     
-from src.visual_world.world import *
-from src.visual_world.grammar import *
-from src.visual_world.oracle import evaluate
-from src.visual_world.audit import feasible_counts,standalone_label
-from src.visual_world.gallery import mutate
-from src.visual_world.render import render
-from src.visual_world.input_contract import model_example
+from src.small_visual_world.world import *
+from src.small_visual_world.grammar import *
+from src.small_visual_world.oracle import evaluate
+from src.small_visual_world.audit import feasible_counts,standalone_label
+from src.small_visual_world.gallery import mutate
+from src.small_visual_world.render import render
+from src.small_visual_world.input_contract import model_example
 
 def fixed_scene():
     return Scene(Obj('red','circle','small',11,11),Obj('red','square','small',39,39),Obj('blue','circle','small',25,53))
