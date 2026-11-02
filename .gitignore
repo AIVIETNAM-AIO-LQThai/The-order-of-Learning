@@ -12,3 +12,8 @@ dist/
 .DS_Store
 thesis/
 report/
+
+# Trained model checkpoints
+outputs/experiments/**/checkpoints/
+*.pt
+*.pth
