@@ -5,8 +5,8 @@
     "id_dev.jsonl": "bcb98cdac003c62da68b3829459a737ab8c6d9a8d60bdc29e87ee4b5a63692c9"
   },
   "environment": {
-    "torch": "2.9.1+cu128",
-    "cuda_build": "12.8",
+    "torch": "2.13.0+cu130",
+    "cuda_build": "13.0",
     "cuda_available": true,
     "num_threads": 4,
     "device_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
@@ -22,7 +22,15 @@
       "reverse"
     ],
     "seeds": [
-      42
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
     ],
     "main_epochs": 20,
     "common_epochs": 4,
@@ -54,7 +62,7 @@
           "phase": "mixed",
           "train": {
             "accuracy": 0.49833333333333335,
-            "loss": 0.691989803314209,
+            "loss": 0.6919898001352945,
             "by_template": {
               "color": 0.5,
               "pair": 0.49,
@@ -76,7 +84,7 @@
           "phase": "mixed",
           "train": {
             "accuracy": 0.64,
-            "loss": 0.645260264078776,
+            "loss": 0.645260279973348,
             "by_template": {
               "color": 0.75,
               "pair": 0.545,
@@ -98,20 +106,20 @@
           "phase": "mixed",
           "train": {
             "accuracy": 0.7533333333333333,
-            "loss": 0.4420830217997233,
+            "loss": 0.4417420212427775,
             "by_template": {
               "color": 0.99,
-              "pair": 0.565,
-              "shape": 0.705
+              "pair": 0.555,
+              "shape": 0.715
             }
           },
           "id_dev": {
-            "accuracy": 0.7333333333333333,
-            "loss": 0.4365814208984375,
+            "accuracy": 0.7416666666666667,
+            "loss": 0.43605632781982423,
             "by_template": {
               "color": 0.975,
               "pair": 0.55,
-              "shape": 0.675
+              "shape": 0.7
             }
           }
         },
@@ -119,20 +127,20 @@
           "step": 300,
           "phase": "mixed",
           "train": {
-            "accuracy": 0.7733333333333333,
-            "loss": 0.38799368302027387,
+            "accuracy": 0.7766666666666666,
+            "loss": 0.3998315080006917,
             "by_template": {
               "color": 0.995,
-              "pair": 0.565,
-              "shape": 0.76
+              "pair": 0.62,
+              "shape": 0.715
             }
           },
           "id_dev": {
-            "accuracy": 0.775,
-            "loss": 0.4086191733678182,
+            "accuracy": 0.7833333333333333,
+            "loss": 0.40645604928334556,
             "by_template": {
               "color": 0.975,
-              "pair": 0.6,
+              "pair": 0.625,
               "shape": 0.75
             }
           }
@@ -141,21 +149,21 @@
           "step": 375,
           "phase": "mixed",
           "train": {
-            "accuracy": 0.81,
-            "loss": 0.3636086201667786,
+            "accuracy": 0.84,
+            "loss": 0.3571124839782715,
             "by_template": {
               "color": 1.0,
-              "pair": 0.63,
-              "shape": 0.8
+              "pair": 0.74,
+              "shape": 0.78
             }
           },
           "id_dev": {
-            "accuracy": 0.7833333333333333,
-            "loss": 0.4139638185501099,
+            "accuracy": 0.775,
+            "loss": 0.3875353574752808,
             "by_template": {
-              "color": 1.0,
-              "pair": 0.575,
-              "shape": 0.775
+              "color": 0.975,
+              "pair": 0.55,
+              "shape": 0.8
             }
           }
         },
@@ -163,21 +171,21 @@
           "step": 450,
           "phase": "common_mixed",
           "train": {
-            "accuracy": 0.8083333333333333,
-            "loss": 0.39179510831832887,
+            "accuracy": 0.835,
+            "loss": 0.3373556208610535,
             "by_template": {
               "color": 1.0,
-              "pair": 0.645,
-              "shape": 0.78
+              "pair": 0.71,
+              "shape": 0.795
             }
           },
           "id_dev": {
-            "accuracy": 0.7916666666666666,
-            "loss": 0.39344674348831177,
+            "accuracy": 0.8166666666666667,
+            "loss": 0.39136195182800293,
             "by_template": {
               "color": 0.975,
-              "pair": 0.65,
-              "shape": 0.75
+              "pair": 0.675,
+              "shape": 0.8
             }
           }
         }
@@ -186,54 +194,54 @@
         "step": 450,
         "phase": "final",
         "train": {
-          "accuracy": 0.8083333333333333,
-          "loss": 0.39179510831832887,
+          "accuracy": 0.835,
+          "loss": 0.3373556208610535,
           "by_template": {
             "color": 1.0,
-            "pair": 0.645,
-            "shape": 0.78
+            "pair": 0.71,
+            "shape": 0.795
           }
         },
         "id_dev": {
-          "accuracy": 0.7916666666666666,
-          "loss": 0.39344674348831177,
+          "accuracy": 0.8166666666666667,
+          "loss": 0.39136195182800293,
           "by_template": {
             "color": 0.975,
-            "pair": 0.65,
-            "shape": 0.75
+            "pair": 0.675,
+            "shape": 0.8
           }
         }
       },
       "best_dev_ce": {
-        "step": 450,
+        "step": 375,
         "phase": "best_dev_ce",
         "train": {
-          "accuracy": 0.8083333333333333,
-          "loss": 0.39179510831832887,
+          "accuracy": 0.84,
+          "loss": 0.3571124839782715,
           "by_template": {
             "color": 1.0,
-            "pair": 0.645,
+            "pair": 0.74,
             "shape": 0.78
           }
         },
         "id_dev": {
-          "accuracy": 0.7916666666666666,
-          "loss": 0.39344674348831177,
+          "accuracy": 0.775,
+          "loss": 0.3875353574752808,
           "by_template": {
             "color": 0.975,
-            "pair": 0.65,
-            "shape": 0.75
+            "pair": 0.55,
+            "shape": 0.8
           }
         }
       },
       "paired_counterfactual": {
         "pairs": 20,
-        "original_accuracy": 0.65,
-        "swapped_image_accuracy_against_original_labels": 0.35,
-        "prediction_flip_rate": 0.3
+        "original_accuracy": 0.675,
+        "swapped_image_accuracy_against_original_labels": 0.325,
+        "prediction_flip_rate": 0.45
       },
       "constant_image_pair_accuracy": 0.5,
-      "best_checkpoint": "outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_42_best.pt"
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_42_best.pt"
     },
     {
       "schedule": "staged",
@@ -256,7 +264,7 @@
           "phase": "attributes",
           "train": {
             "accuracy": 0.6,
-            "loss": 0.6811587397257487,
+            "loss": 0.6811587715148926,
             "by_template": {
               "color": 0.695,
               "pair": 0.5,
@@ -265,7 +273,7 @@
           },
           "id_dev": {
             "accuracy": 0.5916666666666667,
-            "loss": 0.6766974131266276,
+            "loss": 0.6766974290211996,
             "by_template": {
               "color": 0.675,
               "pair": 0.525,
@@ -278,7 +286,7 @@
           "phase": "attributes",
           "train": {
             "accuracy": 0.7466666666666667,
-            "loss": 0.6272347593307495,
+            "loss": 0.6267116181055705,
             "by_template": {
               "color": 1.0,
               "pair": 0.52,
@@ -287,7 +295,7 @@
           },
           "id_dev": {
             "accuracy": 0.7666666666666667,
-            "loss": 0.6238347927729289,
+            "loss": 0.6232930421829224,
             "by_template": {
               "color": 1.0,
               "pair": 0.525,
@@ -299,21 +307,21 @@
           "step": 225,
           "phase": "attributes",
           "train": {
-            "accuracy": 0.7566666666666667,
-            "loss": 0.7499802192052205,
+            "accuracy": 0.7633333333333333,
+            "loss": 0.7489318577448527,
             "by_template": {
               "color": 1.0,
-              "pair": 0.505,
-              "shape": 0.765
+              "pair": 0.51,
+              "shape": 0.78
             }
           },
           "id_dev": {
-            "accuracy": 0.7583333333333333,
-            "loss": 0.7457818746566772,
+            "accuracy": 0.775,
+            "loss": 0.757786504427592,
             "by_template": {
               "color": 1.0,
-              "pair": 0.5,
-              "shape": 0.775
+              "pair": 0.525,
+              "shape": 0.8
             }
           }
         },
@@ -321,17 +329,17 @@
           "step": 250,
           "phase": "attributes",
           "train": {
-            "accuracy": 0.77,
-            "loss": 0.669658571879069,
+            "accuracy": 0.7633333333333333,
+            "loss": 0.7540106550852458,
             "by_template": {
               "color": 1.0,
               "pair": 0.52,
-              "shape": 0.79
+              "shape": 0.77
             }
           },
           "id_dev": {
             "accuracy": 0.7583333333333333,
-            "loss": 0.7199492732683818,
+            "loss": 0.7759455839792887,
             "by_template": {
               "color": 1.0,
               "pair": 0.525,
@@ -343,21 +351,21 @@
           "step": 300,
           "phase": "binding",
           "train": {
-            "accuracy": 0.7716666666666666,
-            "loss": 0.4291030724843343,
+            "accuracy": 0.7316666666666667,
+            "loss": 0.5002931388219197,
             "by_template": {
-              "color": 0.905,
+              "color": 0.86,
               "pair": 0.625,
-              "shape": 0.785
+              "shape": 0.71
             }
           },
           "id_dev": {
-            "accuracy": 0.7166666666666667,
-            "loss": 0.5387497742970785,
+            "accuracy": 0.6666666666666666,
+            "loss": 0.5714770634969075,
             "by_template": {
               "color": 0.825,
-              "pair": 0.575,
-              "shape": 0.75
+              "pair": 0.525,
+              "shape": 0.65
             }
           }
         },
@@ -365,21 +373,21 @@
           "step": 375,
           "phase": "binding",
           "train": {
-            "accuracy": 0.8733333333333333,
-            "loss": 0.2816550167401632,
+            "accuracy": 0.8066666666666666,
+            "loss": 0.4266416517893473,
             "by_template": {
-              "color": 0.99,
-              "pair": 0.845,
-              "shape": 0.785
+              "color": 0.945,
+              "pair": 0.735,
+              "shape": 0.74
             }
           },
           "id_dev": {
-            "accuracy": 0.8666666666666667,
-            "loss": 0.35484357674916583,
+            "accuracy": 0.7833333333333333,
+            "loss": 0.4743108113606771,
             "by_template": {
-              "color": 0.975,
-              "pair": 0.825,
-              "shape": 0.8
+              "color": 0.925,
+              "pair": 0.725,
+              "shape": 0.7
             }
           }
         },
@@ -387,21 +395,21 @@
           "step": 450,
           "phase": "common_mixed",
           "train": {
-            "accuracy": 0.8633333333333333,
-            "loss": 0.28293031692504883,
+            "accuracy": 0.8733333333333333,
+            "loss": 0.28928820927937826,
             "by_template": {
               "color": 1.0,
-              "pair": 0.81,
-              "shape": 0.78
+              "pair": 0.805,
+              "shape": 0.815
             }
           },
           "id_dev": {
-            "accuracy": 0.8583333333333333,
-            "loss": 0.34289738337198894,
+            "accuracy": 0.8166666666666667,
+            "loss": 0.37490113576253253,
             "by_template": {
-              "color": 1.0,
-              "pair": 0.825,
-              "shape": 0.75
+              "color": 0.95,
+              "pair": 0.775,
+              "shape": 0.725
             }
           }
         }
@@ -410,21 +418,21 @@
         "step": 450,
         "phase": "final",
         "train": {
-          "accuracy": 0.8633333333333333,
-          "loss": 0.28293031692504883,
+          "accuracy": 0.8733333333333333,
+          "loss": 0.28928820927937826,
           "by_template": {
             "color": 1.0,
-            "pair": 0.81,
-            "shape": 0.78
+            "pair": 0.805,
+            "shape": 0.815
           }
         },
         "id_dev": {
-          "accuracy": 0.8583333333333333,
-          "loss": 0.34289738337198894,
+          "accuracy": 0.8166666666666667,
+          "loss": 0.37490113576253253,
           "by_template": {
-            "color": 1.0,
-            "pair": 0.825,
-            "shape": 0.75
+            "color": 0.95,
+            "pair": 0.775,
+            "shape": 0.725
           }
         }
       },
@@ -432,32 +440,32 @@
         "step": 450,
         "phase": "best_dev_ce",
         "train": {
-          "accuracy": 0.8633333333333333,
-          "loss": 0.28293031692504883,
+          "accuracy": 0.8733333333333333,
+          "loss": 0.28928820927937826,
           "by_template": {
             "color": 1.0,
-            "pair": 0.81,
-            "shape": 0.78
+            "pair": 0.805,
+            "shape": 0.815
           }
         },
         "id_dev": {
-          "accuracy": 0.8583333333333333,
-          "loss": 0.34289738337198894,
+          "accuracy": 0.8166666666666667,
+          "loss": 0.37490113576253253,
           "by_template": {
-            "color": 1.0,
-            "pair": 0.825,
-            "shape": 0.75
+            "color": 0.95,
+            "pair": 0.775,
+            "shape": 0.725
           }
         }
       },
       "paired_counterfactual": {
         "pairs": 20,
-        "original_accuracy": 0.825,
-        "swapped_image_accuracy_against_original_labels": 0.175,
-        "prediction_flip_rate": 0.65
+        "original_accuracy": 0.775,
+        "swapped_image_accuracy_against_original_labels": 0.225,
+        "prediction_flip_rate": 0.55
       },
       "constant_image_pair_accuracy": 0.5,
-      "best_checkpoint": "outputs\\experiments\\learning_order\\checkpoints\\staged_seed_42_best.pt"
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_42_best.pt"
     },
     {
       "schedule": "reverse",
@@ -489,7 +497,7 @@
           },
           "id_dev": {
             "accuracy": 0.5666666666666667,
-            "loss": 0.6828917503356934,
+            "loss": 0.6828917185465495,
             "by_template": {
               "color": 0.525,
               "pair": 0.575,
@@ -502,7 +510,7 @@
           "phase": "binding",
           "train": {
             "accuracy": 0.6166666666666667,
-            "loss": 0.6231470330556234,
+            "loss": 0.6231473096211751,
             "by_template": {
               "color": 0.685,
               "pair": 0.745,
@@ -511,7 +519,7 @@
           },
           "id_dev": {
             "accuracy": 0.6333333333333333,
-            "loss": 0.628969939549764,
+            "loss": 0.628968866666158,
             "by_template": {
               "color": 0.725,
               "pair": 0.7,
@@ -524,7 +532,7 @@
           "phase": "attributes",
           "train": {
             "accuracy": 0.71,
-            "loss": 0.7152195421854655,
+            "loss": 0.7152201493581136,
             "by_template": {
               "color": 0.92,
               "pair": 0.565,
@@ -533,7 +541,7 @@
           },
           "id_dev": {
             "accuracy": 0.75,
-            "loss": 0.7158602873484293,
+            "loss": 0.7158675988515218,
             "by_template": {
               "color": 0.925,
               "pair": 0.6,
@@ -545,39 +553,17 @@
           "step": 225,
           "phase": "attributes",
           "train": {
-            "accuracy": 0.7766666666666666,
-            "loss": 0.8370103089014689,
+            "accuracy": 0.7583333333333333,
+            "loss": 0.7527217181523641,
             "by_template": {
               "color": 1.0,
-              "pair": 0.565,
-              "shape": 0.765
-            }
-          },
-          "id_dev": {
-            "accuracy": 0.75,
-            "loss": 0.9840715885162353,
-            "by_template": {
-              "color": 1.0,
-              "pair": 0.525,
-              "shape": 0.725
-            }
-          }
-        },
-        {
-          "step": 300,
-          "phase": "attributes",
-          "train": {
-            "accuracy": 0.7716666666666666,
-            "loss": 0.966983036994934,
-            "by_template": {
-              "color": 1.0,
-              "pair": 0.51,
-              "shape": 0.805
+              "pair": 0.555,
+              "shape": 0.72
             }
           },
           "id_dev": {
             "accuracy": 0.7666666666666667,
-            "loss": 1.1321839014689128,
+            "loss": 0.841590960820516,
             "by_template": {
               "color": 1.0,
               "pair": 0.5,
@@ -586,24 +572,46 @@
           }
         },
         {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7566666666666667,
+            "loss": 0.838197013537089,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.51,
+              "shape": 0.76
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 0.9501651128133138,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.475,
+              "shape": 0.7
+            }
+          }
+        },
+        {
           "step": 375,
           "phase": "attributes",
           "train": {
-            "accuracy": 0.78,
-            "loss": 0.9734808381398519,
+            "accuracy": 0.7633333333333333,
+            "loss": 0.9158287525177002,
             "by_template": {
               "color": 1.0,
-              "pair": 0.52,
-              "shape": 0.82
+              "pair": 0.5,
+              "shape": 0.79
             }
           },
           "id_dev": {
             "accuracy": 0.7583333333333333,
-            "loss": 1.0645652135213217,
+            "loss": 0.9621235370635987,
             "by_template": {
               "color": 1.0,
-              "pair": 0.475,
-              "shape": 0.8
+              "pair": 0.5,
+              "shape": 0.775
             }
           }
         },
@@ -611,17 +619,17 @@
           "step": 450,
           "phase": "common_mixed",
           "train": {
-            "accuracy": 0.8516666666666667,
-            "loss": 0.32042300661404927,
+            "accuracy": 0.855,
+            "loss": 0.30685014565785723,
             "by_template": {
               "color": 1.0,
-              "pair": 0.745,
-              "shape": 0.81
+              "pair": 0.76,
+              "shape": 0.805
             }
           },
           "id_dev": {
             "accuracy": 0.8333333333333334,
-            "loss": 0.39572461843490603,
+            "loss": 0.3523285388946533,
             "by_template": {
               "color": 1.0,
               "pair": 0.725,
@@ -634,17 +642,17 @@
         "step": 450,
         "phase": "final",
         "train": {
-          "accuracy": 0.8516666666666667,
-          "loss": 0.32042300661404927,
+          "accuracy": 0.855,
+          "loss": 0.30685014565785723,
           "by_template": {
             "color": 1.0,
-            "pair": 0.745,
-            "shape": 0.81
+            "pair": 0.76,
+            "shape": 0.805
           }
         },
         "id_dev": {
           "accuracy": 0.8333333333333334,
-          "loss": 0.39572461843490603,
+          "loss": 0.3523285388946533,
           "by_template": {
             "color": 1.0,
             "pair": 0.725,
@@ -656,17 +664,17 @@
         "step": 450,
         "phase": "best_dev_ce",
         "train": {
-          "accuracy": 0.8516666666666667,
-          "loss": 0.32042300661404927,
+          "accuracy": 0.855,
+          "loss": 0.30685014565785723,
           "by_template": {
             "color": 1.0,
-            "pair": 0.745,
-            "shape": 0.81
+            "pair": 0.76,
+            "shape": 0.805
           }
         },
         "id_dev": {
           "accuracy": 0.8333333333333334,
-          "loss": 0.39572461843490603,
+          "loss": 0.3523285388946533,
           "by_template": {
             "color": 1.0,
             "pair": 0.725,
@@ -681,9 +689,5209 @@
         "prediction_flip_rate": 0.45
       },
       "constant_image_pair_accuracy": 0.5,
-      "best_checkpoint": "outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_42_best.pt"
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_42_best.pt"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 43,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.6083333333333333,
+            "loss": 0.6878696950276693,
+            "by_template": {
+              "color": 0.745,
+              "pair": 0.505,
+              "shape": 0.575
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6083333333333333,
+            "loss": 0.687445052464803,
+            "by_template": {
+              "color": 0.775,
+              "pair": 0.525,
+              "shape": 0.525
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7433333333333333,
+            "loss": 0.4898802105585734,
+            "by_template": {
+              "color": 0.895,
+              "pair": 0.615,
+              "shape": 0.72
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6916666666666667,
+            "loss": 0.5246492862701416,
+            "by_template": {
+              "color": 0.85,
+              "pair": 0.5,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.79,
+            "loss": 0.4276760101318359,
+            "by_template": {
+              "color": 0.96,
+              "pair": 0.63,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.4890746196111043,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.625,
+              "shape": 0.6
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.84,
+            "loss": 0.3624780050913493,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.78,
+              "shape": 0.745
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8083333333333333,
+            "loss": 0.4022597908973694,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.675,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.8716666666666667,
+            "loss": 0.29988701025644937,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.835,
+              "shape": 0.785
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8333333333333334,
+            "loss": 0.3822860678037008,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.725,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.87,
+            "loss": 0.3059375166893005,
+            "by_template": {
+              "color": 0.99,
+              "pair": 0.795,
+              "shape": 0.825
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.4071177085240682,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.6,
+              "shape": 0.725
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.87,
+          "loss": 0.3059375166893005,
+          "by_template": {
+            "color": 0.99,
+            "pair": 0.795,
+            "shape": 0.825
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.4071177085240682,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.6,
+            "shape": 0.725
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 375,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8716666666666667,
+          "loss": 0.29988701025644937,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.835,
+            "shape": 0.785
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8333333333333334,
+          "loss": 0.3822860678037008,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.725,
+            "shape": 0.775
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.6,
+        "swapped_image_accuracy_against_original_labels": 0.4,
+        "prediction_flip_rate": 0.4
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_43_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 43,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.69,
+            "loss": 0.5913077561060588,
+            "by_template": {
+              "color": 0.865,
+              "pair": 0.51,
+              "shape": 0.695
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.5735378265380859,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.45,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7533333333333333,
+            "loss": 0.6736874341964721,
+            "by_template": {
+              "color": 0.945,
+              "pair": 0.505,
+              "shape": 0.81
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.6840298891067504,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.475,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.775,
+            "loss": 0.8366307512919108,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.825
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.8754498958587646,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.78,
+            "loss": 0.7641950559616089,
+            "by_template": {
+              "color": 0.99,
+              "pair": 0.535,
+              "shape": 0.815
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.7722230712572734,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.8233333333333334,
+            "loss": 0.3828075695037842,
+            "by_template": {
+              "color": 0.885,
+              "pair": 0.835,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7916666666666666,
+            "loss": 0.4261621872584025,
+            "by_template": {
+              "color": 0.9,
+              "pair": 0.725,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.8,
+            "loss": 0.4433047087987264,
+            "by_template": {
+              "color": 0.84,
+              "pair": 0.815,
+              "shape": 0.745
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7916666666666666,
+            "loss": 0.47884007294972736,
+            "by_template": {
+              "color": 0.875,
+              "pair": 0.7,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8966666666666666,
+            "loss": 0.2611272780100505,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.91,
+              "shape": 0.785
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8083333333333333,
+            "loss": 0.3830439567565918,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.75,
+              "shape": 0.675
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8966666666666666,
+          "loss": 0.2611272780100505,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.91,
+            "shape": 0.785
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8083333333333333,
+          "loss": 0.3830439567565918,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.75,
+            "shape": 0.675
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8966666666666666,
+          "loss": 0.2611272780100505,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.91,
+            "shape": 0.785
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8083333333333333,
+          "loss": 0.3830439567565918,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.75,
+            "shape": 0.675
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.75,
+        "swapped_image_accuracy_against_original_labels": 0.25,
+        "prediction_flip_rate": 0.5
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_43_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 43,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.535,
+            "loss": 0.6907296721140543,
+            "by_template": {
+              "color": 0.505,
+              "pair": 0.545,
+              "shape": 0.555
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.55,
+            "loss": 0.6897604465484619,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.575,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5083333333333333,
+            "loss": 0.6785239521662394,
+            "by_template": {
+              "color": 0.565,
+              "pair": 0.57,
+              "shape": 0.39
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5333333333333333,
+            "loss": 0.6752391815185547,
+            "by_template": {
+              "color": 0.65,
+              "pair": 0.6,
+              "shape": 0.35
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.73,
+            "loss": 0.5628050676981609,
+            "by_template": {
+              "color": 0.905,
+              "pair": 0.595,
+              "shape": 0.69
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.5760116338729858,
+            "by_template": {
+              "color": 0.85,
+              "pair": 0.625,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7716666666666666,
+            "loss": 0.45749367713928224,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.555,
+              "shape": 0.76
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.5262105067571005,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.5,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.755,
+            "loss": 0.6432696946461995,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.515,
+              "shape": 0.755
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 0.7226962804794311,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.77,
+            "loss": 0.8171642176310221,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.52,
+              "shape": 0.79
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 0.9152787367502848,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8233333333333334,
+            "loss": 0.3464858667055766,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.67,
+              "shape": 0.8
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7833333333333333,
+            "loss": 0.4289100567499797,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.675,
+              "shape": 0.7
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8233333333333334,
+          "loss": 0.3464858667055766,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.67,
+            "shape": 0.8
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7833333333333333,
+          "loss": 0.4289100567499797,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.675,
+            "shape": 0.7
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8233333333333334,
+          "loss": 0.3464858667055766,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.67,
+            "shape": 0.8
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7833333333333333,
+          "loss": 0.4289100567499797,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.675,
+            "shape": 0.7
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.675,
+        "swapped_image_accuracy_against_original_labels": 0.325,
+        "prediction_flip_rate": 0.35
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_43_best.pt"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 44,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.5266666666666666,
+            "loss": 0.6923912048339844,
+            "by_template": {
+              "color": 0.53,
+              "pair": 0.55,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5416666666666666,
+            "loss": 0.6922698974609375,
+            "by_template": {
+              "color": 0.6,
+              "pair": 0.525,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.6433333333333333,
+            "loss": 0.6154389381408691,
+            "by_template": {
+              "color": 0.805,
+              "pair": 0.515,
+              "shape": 0.61
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6416666666666667,
+            "loss": 0.6401275714238485,
+            "by_template": {
+              "color": 0.825,
+              "pair": 0.525,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7566666666666667,
+            "loss": 0.4359340476989746,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.6,
+              "shape": 0.675
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.5047855297724406,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.625,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.815,
+            "loss": 0.386127142906189,
+            "by_template": {
+              "color": 0.985,
+              "pair": 0.675,
+              "shape": 0.785
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.47183600266774495,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.675,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.85,
+            "loss": 0.31353134791056314,
+            "by_template": {
+              "color": 0.99,
+              "pair": 0.77,
+              "shape": 0.79
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8083333333333333,
+            "loss": 0.3905433257420858,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.725,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.885,
+            "loss": 0.2830389396349589,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.855,
+              "shape": 0.8
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8166666666666667,
+            "loss": 0.3922805070877075,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.725,
+              "shape": 0.725
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.885,
+          "loss": 0.2830389396349589,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.855,
+            "shape": 0.8
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8166666666666667,
+          "loss": 0.3922805070877075,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.725,
+            "shape": 0.725
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 375,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.85,
+          "loss": 0.31353134791056314,
+          "by_template": {
+            "color": 0.99,
+            "pair": 0.77,
+            "shape": 0.79
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8083333333333333,
+          "loss": 0.3905433257420858,
+          "by_template": {
+            "color": 0.95,
+            "pair": 0.725,
+            "shape": 0.75
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.725,
+        "swapped_image_accuracy_against_original_labels": 0.275,
+        "prediction_flip_rate": 0.45
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_44_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 44,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7316666666666667,
+            "loss": 0.5799083375930786,
+            "by_template": {
+              "color": 0.93,
+              "pair": 0.565,
+              "shape": 0.7
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6833333333333333,
+            "loss": 0.6059495608011881,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.55,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.745,
+            "loss": 0.6638323831558227,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.525,
+              "shape": 0.715
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7083333333333334,
+            "loss": 0.726641575495402,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.525,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.8217575359344482,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.505,
+              "shape": 0.77
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.9087483008702596,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.765,
+            "loss": 0.804060837427775,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.51,
+              "shape": 0.785
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.8715364853541057,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.525,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.7533333333333333,
+            "loss": 0.5404147100448609,
+            "by_template": {
+              "color": 0.855,
+              "pair": 0.73,
+              "shape": 0.675
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.6291548331578573,
+            "by_template": {
+              "color": 0.825,
+              "pair": 0.75,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.805,
+            "loss": 0.5347899643580118,
+            "by_template": {
+              "color": 0.825,
+              "pair": 0.92,
+              "shape": 0.67
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.6765324592590332,
+            "by_template": {
+              "color": 0.75,
+              "pair": 0.9,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8716666666666667,
+            "loss": 0.29142518122990924,
+            "by_template": {
+              "color": 0.985,
+              "pair": 0.825,
+              "shape": 0.805
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8,
+            "loss": 0.4041407664616903,
+            "by_template": {
+              "color": 0.9,
+              "pair": 0.775,
+              "shape": 0.725
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8716666666666667,
+          "loss": 0.29142518122990924,
+          "by_template": {
+            "color": 0.985,
+            "pair": 0.825,
+            "shape": 0.805
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8,
+          "loss": 0.4041407664616903,
+          "by_template": {
+            "color": 0.9,
+            "pair": 0.775,
+            "shape": 0.725
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8716666666666667,
+          "loss": 0.29142518122990924,
+          "by_template": {
+            "color": 0.985,
+            "pair": 0.825,
+            "shape": 0.805
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8,
+          "loss": 0.4041407664616903,
+          "by_template": {
+            "color": 0.9,
+            "pair": 0.775,
+            "shape": 0.725
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.775,
+        "swapped_image_accuracy_against_original_labels": 0.225,
+        "prediction_flip_rate": 0.55
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_44_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 44,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5083333333333333,
+            "loss": 0.6951853720347086,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.525,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5083333333333333,
+            "loss": 0.6949958324432373,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.525,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.54,
+            "loss": 0.6929694112141928,
+            "by_template": {
+              "color": 0.525,
+              "pair": 0.595,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5416666666666666,
+            "loss": 0.6922280788421631,
+            "by_template": {
+              "color": 0.55,
+              "pair": 0.575,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.63,
+            "loss": 0.6793983300526937,
+            "by_template": {
+              "color": 0.75,
+              "pair": 0.545,
+              "shape": 0.595
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6333333333333333,
+            "loss": 0.6796722888946534,
+            "by_template": {
+              "color": 0.75,
+              "pair": 0.55,
+              "shape": 0.6
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7366666666666667,
+            "loss": 0.9028968143463135,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.525,
+              "shape": 0.69
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 0.9252259016036988,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7616666666666667,
+            "loss": 0.9536988719304402,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.515,
+              "shape": 0.77
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.9279567956924438,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.755,
+            "loss": 0.9842896286646525,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.54,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 1.1386769135793051,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.55,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.7833333333333333,
+            "loss": 0.4494091002146403,
+            "by_template": {
+              "color": 0.965,
+              "pair": 0.625,
+              "shape": 0.76
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.5309935251871745,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.575,
+              "shape": 0.7
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.7833333333333333,
+          "loss": 0.4494091002146403,
+          "by_template": {
+            "color": 0.965,
+            "pair": 0.625,
+            "shape": 0.76
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7333333333333333,
+          "loss": 0.5309935251871745,
+          "by_template": {
+            "color": 0.925,
+            "pair": 0.575,
+            "shape": 0.7
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.7833333333333333,
+          "loss": 0.4494091002146403,
+          "by_template": {
+            "color": 0.965,
+            "pair": 0.625,
+            "shape": 0.76
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7333333333333333,
+          "loss": 0.5309935251871745,
+          "by_template": {
+            "color": 0.925,
+            "pair": 0.575,
+            "shape": 0.7
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.575,
+        "swapped_image_accuracy_against_original_labels": 0.425,
+        "prediction_flip_rate": 0.35
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_44_best.pt"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 45,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.675,
+            "loss": 0.6606814193725586,
+            "by_template": {
+              "color": 0.885,
+              "pair": 0.53,
+              "shape": 0.61
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.65,
+            "loss": 0.6639916102091471,
+            "by_template": {
+              "color": 0.825,
+              "pair": 0.5,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.4648667923609416,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.55,
+              "shape": 0.6
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7,
+            "loss": 0.4932161172231038,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.785,
+            "loss": 0.39058451652526854,
+            "by_template": {
+              "color": 0.985,
+              "pair": 0.595,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7833333333333333,
+            "loss": 0.4402922789255778,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.6,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.8416666666666667,
+            "loss": 0.3229085612297058,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.745,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7916666666666666,
+            "loss": 0.43918761412302654,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.625,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.8616666666666667,
+            "loss": 0.28150532523790994,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.775,
+              "shape": 0.81
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7916666666666666,
+            "loss": 0.4533763249715169,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.675,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8866666666666667,
+            "loss": 0.2544999857743581,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.84,
+              "shape": 0.82
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8416666666666667,
+            "loss": 0.41632325649261476,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.775,
+              "shape": 0.75
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8866666666666667,
+          "loss": 0.2544999857743581,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.84,
+            "shape": 0.82
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8416666666666667,
+          "loss": 0.41632325649261476,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.775,
+            "shape": 0.75
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8866666666666667,
+          "loss": 0.2544999857743581,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.84,
+            "shape": 0.82
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8416666666666667,
+          "loss": 0.41632325649261476,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.775,
+            "shape": 0.75
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.775,
+        "swapped_image_accuracy_against_original_labels": 0.225,
+        "prediction_flip_rate": 0.55
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_45_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 45,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7016666666666667,
+            "loss": 0.6076349035898845,
+            "by_template": {
+              "color": 0.87,
+              "pair": 0.51,
+              "shape": 0.725
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.60995880762736,
+            "by_template": {
+              "color": 0.85,
+              "pair": 0.5,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.7778055731455485,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.8388649463653565,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.77,
+            "loss": 0.8547467708587646,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.785
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 0.9416401227315266,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7683333333333333,
+            "loss": 0.765309567451477,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 0.818937603632609,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.475,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.685,
+            "loss": 0.5934243933359782,
+            "by_template": {
+              "color": 0.73,
+              "pair": 0.64,
+              "shape": 0.685
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6333333333333333,
+            "loss": 0.6268503665924072,
+            "by_template": {
+              "color": 0.7,
+              "pair": 0.6,
+              "shape": 0.6
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.71,
+            "loss": 0.6410721143086752,
+            "by_template": {
+              "color": 0.72,
+              "pair": 0.815,
+              "shape": 0.595
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 0.6879153728485108,
+            "by_template": {
+              "color": 0.725,
+              "pair": 0.875,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8283333333333334,
+            "loss": 0.368695768515269,
+            "by_template": {
+              "color": 0.98,
+              "pair": 0.73,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.3929849942525228,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.775,
+              "shape": 0.6
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8283333333333334,
+          "loss": 0.368695768515269,
+          "by_template": {
+            "color": 0.98,
+            "pair": 0.73,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.3929849942525228,
+          "by_template": {
+            "color": 0.95,
+            "pair": 0.775,
+            "shape": 0.6
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8283333333333334,
+          "loss": 0.368695768515269,
+          "by_template": {
+            "color": 0.98,
+            "pair": 0.73,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.3929849942525228,
+          "by_template": {
+            "color": 0.95,
+            "pair": 0.775,
+            "shape": 0.6
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.775,
+        "swapped_image_accuracy_against_original_labels": 0.225,
+        "prediction_flip_rate": 0.55
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_45_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 45,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5116666666666667,
+            "loss": 0.6927807013193766,
+            "by_template": {
+              "color": 0.525,
+              "pair": 0.51,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5333333333333333,
+            "loss": 0.6946290810902913,
+            "by_template": {
+              "color": 0.6,
+              "pair": 0.5,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.6,
+            "loss": 0.6687796099980672,
+            "by_template": {
+              "color": 0.635,
+              "pair": 0.665,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6,
+            "loss": 0.6714054902394613,
+            "by_template": {
+              "color": 0.675,
+              "pair": 0.625,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.64,
+            "loss": 0.6431761805216472,
+            "by_template": {
+              "color": 0.7,
+              "pair": 0.6,
+              "shape": 0.62
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6166666666666667,
+            "loss": 0.6552358309427897,
+            "by_template": {
+              "color": 0.825,
+              "pair": 0.475,
+              "shape": 0.55
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7466666666666667,
+            "loss": 0.9101485872268676,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.505,
+              "shape": 0.735
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7083333333333334,
+            "loss": 0.9895812193552653,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.75,
+            "loss": 1.0127248001098632,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 1.164410146077474,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.765,
+            "loss": 1.060106275876363,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.795
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 1.1622182766596476,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.5,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.81,
+            "loss": 0.35497541904449464,
+            "by_template": {
+              "color": 0.98,
+              "pair": 0.675,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8083333333333333,
+            "loss": 0.4258646567662557,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.65,
+              "shape": 0.825
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.81,
+          "loss": 0.35497541904449464,
+          "by_template": {
+            "color": 0.98,
+            "pair": 0.675,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8083333333333333,
+          "loss": 0.4258646567662557,
+          "by_template": {
+            "color": 0.95,
+            "pair": 0.65,
+            "shape": 0.825
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.81,
+          "loss": 0.35497541904449464,
+          "by_template": {
+            "color": 0.98,
+            "pair": 0.675,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8083333333333333,
+          "loss": 0.4258646567662557,
+          "by_template": {
+            "color": 0.95,
+            "pair": 0.65,
+            "shape": 0.825
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.65,
+        "swapped_image_accuracy_against_original_labels": 0.35,
+        "prediction_flip_rate": 0.4
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_45_best.pt"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 46,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.5433333333333333,
+            "loss": 0.691878080368042,
+            "by_template": {
+              "color": 0.565,
+              "pair": 0.51,
+              "shape": 0.555
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.55,
+            "loss": 0.6929330984751384,
+            "by_template": {
+              "color": 0.575,
+              "pair": 0.525,
+              "shape": 0.55
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.6583333333333333,
+            "loss": 0.6563044277826945,
+            "by_template": {
+              "color": 0.815,
+              "pair": 0.51,
+              "shape": 0.65
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6416666666666667,
+            "loss": 0.6611555735270183,
+            "by_template": {
+              "color": 0.8,
+              "pair": 0.5,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7366666666666667,
+            "loss": 0.4979955132802327,
+            "by_template": {
+              "color": 0.93,
+              "pair": 0.565,
+              "shape": 0.715
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7083333333333334,
+            "loss": 0.534930698076884,
+            "by_template": {
+              "color": 0.9,
+              "pair": 0.525,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.82,
+            "loss": 0.36319151798884075,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.72,
+              "shape": 0.74
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.4851826032002767,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.6,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.8666666666666667,
+            "loss": 0.28915096839269,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.78,
+              "shape": 0.825
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7833333333333333,
+            "loss": 0.43902718226114906,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.7,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8666666666666667,
+            "loss": 0.27139355897903444,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.805,
+              "shape": 0.8
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.4591573158899943,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.7,
+              "shape": 0.65
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8666666666666667,
+          "loss": 0.27139355897903444,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.805,
+            "shape": 0.8
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.4591573158899943,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.7,
+            "shape": 0.65
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 375,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8666666666666667,
+          "loss": 0.28915096839269,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.78,
+            "shape": 0.825
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7833333333333333,
+          "loss": 0.43902718226114906,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.7,
+            "shape": 0.675
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.7,
+        "swapped_image_accuracy_against_original_labels": 0.3,
+        "prediction_flip_rate": 0.5
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_46_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 46,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.575,
+            "loss": 0.6892138576507568,
+            "by_template": {
+              "color": 0.65,
+              "pair": 0.505,
+              "shape": 0.57
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.55,
+            "loss": 0.6904713630676269,
+            "by_template": {
+              "color": 0.6,
+              "pair": 0.5,
+              "shape": 0.55
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7433333333333333,
+            "loss": 0.5989966281255086,
+            "by_template": {
+              "color": 0.99,
+              "pair": 0.515,
+              "shape": 0.725
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.6443962415059408,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.5,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.75,
+            "loss": 0.8441390164693197,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.8863535006841023,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7616666666666667,
+            "loss": 0.8601174624760946,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.51,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.9742082357406616,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.5,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.7483333333333333,
+            "loss": 0.48296241760253905,
+            "by_template": {
+              "color": 0.875,
+              "pair": 0.58,
+              "shape": 0.79
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.5352456490198771,
+            "by_template": {
+              "color": 0.875,
+              "pair": 0.525,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.7316666666666667,
+            "loss": 0.557398993174235,
+            "by_template": {
+              "color": 0.83,
+              "pair": 0.725,
+              "shape": 0.64
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7,
+            "loss": 0.6234140555063884,
+            "by_template": {
+              "color": 0.825,
+              "pair": 0.65,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8533333333333334,
+            "loss": 0.3243081219991048,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.75,
+              "shape": 0.815
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8,
+            "loss": 0.4580342928568522,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.625,
+              "shape": 0.8
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8533333333333334,
+          "loss": 0.3243081219991048,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.75,
+            "shape": 0.815
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8,
+          "loss": 0.4580342928568522,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.625,
+            "shape": 0.8
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8533333333333334,
+          "loss": 0.3243081219991048,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.75,
+            "shape": 0.815
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8,
+          "loss": 0.4580342928568522,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.625,
+            "shape": 0.8
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.625,
+        "swapped_image_accuracy_against_original_labels": 0.375,
+        "prediction_flip_rate": 0.35
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_46_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 46,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5066666666666667,
+            "loss": 0.6966315905253092,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.52,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5083333333333333,
+            "loss": 0.6964407444000245,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.525,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.53,
+            "loss": 0.6964433860778808,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.59,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5333333333333333,
+            "loss": 0.695485242207845,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.6,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.5266666666666666,
+            "loss": 0.6902546819051106,
+            "by_template": {
+              "color": 0.565,
+              "pair": 0.51,
+              "shape": 0.505
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5583333333333333,
+            "loss": 0.6899569511413575,
+            "by_template": {
+              "color": 0.625,
+              "pair": 0.5,
+              "shape": 0.55
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.65,
+            "loss": 0.6075891129175822,
+            "by_template": {
+              "color": 0.8,
+              "pair": 0.505,
+              "shape": 0.645
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.625,
+            "loss": 0.6200183709462483,
+            "by_template": {
+              "color": 0.725,
+              "pair": 0.5,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.6783333333333333,
+            "loss": 0.6371879418690999,
+            "by_template": {
+              "color": 0.81,
+              "pair": 0.555,
+              "shape": 0.67
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.6013961633046468,
+            "by_template": {
+              "color": 0.875,
+              "pair": 0.625,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.735,
+            "loss": 0.6704666582743327,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.525,
+              "shape": 0.705
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.7226105690002441,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.525,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.7633333333333333,
+            "loss": 0.4770328950881958,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.54,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.5477427005767822,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.525,
+              "shape": 0.675
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.7633333333333333,
+          "loss": 0.4770328950881958,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.54,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7166666666666667,
+          "loss": 0.5477427005767822,
+          "by_template": {
+            "color": 0.95,
+            "pair": 0.525,
+            "shape": 0.675
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.7633333333333333,
+          "loss": 0.4770328950881958,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.54,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7166666666666667,
+          "loss": 0.5477427005767822,
+          "by_template": {
+            "color": 0.95,
+            "pair": 0.525,
+            "shape": 0.675
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.525,
+        "swapped_image_accuracy_against_original_labels": 0.475,
+        "prediction_flip_rate": 0.05
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_46_best.pt"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 47,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.5116666666666667,
+            "loss": 0.6920207913716634,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.535,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5166666666666667,
+            "loss": 0.6921531836191813,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.55,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.5,
+            "loss": 0.689752950668335,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.5,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5083333333333333,
+            "loss": 0.6898638407389323,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.525,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.6666666666666666,
+            "loss": 0.5847853883107503,
+            "by_template": {
+              "color": 0.89,
+              "pair": 0.555,
+              "shape": 0.555
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.65,
+            "loss": 0.5940161546071371,
+            "by_template": {
+              "color": 0.875,
+              "pair": 0.55,
+              "shape": 0.525
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7183333333333334,
+            "loss": 0.49422558943430583,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.535,
+              "shape": 0.695
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.5109101136525472,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.6,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.755,
+            "loss": 0.42781344811121624,
+            "by_template": {
+              "color": 0.98,
+              "pair": 0.575,
+              "shape": 0.71
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7,
+            "loss": 0.5216438452402751,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.525,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8266666666666667,
+            "loss": 0.3348335059483846,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.71,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.40651668707529703,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.725,
+              "shape": 0.625
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8266666666666667,
+          "loss": 0.3348335059483846,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.71,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.40651668707529703,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.725,
+            "shape": 0.625
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8266666666666667,
+          "loss": 0.3348335059483846,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.71,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.40651668707529703,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.725,
+            "shape": 0.625
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.725,
+        "swapped_image_accuracy_against_original_labels": 0.275,
+        "prediction_flip_rate": 0.45
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_47_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 47,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.61,
+            "loss": 0.6715174086888631,
+            "by_template": {
+              "color": 0.78,
+              "pair": 0.5,
+              "shape": 0.55
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.575,
+            "loss": 0.6748809655507405,
+            "by_template": {
+              "color": 0.725,
+              "pair": 0.5,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.745,
+            "loss": 0.8239988772074381,
+            "by_template": {
+              "color": 0.985,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.8711581230163574,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.76,
+            "loss": 0.9242901198069254,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 1.032255474726359,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.75,
+            "loss": 0.9142237472534179,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 1.0073745330174764,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5916666666666667,
+            "loss": 0.7340833314259847,
+            "by_template": {
+              "color": 0.665,
+              "pair": 0.565,
+              "shape": 0.545
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5916666666666667,
+            "loss": 0.7723785082499186,
+            "by_template": {
+              "color": 0.675,
+              "pair": 0.575,
+              "shape": 0.525
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5816666666666667,
+            "loss": 0.7265048535664876,
+            "by_template": {
+              "color": 0.565,
+              "pair": 0.655,
+              "shape": 0.525
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6083333333333333,
+            "loss": 0.7166506210962932,
+            "by_template": {
+              "color": 0.6,
+              "pair": 0.75,
+              "shape": 0.475
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8333333333333334,
+            "loss": 0.35286782900492353,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.75,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.45382037162780764,
+            "by_template": {
+              "color": 0.9,
+              "pair": 0.675,
+              "shape": 0.675
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8333333333333334,
+          "loss": 0.35286782900492353,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.75,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.75,
+          "loss": 0.45382037162780764,
+          "by_template": {
+            "color": 0.9,
+            "pair": 0.675,
+            "shape": 0.675
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8333333333333334,
+          "loss": 0.35286782900492353,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.75,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.75,
+          "loss": 0.45382037162780764,
+          "by_template": {
+            "color": 0.9,
+            "pair": 0.675,
+            "shape": 0.675
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.675,
+        "swapped_image_accuracy_against_original_labels": 0.325,
+        "prediction_flip_rate": 0.35
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_47_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 47,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.49833333333333335,
+            "loss": 0.692467279434204,
+            "by_template": {
+              "color": 0.465,
+              "pair": 0.53,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.45,
+            "loss": 0.694196097056071,
+            "by_template": {
+              "color": 0.4,
+              "pair": 0.45,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.6183333333333333,
+            "loss": 0.6508976109822591,
+            "by_template": {
+              "color": 0.67,
+              "pair": 0.635,
+              "shape": 0.55
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.625,
+            "loss": 0.6545859177907308,
+            "by_template": {
+              "color": 0.7,
+              "pair": 0.65,
+              "shape": 0.525
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.69,
+            "loss": 0.6229303725560507,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.555,
+              "shape": 0.59
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6916666666666667,
+            "loss": 0.6428821245829265,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.525,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.755,
+            "loss": 0.9789304192860921,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.765
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.9502299944559733,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7733333333333333,
+            "loss": 0.9378679529825846,
+            "by_template": {
+              "color": 0.985,
+              "pair": 0.54,
+              "shape": 0.795
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7666666666666667,
+            "loss": 1.0113277117411295,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.575,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7766666666666666,
+            "loss": 1.1369271310170492,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.565,
+              "shape": 0.79
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 1.2814236164093018,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.55,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.835,
+            "loss": 0.3308918333053589,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.685,
+              "shape": 0.82
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.3884652535120646,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.7,
+              "shape": 0.65
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.835,
+          "loss": 0.3308918333053589,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.685,
+            "shape": 0.82
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.3884652535120646,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.7,
+            "shape": 0.65
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.835,
+          "loss": 0.3308918333053589,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.685,
+            "shape": 0.82
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.3884652535120646,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.7,
+            "shape": 0.65
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.7,
+        "swapped_image_accuracy_against_original_labels": 0.3,
+        "prediction_flip_rate": 0.4
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_47_best.pt"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 48,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.6316666666666667,
+            "loss": 0.6271284055709839,
+            "by_template": {
+              "color": 0.68,
+              "pair": 0.555,
+              "shape": 0.66
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6416666666666667,
+            "loss": 0.6097902695337931,
+            "by_template": {
+              "color": 0.7,
+              "pair": 0.5,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.675,
+            "loss": 0.5728263886769612,
+            "by_template": {
+              "color": 0.74,
+              "pair": 0.615,
+              "shape": 0.67
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6833333333333333,
+            "loss": 0.5548197110493978,
+            "by_template": {
+              "color": 0.775,
+              "pair": 0.575,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7716666666666666,
+            "loss": 0.45559444109598796,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.62,
+              "shape": 0.745
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.4721574227015177,
+            "by_template": {
+              "color": 0.9,
+              "pair": 0.625,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7883333333333333,
+            "loss": 0.3932276670138041,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.63,
+              "shape": 0.735
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.725,
+            "loss": 0.46819206873575847,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.575,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.8383333333333334,
+            "loss": 0.3363624397913615,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.74,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.825,
+            "loss": 0.42066837946573893,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.675,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8533333333333334,
+            "loss": 0.33664260307947796,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.795,
+              "shape": 0.77
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8,
+            "loss": 0.4460611263910929,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.725,
+              "shape": 0.7
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8533333333333334,
+          "loss": 0.33664260307947796,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.795,
+            "shape": 0.77
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8,
+          "loss": 0.4460611263910929,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.725,
+            "shape": 0.7
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 375,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8383333333333334,
+          "loss": 0.3363624397913615,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.74,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.825,
+          "loss": 0.42066837946573893,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.675,
+            "shape": 0.8
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.725,
+        "swapped_image_accuracy_against_original_labels": 0.275,
+        "prediction_flip_rate": 0.45
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_48_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 48,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.6283333333333333,
+            "loss": 0.6563619200388591,
+            "by_template": {
+              "color": 0.705,
+              "pair": 0.52,
+              "shape": 0.66
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6833333333333333,
+            "loss": 0.6123132467269897,
+            "by_template": {
+              "color": 0.775,
+              "pair": 0.55,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.6266666666666667,
+            "loss": 0.6448027976353963,
+            "by_template": {
+              "color": 0.76,
+              "pair": 0.485,
+              "shape": 0.635
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6833333333333333,
+            "loss": 0.5977343082427978,
+            "by_template": {
+              "color": 0.85,
+              "pair": 0.5,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7283333333333334,
+            "loss": 0.7750667238235474,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.51,
+              "shape": 0.675
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7333333333333333,
+            "loss": 0.7407940944035848,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.5,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7383333333333333,
+            "loss": 0.8728388086954753,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.505,
+              "shape": 0.71
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.8034814635912577,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5666666666666667,
+            "loss": 0.7663322734832764,
+            "by_template": {
+              "color": 0.605,
+              "pair": 0.53,
+              "shape": 0.565
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5916666666666667,
+            "loss": 0.7262125492095948,
+            "by_template": {
+              "color": 0.7,
+              "pair": 0.55,
+              "shape": 0.525
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.615,
+            "loss": 0.8297429370880127,
+            "by_template": {
+              "color": 0.615,
+              "pair": 0.585,
+              "shape": 0.645
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7,
+            "loss": 0.7051303545633952,
+            "by_template": {
+              "color": 0.8,
+              "pair": 0.625,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.7616666666666667,
+            "loss": 0.4108639335632324,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.625,
+              "shape": 0.665
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.4349570910135905,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.55,
+              "shape": 0.725
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.7616666666666667,
+          "loss": 0.4108639335632324,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.625,
+            "shape": 0.665
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7583333333333333,
+          "loss": 0.4349570910135905,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.55,
+            "shape": 0.725
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.7616666666666667,
+          "loss": 0.4108639335632324,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.625,
+            "shape": 0.665
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7583333333333333,
+          "loss": 0.4349570910135905,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.55,
+            "shape": 0.725
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.55,
+        "swapped_image_accuracy_against_original_labels": 0.45,
+        "prediction_flip_rate": 0.2
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_48_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 48,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5516666666666666,
+            "loss": 0.6880655924479167,
+            "by_template": {
+              "color": 0.575,
+              "pair": 0.585,
+              "shape": 0.495
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5666666666666667,
+            "loss": 0.6884673595428467,
+            "by_template": {
+              "color": 0.6,
+              "pair": 0.6,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5616666666666666,
+            "loss": 0.6765082613627116,
+            "by_template": {
+              "color": 0.605,
+              "pair": 0.585,
+              "shape": 0.495
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.575,
+            "loss": 0.6744124571482341,
+            "by_template": {
+              "color": 0.65,
+              "pair": 0.55,
+              "shape": 0.525
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.635,
+            "loss": 0.6438958915074666,
+            "by_template": {
+              "color": 0.7,
+              "pair": 0.65,
+              "shape": 0.555
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6416666666666667,
+            "loss": 0.6347874720891317,
+            "by_template": {
+              "color": 0.75,
+              "pair": 0.625,
+              "shape": 0.55
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.755,
+            "loss": 0.7082417074839275,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.525,
+              "shape": 0.745
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 0.7448225776354472,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7433333333333333,
+            "loss": 1.0797941335042318,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.73
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 1.1260621388753256,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7533333333333333,
+            "loss": 1.0754246616363525,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.51,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 1.1234919865926107,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8116666666666666,
+            "loss": 0.3762718160947164,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.68,
+              "shape": 0.76
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.43456599712371824,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.575,
+              "shape": 0.775
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8116666666666666,
+          "loss": 0.3762718160947164,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.68,
+            "shape": 0.76
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.43456599712371824,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.575,
+            "shape": 0.775
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8116666666666666,
+          "loss": 0.3762718160947164,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.68,
+            "shape": 0.76
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.43456599712371824,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.575,
+            "shape": 0.775
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.575,
+        "swapped_image_accuracy_against_original_labels": 0.425,
+        "prediction_flip_rate": 0.15
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_48_best.pt"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 49,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.6266666666666667,
+            "loss": 0.6780792649586995,
+            "by_template": {
+              "color": 0.725,
+              "pair": 0.525,
+              "shape": 0.63
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5666666666666667,
+            "loss": 0.6787298123041788,
+            "by_template": {
+              "color": 0.7,
+              "pair": 0.475,
+              "shape": 0.525
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7283333333333334,
+            "loss": 0.53758225440979,
+            "by_template": {
+              "color": 0.9,
+              "pair": 0.59,
+              "shape": 0.695
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6916666666666667,
+            "loss": 0.5747183958689371,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.5,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7566666666666667,
+            "loss": 0.4400831190745036,
+            "by_template": {
+              "color": 0.965,
+              "pair": 0.575,
+              "shape": 0.73
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.4495694637298584,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.6,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.4161550744374593,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.55,
+              "shape": 0.725
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7666666666666667,
+            "loss": 0.43625837167104087,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.55,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.7666666666666667,
+            "loss": 0.4094864241282145,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.525,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.4505281448364258,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.82,
+            "loss": 0.3550871626536051,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.685,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7833333333333333,
+            "loss": 0.42540066242218016,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.65,
+              "shape": 0.725
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.82,
+          "loss": 0.3550871626536051,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.685,
+            "shape": 0.78
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7833333333333333,
+          "loss": 0.42540066242218016,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.65,
+            "shape": 0.725
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.82,
+          "loss": 0.3550871626536051,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.685,
+            "shape": 0.78
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7833333333333333,
+          "loss": 0.42540066242218016,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.65,
+            "shape": 0.725
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.65,
+        "swapped_image_accuracy_against_original_labels": 0.35,
+        "prediction_flip_rate": 0.3
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_49_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 49,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.585,
+            "loss": 0.6873821481068929,
+            "by_template": {
+              "color": 0.715,
+              "pair": 0.495,
+              "shape": 0.545
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5583333333333333,
+            "loss": 0.6878944714864095,
+            "by_template": {
+              "color": 0.675,
+              "pair": 0.5,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7083333333333334,
+            "loss": 0.7285830211639405,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.5,
+              "shape": 0.7
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6916666666666667,
+            "loss": 0.7611012140909831,
+            "by_template": {
+              "color": 0.9,
+              "pair": 0.525,
+              "shape": 0.65
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.745,
+            "loss": 0.867558274269104,
+            "by_template": {
+              "color": 0.965,
+              "pair": 0.52,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7166666666666667,
+            "loss": 0.9509888490041097,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.525,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7516666666666667,
+            "loss": 0.8540579462051392,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.515,
+              "shape": 0.74
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7083333333333334,
+            "loss": 0.9004356384277343,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.7816666666666666,
+            "loss": 0.46356815497080484,
+            "by_template": {
+              "color": 0.91,
+              "pair": 0.755,
+              "shape": 0.68
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6833333333333333,
+            "loss": 0.5722348531087239,
+            "by_template": {
+              "color": 0.775,
+              "pair": 0.7,
+              "shape": 0.575
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.7116666666666667,
+            "loss": 0.6062601868311565,
+            "by_template": {
+              "color": 0.82,
+              "pair": 0.695,
+              "shape": 0.62
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6833333333333333,
+            "loss": 0.7055156866709391,
+            "by_template": {
+              "color": 0.825,
+              "pair": 0.7,
+              "shape": 0.525
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.7983333333333333,
+            "loss": 0.38038754304250083,
+            "by_template": {
+              "color": 0.99,
+              "pair": 0.67,
+              "shape": 0.735
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7916666666666666,
+            "loss": 0.4208435853322347,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.7,
+              "shape": 0.7
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.7983333333333333,
+          "loss": 0.38038754304250083,
+          "by_template": {
+            "color": 0.99,
+            "pair": 0.67,
+            "shape": 0.735
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7916666666666666,
+          "loss": 0.4208435853322347,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.7,
+            "shape": 0.7
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.7983333333333333,
+          "loss": 0.38038754304250083,
+          "by_template": {
+            "color": 0.99,
+            "pair": 0.67,
+            "shape": 0.735
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7916666666666666,
+          "loss": 0.4208435853322347,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.7,
+            "shape": 0.7
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.7,
+        "swapped_image_accuracy_against_original_labels": 0.3,
+        "prediction_flip_rate": 0.4
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_49_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 49,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5316666666666666,
+            "loss": 0.692155860265096,
+            "by_template": {
+              "color": 0.515,
+              "pair": 0.58,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5083333333333333,
+            "loss": 0.6921971321105957,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.525,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.49166666666666664,
+            "loss": 0.6906184577941894,
+            "by_template": {
+              "color": 0.455,
+              "pair": 0.58,
+              "shape": 0.44
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.48333333333333334,
+            "loss": 0.6925960063934327,
+            "by_template": {
+              "color": 0.425,
+              "pair": 0.475,
+              "shape": 0.55
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.585,
+            "loss": 0.6765259965260824,
+            "by_template": {
+              "color": 0.555,
+              "pair": 0.6,
+              "shape": 0.6
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6083333333333333,
+            "loss": 0.6731101195017497,
+            "by_template": {
+              "color": 0.6,
+              "pair": 0.625,
+              "shape": 0.6
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.6933333333333334,
+            "loss": 0.6968087164560953,
+            "by_template": {
+              "color": 0.885,
+              "pair": 0.505,
+              "shape": 0.69
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6916666666666667,
+            "loss": 0.7669534524281819,
+            "by_template": {
+              "color": 0.85,
+              "pair": 0.525,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7066666666666667,
+            "loss": 0.7396252965927124,
+            "by_template": {
+              "color": 0.88,
+              "pair": 0.49,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7083333333333334,
+            "loss": 0.7616808891296387,
+            "by_template": {
+              "color": 0.9,
+              "pair": 0.5,
+              "shape": 0.725
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7666666666666667,
+            "loss": 0.8215285078684489,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.51,
+              "shape": 0.79
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.9422648429870606,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8816666666666667,
+            "loss": 0.28967699527740476,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.875,
+              "shape": 0.775
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8166666666666667,
+            "loss": 0.3568766991297404,
+            "by_template": {
+              "color": 0.925,
+              "pair": 0.825,
+              "shape": 0.7
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8816666666666667,
+          "loss": 0.28967699527740476,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.875,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8166666666666667,
+          "loss": 0.3568766991297404,
+          "by_template": {
+            "color": 0.925,
+            "pair": 0.825,
+            "shape": 0.7
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8816666666666667,
+          "loss": 0.28967699527740476,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.875,
+            "shape": 0.775
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8166666666666667,
+          "loss": 0.3568766991297404,
+          "by_template": {
+            "color": 0.925,
+            "pair": 0.825,
+            "shape": 0.7
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.825,
+        "swapped_image_accuracy_against_original_labels": 0.175,
+        "prediction_flip_rate": 0.65
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_49_best.pt"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 50,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.5883333333333334,
+            "loss": 0.6793451563517252,
+            "by_template": {
+              "color": 0.58,
+              "pair": 0.61,
+              "shape": 0.575
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5416666666666666,
+            "loss": 0.6804359912872314,
+            "by_template": {
+              "color": 0.575,
+              "pair": 0.5,
+              "shape": 0.55
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.6933333333333334,
+            "loss": 0.5764025338490804,
+            "by_template": {
+              "color": 0.815,
+              "pair": 0.545,
+              "shape": 0.72
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7083333333333334,
+            "loss": 0.6004060427347819,
+            "by_template": {
+              "color": 0.775,
+              "pair": 0.55,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.8116666666666666,
+            "loss": 0.41917557319005333,
+            "by_template": {
+              "color": 0.965,
+              "pair": 0.69,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.4761929194132487,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.625,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.855,
+            "loss": 0.34098390420277913,
+            "by_template": {
+              "color": 0.99,
+              "pair": 0.795,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7666666666666667,
+            "loss": 0.4136734127998352,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.575,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "mixed",
+          "train": {
+            "accuracy": 0.85,
+            "loss": 0.3526675057411194,
+            "by_template": {
+              "color": 0.97,
+              "pair": 0.785,
+              "shape": 0.795
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8083333333333333,
+            "loss": 0.41654303471247356,
+            "by_template": {
+              "color": 0.95,
+              "pair": 0.775,
+              "shape": 0.7
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8566666666666667,
+            "loss": 0.2985871402422587,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.79,
+              "shape": 0.78
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8083333333333333,
+            "loss": 0.42642361323038735,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.7,
+              "shape": 0.725
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8566666666666667,
+          "loss": 0.2985871402422587,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.79,
+            "shape": 0.78
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8083333333333333,
+          "loss": 0.42642361323038735,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.7,
+            "shape": 0.725
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 300,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.855,
+          "loss": 0.34098390420277913,
+          "by_template": {
+            "color": 0.99,
+            "pair": 0.795,
+            "shape": 0.78
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.7666666666666667,
+          "loss": 0.4136734127998352,
+          "by_template": {
+            "color": 0.95,
+            "pair": 0.575,
+            "shape": 0.775
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.7,
+        "swapped_image_accuracy_against_original_labels": 0.3,
+        "prediction_flip_rate": 0.4
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\mixed_seed_50_best.pt"
+    },
+    {
+      "schedule": "staged",
+      "seed": 50,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.635,
+            "loss": 0.6240176518758138,
+            "by_template": {
+              "color": 0.74,
+              "pair": 0.5,
+              "shape": 0.665
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6166666666666667,
+            "loss": 0.627190367380778,
+            "by_template": {
+              "color": 0.725,
+              "pair": 0.45,
+              "shape": 0.675
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7383333333333333,
+            "loss": 0.8042561276753744,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.5,
+              "shape": 0.72
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 0.7981160084406534,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7416666666666667,
+            "loss": 0.8086768690745035,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.5,
+              "shape": 0.73
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7666666666666667,
+            "loss": 0.734356673558553,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 250,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.7533333333333333,
+            "loss": 0.8738888772328695,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.76
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7833333333333333,
+            "loss": 0.8955073316891988,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.85
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.7783333333333333,
+            "loss": 0.45940597693125407,
+            "by_template": {
+              "color": 0.815,
+              "pair": 0.77,
+              "shape": 0.75
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8416666666666667,
+            "loss": 0.4006228844324748,
+            "by_template": {
+              "color": 0.85,
+              "pair": 0.925,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.8183333333333334,
+            "loss": 0.42684060414632163,
+            "by_template": {
+              "color": 0.85,
+              "pair": 0.875,
+              "shape": 0.73
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8583333333333333,
+            "loss": 0.40625295639038084,
+            "by_template": {
+              "color": 0.85,
+              "pair": 0.925,
+              "shape": 0.8
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8666666666666667,
+            "loss": 0.2922200632095337,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.835,
+              "shape": 0.77
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.8833333333333333,
+            "loss": 0.30352601210276287,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.85,
+              "shape": 0.8
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8666666666666667,
+          "loss": 0.2922200632095337,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.835,
+            "shape": 0.77
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8833333333333333,
+          "loss": 0.30352601210276287,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.85,
+            "shape": 0.8
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8666666666666667,
+          "loss": 0.2922200632095337,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.835,
+            "shape": 0.77
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.8833333333333333,
+          "loss": 0.30352601210276287,
+          "by_template": {
+            "color": 1.0,
+            "pair": 0.85,
+            "shape": 0.8
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.85,
+        "swapped_image_accuracy_against_original_labels": 0.15,
+        "prediction_flip_rate": 0.7
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\staged_seed_50_best.pt"
+    },
+    {
+      "schedule": "reverse",
+      "seed": 50,
+      "status": "exploratory",
+      "steps_run": 450,
+      "exposure_plan": {
+        "examples": 14400,
+        "updates": 450,
+        "repetitions_per_example": 24,
+        "counts_by_template": {
+          "color": 4800,
+          "shape": 4800,
+          "pair": 4800
+        }
+      },
+      "history": [
+        {
+          "step": 75,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5633333333333334,
+            "loss": 0.6876008796691895,
+            "by_template": {
+              "color": 0.54,
+              "pair": 0.65,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.5333333333333333,
+            "loss": 0.6905019283294678,
+            "by_template": {
+              "color": 0.5,
+              "pair": 0.6,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 125,
+          "phase": "binding",
+          "train": {
+            "accuracy": 0.5916666666666667,
+            "loss": 0.6640514977773031,
+            "by_template": {
+              "color": 0.55,
+              "pair": 0.725,
+              "shape": 0.5
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.525,
+            "loss": 0.6855436007181803,
+            "by_template": {
+              "color": 0.475,
+              "pair": 0.6,
+              "shape": 0.5
+            }
+          }
+        },
+        {
+          "step": 150,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.68,
+            "loss": 0.6331044753392537,
+            "by_template": {
+              "color": 0.82,
+              "pair": 0.53,
+              "shape": 0.69
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.6333333333333333,
+            "loss": 0.6697581768035888,
+            "by_template": {
+              "color": 0.75,
+              "pair": 0.525,
+              "shape": 0.625
+            }
+          }
+        },
+        {
+          "step": 225,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.77,
+            "loss": 0.9225262387593587,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.81
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 1.0128873666127522,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.775,
+            "loss": 1.3068761428197224,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.825
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.75,
+            "loss": 1.4454865773518881,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.75
+            }
+          }
+        },
+        {
+          "step": 375,
+          "phase": "attributes",
+          "train": {
+            "accuracy": 0.785,
+            "loss": 1.3734870131810506,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.855
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.7583333333333333,
+            "loss": 1.5320860226949056,
+            "by_template": {
+              "color": 1.0,
+              "pair": 0.5,
+              "shape": 0.775
+            }
+          }
+        },
+        {
+          "step": 450,
+          "phase": "common_mixed",
+          "train": {
+            "accuracy": 0.8383333333333334,
+            "loss": 0.33308415333429975,
+            "by_template": {
+              "color": 0.995,
+              "pair": 0.705,
+              "shape": 0.815
+            }
+          },
+          "id_dev": {
+            "accuracy": 0.775,
+            "loss": 0.4184632062911987,
+            "by_template": {
+              "color": 0.975,
+              "pair": 0.625,
+              "shape": 0.725
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 450,
+        "phase": "final",
+        "train": {
+          "accuracy": 0.8383333333333334,
+          "loss": 0.33308415333429975,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.705,
+            "shape": 0.815
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.4184632062911987,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.625,
+            "shape": 0.725
+          }
+        }
+      },
+      "best_dev_ce": {
+        "step": 450,
+        "phase": "best_dev_ce",
+        "train": {
+          "accuracy": 0.8383333333333334,
+          "loss": 0.33308415333429975,
+          "by_template": {
+            "color": 0.995,
+            "pair": 0.705,
+            "shape": 0.815
+          }
+        },
+        "id_dev": {
+          "accuracy": 0.775,
+          "loss": 0.4184632062911987,
+          "by_template": {
+            "color": 0.975,
+            "pair": 0.625,
+            "shape": 0.725
+          }
+        }
+      },
+      "paired_counterfactual": {
+        "pairs": 20,
+        "original_accuracy": 0.625,
+        "swapped_image_accuracy_against_original_labels": 0.375,
+        "prediction_flip_rate": 0.25
+      },
+      "constant_image_pair_accuracy": 0.5,
+      "best_checkpoint": "C:\\Users\\Quoc Thai\\Downloads\\AI\\AIO\\Conquer\\AIO Conquer 5 - visual_world\\The-order-of-Learning\\outputs\\experiments\\learning_order\\checkpoints\\reverse_seed_50_best.pt"
     }
   ],
-  "duration_sec": 24.42,
+  "duration_sec": 195.0,
   "warning": "Dev set is reused; one/few seeds cannot support research conclusions. No OOD/test/adapt splits accessed."
 }
