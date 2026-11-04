@@ -18,3 +18,11 @@ report/
 outputs/**/experiments/**/checkpoints/
 *.pt
 *.pth
+
+# Generated datasets and images
+outputs/**/dataset/images/
+
+# Model checkpoints
+outputs/**/experiments/**/checkpoints/
+*.pt
+*.pth

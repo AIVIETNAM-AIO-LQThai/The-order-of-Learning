@@ -1,0 +1,98 @@
+{
+  "splits": {
+    "id_dev": {
+      "hard_negative_pairs": 128,
+      "labels": {
+        "color_0": 128,
+        "color_1": 128,
+        "conjunction_0": 128,
+        "conjunction_1": 128,
+        "pair_0": 128,
+        "pair_1": 128,
+        "shape_0": 128,
+        "shape_1": 128
+      },
+      "positive_conjunction_without_pair": 51,
+      "questions": 1024,
+      "scenes": 512,
+      "tasks": {
+        "color": 256,
+        "conjunction": 256,
+        "pair": 256,
+        "shape": 256
+      }
+    },
+    "id_test": {
+      "hard_negative_pairs": 128,
+      "labels": {
+        "color_0": 128,
+        "color_1": 128,
+        "conjunction_0": 128,
+        "conjunction_1": 128,
+        "pair_0": 128,
+        "pair_1": 128,
+        "shape_0": 128,
+        "shape_1": 128
+      },
+      "positive_conjunction_without_pair": 45,
+      "questions": 1024,
+      "scenes": 512,
+      "tasks": {
+        "color": 256,
+        "conjunction": 256,
+        "pair": 256,
+        "shape": 256
+      }
+    },
+    "ood_dev": {
+      "hard_negative_pairs": 200,
+      "labels": {
+        "pair_0": 200,
+        "pair_1": 200
+      },
+      "positive_conjunction_without_pair": 0,
+      "questions": 400,
+      "scenes": 400,
+      "tasks": {
+        "pair": 400
+      }
+    },
+    "ood_test": {
+      "hard_negative_pairs": 200,
+      "labels": {
+        "pair_0": 200,
+        "pair_1": 200
+      },
+      "positive_conjunction_without_pair": 0,
+      "questions": 400,
+      "scenes": 400,
+      "tasks": {
+        "pair": 400
+      }
+    },
+    "train": {
+      "hard_negative_pairs": 1250,
+      "labels": {
+        "color_0": 1250,
+        "color_1": 1250,
+        "conjunction_0": 1250,
+        "conjunction_1": 1250,
+        "pair_0": 1250,
+        "pair_1": 1250,
+        "shape_0": 1250,
+        "shape_1": 1250
+      },
+      "positive_conjunction_without_pair": 491,
+      "questions": 10000,
+      "scenes": 5000,
+      "tasks": {
+        "color": 2500,
+        "conjunction": 2500,
+        "pair": 2500,
+        "shape": 2500
+      }
+    }
+  },
+  "status": "passed",
+  "unique_scenes": 6824
+}

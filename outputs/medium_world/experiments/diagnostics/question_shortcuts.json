@@ -1,0 +1,84 @@
+{
+  "subgroups": {
+    "conjunction/negative_missing_color": {
+      "count": 76,
+      "accuracy": 1.0,
+      "predicted_positive_rate": 0.0
+    },
+    "conjunction/negative_missing_shape": {
+      "count": 52,
+      "accuracy": 0.25,
+      "predicted_positive_rate": 0.75
+    },
+    "conjunction/positive_both_present": {
+      "count": 128,
+      "accuracy": 0.8515625,
+      "predicted_positive_rate": 0.8515625
+    },
+    "pair/negative_hard_pair": {
+      "count": 128,
+      "accuracy": 0.96875,
+      "predicted_positive_rate": 0.03125
+    },
+    "pair/positive_pair_present": {
+      "count": 128,
+      "accuracy": 0.03125,
+      "predicted_positive_rate": 0.03125
+    }
+  },
+  "target_shape": {
+    "conjunction/circle": {
+      "count": 64,
+      "accuracy": 0.796875,
+      "predicted_positive_rate": 0.546875
+    },
+    "conjunction/crescent": {
+      "count": 64,
+      "accuracy": 0.828125,
+      "predicted_positive_rate": 0.390625
+    },
+    "conjunction/square": {
+      "count": 64,
+      "accuracy": 0.765625,
+      "predicted_positive_rate": 0.671875
+    },
+    "conjunction/triangle": {
+      "count": 64,
+      "accuracy": 0.703125,
+      "predicted_positive_rate": 0.703125
+    },
+    "pair/circle": {
+      "count": 66,
+      "accuracy": 0.5,
+      "predicted_positive_rate": 0.0
+    },
+    "pair/crescent": {
+      "count": 66,
+      "accuracy": 0.5,
+      "predicted_positive_rate": 0.030303030303030304
+    },
+    "pair/square": {
+      "count": 60,
+      "accuracy": 0.5166666666666667,
+      "predicted_positive_rate": 0.016666666666666666
+    },
+    "pair/triangle": {
+      "count": 64,
+      "accuracy": 0.484375,
+      "predicted_positive_rate": 0.078125
+    }
+  },
+  "conjunction_baselines": {
+    "color_only": {
+      "count": 256,
+      "accuracy": 0.796875,
+      "predicted_positive_rate": 0.703125
+    },
+    "shape_only": {
+      "count": 256,
+      "accuracy": 0.703125,
+      "predicted_positive_rate": 0.796875
+    }
+  },
+  "checkpoint": "outputs\\medium_world\\experiments\\learning_order\\checkpoints\\staged_seed_42_final.pt"
+}

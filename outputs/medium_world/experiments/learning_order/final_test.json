@@ -1,0 +1,371 @@
+{
+  "dataset_hashes": {
+    "train.jsonl": "69deccacbac6db25f7ffc8165f01545483d856855282ea640997f6660ce27c26",
+    "id_dev.jsonl": "ece4b831f1f7fe6efad42b18aca499f12c2d573baa76fc218864bb56fe24b11a",
+    "ood_dev.jsonl": "208a7566cc2082fa4438ec0d003430d0927c54bf82c55bb40fa885ef4961e0aa",
+    "id_test.jsonl": "86cb4367c01fea79f192fb808fcbb9abc858f749fc045f2a68e5613e4774e7b9",
+    "ood_test.jsonl": "5d34455643f4f3883f06e85a25959e2a944cab0d68baef4518abbb0a62ca2d2a"
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "schedule": "mixed",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.666015625,
+        "loss": 0.5203382717445493,
+        "by_template": {
+          "color": 0.8984375,
+          "shape": 0.53125,
+          "conjunction": 0.71484375,
+          "pair": 0.51953125
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5,
+        "loss": 0.6906398296356201,
+        "by_template": {
+          "pair": 0.5
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "schedule": "mixed",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.6875,
+        "loss": 0.513111250475049,
+        "by_template": {
+          "color": 0.94140625,
+          "shape": 0.55859375,
+          "conjunction": 0.7109375,
+          "pair": 0.5390625
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5675,
+        "loss": 0.6799965190887451,
+        "by_template": {
+          "pair": 0.5675
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "schedule": "mixed",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.51953125,
+        "loss": 0.6922098770737648,
+        "by_template": {
+          "color": 0.54296875,
+          "shape": 0.5,
+          "conjunction": 0.53125,
+          "pair": 0.50390625
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5025,
+        "loss": 0.6930856895446778,
+        "by_template": {
+          "pair": 0.5025
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "schedule": "mixed",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.697265625,
+        "loss": 0.48951470106840134,
+        "by_template": {
+          "color": 1.0,
+          "shape": 0.55078125,
+          "conjunction": 0.7265625,
+          "pair": 0.51171875
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.515,
+        "loss": 0.6954793310165406,
+        "by_template": {
+          "pair": 0.515
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "schedule": "mixed",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.5732421875,
+        "loss": 0.6456571128219366,
+        "by_template": {
+          "color": 0.7265625,
+          "shape": 0.46875,
+          "conjunction": 0.59375,
+          "pair": 0.50390625
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.51,
+        "loss": 0.7010329532623291,
+        "by_template": {
+          "pair": 0.51
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "schedule": "reverse",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.677734375,
+        "loss": 0.5189049001783133,
+        "by_template": {
+          "color": 0.96484375,
+          "shape": 0.546875,
+          "conjunction": 0.69921875,
+          "pair": 0.5
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.525,
+        "loss": 0.704421443939209,
+        "by_template": {
+          "pair": 0.525
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "schedule": "reverse",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.7060546875,
+        "loss": 0.47719025146216154,
+        "by_template": {
+          "color": 0.99609375,
+          "shape": 0.59375,
+          "conjunction": 0.734375,
+          "pair": 0.5
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5025,
+        "loss": 0.695603609085083,
+        "by_template": {
+          "pair": 0.5025
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "schedule": "reverse",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.560546875,
+        "loss": 0.6343204621225595,
+        "by_template": {
+          "color": 0.67578125,
+          "shape": 0.4921875,
+          "conjunction": 0.5859375,
+          "pair": 0.48828125
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5225,
+        "loss": 0.6980366420745849,
+        "by_template": {
+          "pair": 0.5225
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "schedule": "reverse",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.6083984375,
+        "loss": 0.6289308872073889,
+        "by_template": {
+          "color": 0.76953125,
+          "shape": 0.49609375,
+          "conjunction": 0.68359375,
+          "pair": 0.484375
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5,
+        "loss": 0.7055721187591553,
+        "by_template": {
+          "pair": 0.5
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "schedule": "reverse",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.55859375,
+        "loss": 0.6827516742050648,
+        "by_template": {
+          "color": 0.65234375,
+          "shape": 0.47265625,
+          "conjunction": 0.59375,
+          "pair": 0.515625
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5175,
+        "loss": 0.7004258728027344,
+        "by_template": {
+          "pair": 0.5175
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "schedule": "staged",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.6962890625,
+        "loss": 0.4982282808050513,
+        "by_template": {
+          "color": 0.98828125,
+          "shape": 0.5703125,
+          "conjunction": 0.7265625,
+          "pair": 0.5
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.505,
+        "loss": 0.7108823299407959,
+        "by_template": {
+          "pair": 0.505
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "schedule": "staged",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.7177734375,
+        "loss": 0.4783618226647377,
+        "by_template": {
+          "color": 1.0,
+          "shape": 0.609375,
+          "conjunction": 0.734375,
+          "pair": 0.52734375
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5325,
+        "loss": 0.6949735927581787,
+        "by_template": {
+          "pair": 0.5325
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "schedule": "staged",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.6826171875,
+        "loss": 0.5017793206498027,
+        "by_template": {
+          "color": 0.98828125,
+          "shape": 0.48828125,
+          "conjunction": 0.7265625,
+          "pair": 0.52734375
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5125,
+        "loss": 0.6934958362579345,
+        "by_template": {
+          "pair": 0.5125
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "schedule": "staged",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.6455078125,
+        "loss": 0.5706262495368719,
+        "by_template": {
+          "color": 0.87109375,
+          "shape": 0.5,
+          "conjunction": 0.69140625,
+          "pair": 0.51953125
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.52,
+        "loss": 0.7003599166870117,
+        "by_template": {
+          "pair": 0.52
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "schedule": "staged",
+      "step": 600,
+      "id_test": {
+        "n": 1024,
+        "accuracy": 0.654296875,
+        "loss": 0.559113978408277,
+        "by_template": {
+          "color": 0.88671875,
+          "shape": 0.55078125,
+          "conjunction": 0.6640625,
+          "pair": 0.515625
+        }
+      },
+      "ood_test": {
+        "n": 400,
+        "accuracy": 0.5075,
+        "loss": 0.7066255187988282,
+        "by_template": {
+          "pair": 0.5075
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,3013 @@
+{
+  "status": "exploratory",
+  "dataset_hashes": {
+    "train.jsonl": "69deccacbac6db25f7ffc8165f01545483d856855282ea640997f6660ce27c26",
+    "id_dev.jsonl": "ece4b831f1f7fe6efad42b18aca499f12c2d573baa76fc218864bb56fe24b11a",
+    "ood_dev.jsonl": "208a7566cc2082fa4438ec0d003430d0927c54bf82c55bb40fa885ef4961e0aa"
+  },
+  "environment": {
+    "python": "3.12.4",
+    "torch": "2.13.0+cu130",
+    "cuda_build": "13.0",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  },
+  "config": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "schedules": [
+      "mixed",
+      "staged",
+      "reverse"
+    ],
+    "main_epochs": 2,
+    "common_epochs": 1,
+    "batch_size": 50,
+    "eval_every": 100,
+    "lr": 0.002,
+    "weight_decay": 0.0,
+    "dim": 48,
+    "patch_size": 4,
+    "augmentation": true,
+    "primary_metric": "fixed-final ID-dev pair accuracy",
+    "heldout_metric": "fixed-final OOD-dev pair accuracy"
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "schedule": "mixed",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "mixed",
+          "batch_train_loss": 0.6941911345720291,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5205078125,
+            "loss": 0.6875756122171879,
+            "by_template": {
+              "color": 0.51953125,
+              "shape": 0.52734375,
+              "conjunction": 0.53515625,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5425,
+            "loss": 0.6925791072845459,
+            "by_template": {
+              "pair": 0.5425
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "mixed",
+          "batch_train_loss": 0.6522793024778366,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6142578125,
+            "loss": 0.6030599288642406,
+            "by_template": {
+              "color": 0.796875,
+              "shape": 0.51953125,
+              "conjunction": 0.640625,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5025,
+            "loss": 0.6976685905456543,
+            "by_template": {
+              "pair": 0.5025
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "batch_train_loss": 0.5916718345880508,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.642578125,
+            "loss": 0.5482899965718389,
+            "by_template": {
+              "color": 0.86328125,
+              "shape": 0.48828125,
+              "conjunction": 0.69140625,
+              "pair": 0.52734375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.53,
+            "loss": 0.7038864612579345,
+            "by_template": {
+              "pair": 0.53
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6708984375,
+            "loss": 0.5174251161515713,
+            "by_template": {
+              "color": 0.9140625,
+              "shape": 0.51171875,
+              "conjunction": 0.73828125,
+              "pair": 0.51953125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5175,
+            "loss": 0.6915149593353271,
+            "by_template": {
+              "pair": 0.5175
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.5122681269049645,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6708984375,
+            "loss": 0.5026110531762242,
+            "by_template": {
+              "color": 0.9140625,
+              "shape": 0.51171875,
+              "conjunction": 0.74609375,
+              "pair": 0.51171875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5025,
+            "loss": 0.6947811412811279,
+            "by_template": {
+              "pair": 0.5025
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.689453125,
+            "loss": 0.4927598312497139,
+            "by_template": {
+              "color": 0.92578125,
+              "shape": 0.53515625,
+              "conjunction": 0.76953125,
+              "pair": 0.52734375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.495,
+            "loss": 0.6893205165863037,
+            "by_template": {
+              "pair": 0.495
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.689453125,
+          "loss": 0.4927598312497139,
+          "by_template": {
+            "color": 0.92578125,
+            "shape": 0.53515625,
+            "conjunction": 0.76953125,
+            "pair": 0.52734375
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.495,
+          "loss": 0.6893205165863037,
+          "by_template": {
+            "pair": 0.495
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5009765625,
+          "loss": 2.3416936807334423,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.50390625,
+            "conjunction": 0.50390625,
+            "pair": 0.49609375
+          }
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "schedule": "staged",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "attributes",
+          "batch_train_loss": 0.6637877035140991,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6142578125,
+            "loss": 0.6717711202800274,
+            "by_template": {
+              "color": 0.7734375,
+              "shape": 0.55078125,
+              "conjunction": 0.6328125,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4875,
+            "loss": 0.9324052810668946,
+            "by_template": {
+              "pair": 0.4875
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.638671875,
+            "loss": 0.9152574464678764,
+            "by_template": {
+              "color": 0.86328125,
+              "shape": 0.5546875,
+              "conjunction": 0.62890625,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.495,
+            "loss": 2.1715340423583984,
+            "by_template": {
+              "pair": 0.495
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6416015625,
+            "loss": 0.5990624614059925,
+            "by_template": {
+              "color": 0.828125,
+              "shape": 0.5390625,
+              "conjunction": 0.7265625,
+              "pair": 0.47265625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.495,
+            "loss": 0.8441324710845948,
+            "by_template": {
+              "pair": 0.495
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.529296875,
+            "loss": 0.682319812476635,
+            "by_template": {
+              "color": 0.49609375,
+              "shape": 0.53515625,
+              "conjunction": 0.5703125,
+              "pair": 0.515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5375,
+            "loss": 0.6868765830993653,
+            "by_template": {
+              "pair": 0.5375
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.5419025111198426,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.720703125,
+            "loss": 0.4807343762367964,
+            "by_template": {
+              "color": 0.984375,
+              "shape": 0.58984375,
+              "conjunction": 0.80078125,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5075,
+            "loss": 0.7137145042419434,
+            "by_template": {
+              "pair": 0.5075
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.705078125,
+            "loss": 0.45962226297706366,
+            "by_template": {
+              "color": 0.9921875,
+              "shape": 0.5546875,
+              "conjunction": 0.7734375,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.515,
+            "loss": 0.7074348449707031,
+            "by_template": {
+              "pair": 0.515
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.705078125,
+          "loss": 0.45962226297706366,
+          "by_template": {
+            "color": 0.9921875,
+            "shape": 0.5546875,
+            "conjunction": 0.7734375,
+            "pair": 0.5
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.515,
+          "loss": 0.7074348449707031,
+          "by_template": {
+            "pair": 0.515
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5,
+          "loss": 2.500637799501419,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.5,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "schedule": "reverse",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.4970703125,
+            "loss": 0.693258710205555,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.4921875,
+              "pair": 0.49609375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5025,
+            "loss": 0.6930555629730225,
+            "by_template": {
+              "pair": 0.5025
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5615234375,
+            "loss": 0.6829709075391293,
+            "by_template": {
+              "color": 0.59765625,
+              "shape": 0.5078125,
+              "conjunction": 0.60546875,
+              "pair": 0.53515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.52,
+            "loss": 0.6922970294952393,
+            "by_template": {
+              "pair": 0.52
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "batch_train_loss": 0.5721565628051758,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6513671875,
+            "loss": 0.7176330536603928,
+            "by_template": {
+              "color": 0.91015625,
+              "shape": 0.52734375,
+              "conjunction": 0.66796875,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.51,
+            "loss": 1.3249213409423828,
+            "by_template": {
+              "pair": 0.51
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6552734375,
+            "loss": 0.8828305378556252,
+            "by_template": {
+              "color": 0.921875,
+              "shape": 0.5625,
+              "conjunction": 0.62890625,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4975,
+            "loss": 1.75320405960083,
+            "by_template": {
+              "pair": 0.4975
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.5454368445277215,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6806640625,
+            "loss": 0.5016863942146301,
+            "by_template": {
+              "color": 0.90234375,
+              "shape": 0.59765625,
+              "conjunction": 0.73046875,
+              "pair": 0.4921875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.495,
+            "loss": 0.7051739025115967,
+            "by_template": {
+              "pair": 0.495
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.685546875,
+            "loss": 0.48849605303257704,
+            "by_template": {
+              "color": 0.94921875,
+              "shape": 0.54296875,
+              "conjunction": 0.75,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.52,
+            "loss": 0.7046355056762695,
+            "by_template": {
+              "pair": 0.52
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.685546875,
+          "loss": 0.48849605303257704,
+          "by_template": {
+            "color": 0.94921875,
+            "shape": 0.54296875,
+            "conjunction": 0.75,
+            "pair": 0.5
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.52,
+          "loss": 0.7046355056762695,
+          "by_template": {
+            "pair": 0.52
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.501953125,
+          "loss": 2.6271079629659653,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.50390625,
+            "conjunction": 0.50390625,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "schedule": "mixed",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "mixed",
+          "batch_train_loss": 0.6929102998971939,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5810546875,
+            "loss": 0.6800670959055424,
+            "by_template": {
+              "color": 0.7109375,
+              "shape": 0.5,
+              "conjunction": 0.6015625,
+              "pair": 0.51171875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4825,
+            "loss": 0.6966622829437256,
+            "by_template": {
+              "pair": 0.4825
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "mixed",
+          "batch_train_loss": 0.6308695834875107,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6474609375,
+            "loss": 0.583778471685946,
+            "by_template": {
+              "color": 0.86328125,
+              "shape": 0.53515625,
+              "conjunction": 0.6796875,
+              "pair": 0.51171875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.54,
+            "loss": 0.7109946632385253,
+            "by_template": {
+              "pair": 0.54
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "batch_train_loss": 0.5534162682294845,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.673828125,
+            "loss": 0.5203929962590337,
+            "by_template": {
+              "color": 0.91796875,
+              "shape": 0.5234375,
+              "conjunction": 0.76171875,
+              "pair": 0.4921875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5375,
+            "loss": 0.6933688068389893,
+            "by_template": {
+              "pair": 0.5375
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6787109375,
+            "loss": 0.49954945780336857,
+            "by_template": {
+              "color": 0.9296875,
+              "shape": 0.52734375,
+              "conjunction": 0.74609375,
+              "pair": 0.51171875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5375,
+            "loss": 0.6877692127227784,
+            "by_template": {
+              "pair": 0.5375
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.507203322649002,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7001953125,
+            "loss": 0.5011951103806496,
+            "by_template": {
+              "color": 0.921875,
+              "shape": 0.57421875,
+              "conjunction": 0.75390625,
+              "pair": 0.55078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.545,
+            "loss": 0.6892656612396241,
+            "by_template": {
+              "pair": 0.545
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7060546875,
+            "loss": 0.49302463326603174,
+            "by_template": {
+              "color": 0.9453125,
+              "shape": 0.5390625,
+              "conjunction": 0.765625,
+              "pair": 0.57421875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.565,
+            "loss": 0.6754569435119628,
+            "by_template": {
+              "pair": 0.565
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.7060546875,
+          "loss": 0.49302463326603174,
+          "by_template": {
+            "color": 0.9453125,
+            "shape": 0.5390625,
+            "conjunction": 0.765625,
+            "pair": 0.57421875
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.565,
+          "loss": 0.6754569435119628,
+          "by_template": {
+            "pair": 0.565
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5,
+          "loss": 3.7003631219267845,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.50390625,
+            "pair": 0.49609375
+          }
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "schedule": "staged",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "attributes",
+          "batch_train_loss": 0.6442100262641907,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.611328125,
+            "loss": 0.7053436189889908,
+            "by_template": {
+              "color": 0.74609375,
+              "shape": 0.55078125,
+              "conjunction": 0.63671875,
+              "pair": 0.51171875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5075,
+            "loss": 0.9041924858093262,
+            "by_template": {
+              "pair": 0.5075
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6728515625,
+            "loss": 0.8228122126311064,
+            "by_template": {
+              "color": 0.921875,
+              "shape": 0.53125,
+              "conjunction": 0.7421875,
+              "pair": 0.49609375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5075,
+            "loss": 1.2855291843414307,
+            "by_template": {
+              "pair": 0.5075
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.68359375,
+            "loss": 0.5729674194008112,
+            "by_template": {
+              "color": 0.8828125,
+              "shape": 0.5703125,
+              "conjunction": 0.7734375,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5175,
+            "loss": 0.7927480697631836,
+            "by_template": {
+              "pair": 0.5175
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5908203125,
+            "loss": 0.6267779041081667,
+            "by_template": {
+              "color": 0.71484375,
+              "shape": 0.51953125,
+              "conjunction": 0.6171875,
+              "pair": 0.51171875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.565,
+            "loss": 0.6559673690795899,
+            "by_template": {
+              "pair": 0.565
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.4985336309671402,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7158203125,
+            "loss": 0.46004559844732285,
+            "by_template": {
+              "color": 0.98828125,
+              "shape": 0.54296875,
+              "conjunction": 0.80078125,
+              "pair": 0.53125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5275,
+            "loss": 0.6851455307006836,
+            "by_template": {
+              "pair": 0.5275
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7197265625,
+            "loss": 0.46271192841231823,
+            "by_template": {
+              "color": 0.99609375,
+              "shape": 0.53125,
+              "conjunction": 0.81640625,
+              "pair": 0.53515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.54,
+            "loss": 0.6905807113647461,
+            "by_template": {
+              "pair": 0.54
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.7197265625,
+          "loss": 0.46271192841231823,
+          "by_template": {
+            "color": 0.99609375,
+            "shape": 0.53125,
+            "conjunction": 0.81640625,
+            "pair": 0.53515625
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.54,
+          "loss": 0.6905807113647461,
+          "by_template": {
+            "pair": 0.54
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.501953125,
+          "loss": 2.7967013120651245,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5078125,
+            "conjunction": 0.5,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "schedule": "reverse",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.4921875,
+            "loss": 0.6933732870966196,
+            "by_template": {
+              "color": 0.48046875,
+              "shape": 0.5,
+              "conjunction": 0.50390625,
+              "pair": 0.484375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.51,
+            "loss": 0.6935722541809082,
+            "by_template": {
+              "pair": 0.51
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.568359375,
+            "loss": 0.6635520346462727,
+            "by_template": {
+              "color": 0.703125,
+              "shape": 0.4453125,
+              "conjunction": 0.62109375,
+              "pair": 0.50390625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4875,
+            "loss": 0.7665650558471679,
+            "by_template": {
+              "pair": 0.4875
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "batch_train_loss": 0.5170424672961235,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.69140625,
+            "loss": 0.7747127898037434,
+            "by_template": {
+              "color": 0.890625,
+              "shape": 0.57421875,
+              "conjunction": 0.765625,
+              "pair": 0.53515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.525,
+            "loss": 1.3407984638214112,
+            "by_template": {
+              "pair": 0.525
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7041015625,
+            "loss": 0.9364050850272179,
+            "by_template": {
+              "color": 0.984375,
+              "shape": 0.52734375,
+              "conjunction": 0.796875,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5125,
+            "loss": 1.9503844451904297,
+            "by_template": {
+              "pair": 0.5125
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.5575526729226112,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7099609375,
+            "loss": 0.4876107070595026,
+            "by_template": {
+              "color": 0.99609375,
+              "shape": 0.58984375,
+              "conjunction": 0.77734375,
+              "pair": 0.4765625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4975,
+            "loss": 0.7096586799621583,
+            "by_template": {
+              "pair": 0.4975
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7080078125,
+            "loss": 0.4650646960362792,
+            "by_template": {
+              "color": 0.9921875,
+              "shape": 0.51171875,
+              "conjunction": 0.80078125,
+              "pair": 0.52734375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.515,
+            "loss": 0.7021349620819092,
+            "by_template": {
+              "pair": 0.515
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.7080078125,
+          "loss": 0.4650646960362792,
+          "by_template": {
+            "color": 0.9921875,
+            "shape": 0.51171875,
+            "conjunction": 0.80078125,
+            "pair": 0.52734375
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.515,
+          "loss": 0.7021349620819092,
+          "by_template": {
+            "pair": 0.515
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.501953125,
+          "loss": 2.448476456105709,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5078125,
+            "conjunction": 0.5,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "schedule": "mixed",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "mixed",
+          "batch_train_loss": 0.6959371227025986,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.4990234375,
+            "loss": 0.6939131803810596,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.50390625,
+              "conjunction": 0.5,
+              "pair": 0.4921875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6941350936889649,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "mixed",
+          "batch_train_loss": 0.6947806936502456,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5009765625,
+            "loss": 0.6934929639101028,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.51171875,
+              "conjunction": 0.5,
+              "pair": 0.4921875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.495,
+            "loss": 0.6933209800720215,
+            "by_template": {
+              "pair": 0.495
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "batch_train_loss": 0.6936164236068726,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5,
+            "loss": 0.6933219321072102,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.5,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4975,
+            "loss": 0.6931796073913574,
+            "by_template": {
+              "pair": 0.4975
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5,
+            "loss": 0.6933098286390305,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.5,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5025,
+            "loss": 0.6938533401489257,
+            "by_template": {
+              "pair": 0.5025
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.6934896582365035,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5087890625,
+            "loss": 0.6926217172294855,
+            "by_template": {
+              "color": 0.5078125,
+              "shape": 0.52734375,
+              "conjunction": 0.5,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.545,
+            "loss": 0.6930881595611572,
+            "by_template": {
+              "pair": 0.545
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5302734375,
+            "loss": 0.6914408653974533,
+            "by_template": {
+              "color": 0.5703125,
+              "shape": 0.5078125,
+              "conjunction": 0.55078125,
+              "pair": 0.4921875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.505,
+            "loss": 0.6933487510681152,
+            "by_template": {
+              "pair": 0.505
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.5302734375,
+          "loss": 0.6914408653974533,
+          "by_template": {
+            "color": 0.5703125,
+            "shape": 0.5078125,
+            "conjunction": 0.55078125,
+            "pair": 0.4921875
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.505,
+          "loss": 0.6933487510681152,
+          "by_template": {
+            "pair": 0.505
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.501953125,
+          "loss": 0.6932777911424637,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5078125,
+            "conjunction": 0.5,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "schedule": "staged",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "attributes",
+          "batch_train_loss": 0.6941797590255737,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.513671875,
+            "loss": 0.6974539868533611,
+            "by_template": {
+              "color": 0.51171875,
+              "shape": 0.5,
+              "conjunction": 0.53515625,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.7108741188049317,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.634765625,
+            "loss": 0.7912696450948715,
+            "by_template": {
+              "color": 0.83203125,
+              "shape": 0.51171875,
+              "conjunction": 0.69140625,
+              "pair": 0.50390625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.505,
+            "loss": 1.480209789276123,
+            "by_template": {
+              "pair": 0.505
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.658203125,
+            "loss": 0.6035760026425123,
+            "by_template": {
+              "color": 0.859375,
+              "shape": 0.54296875,
+              "conjunction": 0.7265625,
+              "pair": 0.50390625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.495,
+            "loss": 0.8719174766540527,
+            "by_template": {
+              "pair": 0.495
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.59765625,
+            "loss": 0.635896204970777,
+            "by_template": {
+              "color": 0.77734375,
+              "shape": 0.47265625,
+              "conjunction": 0.6328125,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.545,
+            "loss": 0.6906233501434326,
+            "by_template": {
+              "pair": 0.545
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.5713851451873779,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6806640625,
+            "loss": 0.5291379578411579,
+            "by_template": {
+              "color": 0.91796875,
+              "shape": 0.515625,
+              "conjunction": 0.765625,
+              "pair": 0.5234375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4825,
+            "loss": 0.7043397903442383,
+            "by_template": {
+              "pair": 0.4825
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.705078125,
+            "loss": 0.4803813435137272,
+            "by_template": {
+              "color": 0.99609375,
+              "shape": 0.515625,
+              "conjunction": 0.7890625,
+              "pair": 0.51953125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4725,
+            "loss": 0.7025020122528076,
+            "by_template": {
+              "pair": 0.4725
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.705078125,
+          "loss": 0.4803813435137272,
+          "by_template": {
+            "color": 0.99609375,
+            "shape": 0.515625,
+            "conjunction": 0.7890625,
+            "pair": 0.51953125
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.4725,
+          "loss": 0.7025020122528076,
+          "by_template": {
+            "pair": 0.4725
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5,
+          "loss": 2.107692416757345,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.5,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "schedule": "reverse",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5,
+            "loss": 0.6932581458240747,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.5,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6931270408630371,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.513671875,
+            "loss": 0.692933076992631,
+            "by_template": {
+              "color": 0.5078125,
+              "shape": 0.5,
+              "conjunction": 0.54296875,
+              "pair": 0.50390625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6929947185516357,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "batch_train_loss": 0.6940080291032791,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5029296875,
+            "loss": 0.692765511572361,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.51171875,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6935447025299072,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5322265625,
+            "loss": 0.68956683203578,
+            "by_template": {
+              "color": 0.5390625,
+              "shape": 0.5,
+              "conjunction": 0.58203125,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6957864570617676,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.677936549782753,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.580078125,
+            "loss": 0.6539455372840166,
+            "by_template": {
+              "color": 0.703125,
+              "shape": 0.5234375,
+              "conjunction": 0.59375,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.515,
+            "loss": 0.7261555099487305,
+            "by_template": {
+              "pair": 0.515
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6064453125,
+            "loss": 0.6182186920195818,
+            "by_template": {
+              "color": 0.71484375,
+              "shape": 0.5390625,
+              "conjunction": 0.65625,
+              "pair": 0.515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4975,
+            "loss": 0.6978357505798339,
+            "by_template": {
+              "pair": 0.4975
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.6064453125,
+          "loss": 0.6182186920195818,
+          "by_template": {
+            "color": 0.71484375,
+            "shape": 0.5390625,
+            "conjunction": 0.65625,
+            "pair": 0.515625
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.4975,
+          "loss": 0.6978357505798339,
+          "by_template": {
+            "pair": 0.4975
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5009765625,
+          "loss": 0.9188041258603334,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.50390625,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "schedule": "mixed",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "mixed",
+          "batch_train_loss": 0.6957437038421631,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5,
+            "loss": 0.6938630398362875,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.5,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6932102966308594,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "mixed",
+          "batch_train_loss": 0.694011697769165,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5146484375,
+            "loss": 0.6919038947671652,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.55078125,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5025,
+            "loss": 0.693447265625,
+            "by_template": {
+              "pair": 0.5025
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "batch_train_loss": 0.674232040643692,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.642578125,
+            "loss": 0.619980426505208,
+            "by_template": {
+              "color": 0.875,
+              "shape": 0.4921875,
+              "conjunction": 0.6796875,
+              "pair": 0.5234375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.49,
+            "loss": 0.7250951385498047,
+            "by_template": {
+              "pair": 0.49
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.693359375,
+            "loss": 0.5052869319915771,
+            "by_template": {
+              "color": 0.9765625,
+              "shape": 0.5546875,
+              "conjunction": 0.734375,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.7042036724090576,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.49461542040109635,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7158203125,
+            "loss": 0.4664480723440647,
+            "by_template": {
+              "color": 1.0,
+              "shape": 0.5546875,
+              "conjunction": 0.8125,
+              "pair": 0.49609375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4925,
+            "loss": 0.7002793979644776,
+            "by_template": {
+              "pair": 0.4925
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.7138671875,
+            "loss": 0.4597676880657673,
+            "by_template": {
+              "color": 1.0,
+              "shape": 0.52734375,
+              "conjunction": 0.80078125,
+              "pair": 0.52734375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.51,
+            "loss": 0.7002041625976563,
+            "by_template": {
+              "pair": 0.51
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.7138671875,
+          "loss": 0.4597676880657673,
+          "by_template": {
+            "color": 1.0,
+            "shape": 0.52734375,
+            "conjunction": 0.80078125,
+            "pair": 0.52734375
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.51,
+          "loss": 0.7002041625976563,
+          "by_template": {
+            "pair": 0.51
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5,
+          "loss": 0.9812890831381083,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.5,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "schedule": "staged",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "attributes",
+          "batch_train_loss": 0.6963039594888687,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.4990234375,
+            "loss": 0.6931744292378426,
+            "by_template": {
+              "color": 0.50390625,
+              "shape": 0.47265625,
+              "conjunction": 0.51953125,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.52,
+            "loss": 0.6926397132873535,
+            "by_template": {
+              "pair": 0.52
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5,
+            "loss": 0.6928233969956636,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.50390625,
+              "pair": 0.49609375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4975,
+            "loss": 0.6948637104034424,
+            "by_template": {
+              "pair": 0.4975
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.587890625,
+            "loss": 0.6648752763867378,
+            "by_template": {
+              "color": 0.56640625,
+              "shape": 0.51171875,
+              "conjunction": 0.6875,
+              "pair": 0.5859375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.4925,
+            "loss": 0.7061944770812988,
+            "by_template": {
+              "pair": 0.4925
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5546875,
+            "loss": 0.682351753115654,
+            "by_template": {
+              "color": 0.56640625,
+              "shape": 0.51171875,
+              "conjunction": 0.6171875,
+              "pair": 0.5234375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.53,
+            "loss": 0.6866579723358154,
+            "by_template": {
+              "pair": 0.53
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.6680482637882232,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6396484375,
+            "loss": 0.6164356097579002,
+            "by_template": {
+              "color": 0.76953125,
+              "shape": 0.51171875,
+              "conjunction": 0.71875,
+              "pair": 0.55859375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.52,
+            "loss": 0.7082722568511963,
+            "by_template": {
+              "pair": 0.52
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.654296875,
+            "loss": 0.551756770350039,
+            "by_template": {
+              "color": 0.90234375,
+              "shape": 0.5,
+              "conjunction": 0.71875,
+              "pair": 0.49609375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5225,
+            "loss": 0.7085988140106201,
+            "by_template": {
+              "pair": 0.5225
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.654296875,
+          "loss": 0.551756770350039,
+          "by_template": {
+            "color": 0.90234375,
+            "shape": 0.5,
+            "conjunction": 0.71875,
+            "pair": 0.49609375
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.5225,
+          "loss": 0.7085988140106201,
+          "by_template": {
+            "pair": 0.5225
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5,
+          "loss": 0.9341212380677462,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.50390625,
+            "pair": 0.49609375
+          }
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "schedule": "reverse",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5,
+            "loss": 0.6948624141514301,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.5,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6955418014526367,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5029296875,
+            "loss": 0.6930395811796188,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5078125,
+              "conjunction": 0.515625,
+              "pair": 0.48828125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6927505111694336,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "batch_train_loss": 0.6937284392118453,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.515625,
+            "loss": 0.6926829274743795,
+            "by_template": {
+              "color": 0.51171875,
+              "shape": 0.515625,
+              "conjunction": 0.53515625,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.52,
+            "loss": 0.6923562145233154,
+            "by_template": {
+              "pair": 0.52
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5185546875,
+            "loss": 0.6896031573414803,
+            "by_template": {
+              "color": 0.51953125,
+              "shape": 0.53125,
+              "conjunction": 0.5078125,
+              "pair": 0.515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.48,
+            "loss": 0.6976015853881836,
+            "by_template": {
+              "pair": 0.48
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.6876781016588212,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.564453125,
+            "loss": 0.6843067090958357,
+            "by_template": {
+              "color": 0.6171875,
+              "shape": 0.53515625,
+              "conjunction": 0.5546875,
+              "pair": 0.55078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.515,
+            "loss": 0.6894821166992188,
+            "by_template": {
+              "pair": 0.515
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.62890625,
+            "loss": 0.6208802200853825,
+            "by_template": {
+              "color": 0.79296875,
+              "shape": 0.51171875,
+              "conjunction": 0.68359375,
+              "pair": 0.52734375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.7111161231994629,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.62890625,
+          "loss": 0.6208802200853825,
+          "by_template": {
+            "color": 0.79296875,
+            "shape": 0.51171875,
+            "conjunction": 0.68359375,
+            "pair": 0.52734375
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.5,
+          "loss": 0.7111161231994629,
+          "by_template": {
+            "pair": 0.5
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5009765625,
+          "loss": 0.7762970738112926,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.50390625,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "schedule": "mixed",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "mixed",
+          "batch_train_loss": 0.6953176814317703,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5,
+            "loss": 0.69440614618361,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.5,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6943148040771484,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "mixed",
+          "batch_train_loss": 0.6945777821540833,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.501953125,
+            "loss": 0.6936769522726536,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.5078125,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5025,
+            "loss": 0.6936810874938965,
+            "by_template": {
+              "pair": 0.5025
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "mixed",
+          "batch_train_loss": 0.6937442910671234,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5126953125,
+            "loss": 0.6922255791723728,
+            "by_template": {
+              "color": 0.59765625,
+              "shape": 0.43359375,
+              "conjunction": 0.53125,
+              "pair": 0.48828125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5375,
+            "loss": 0.6926164531707764,
+            "by_template": {
+              "pair": 0.5375
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.541015625,
+            "loss": 0.691111883148551,
+            "by_template": {
+              "color": 0.59375,
+              "shape": 0.5234375,
+              "conjunction": 0.51171875,
+              "pair": 0.53515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.53,
+            "loss": 0.6919296550750732,
+            "by_template": {
+              "pair": 0.53
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.6871124827861785,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.58203125,
+            "loss": 0.6732408590614796,
+            "by_template": {
+              "color": 0.671875,
+              "shape": 0.52734375,
+              "conjunction": 0.58203125,
+              "pair": 0.546875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.485,
+            "loss": 0.7043977069854737,
+            "by_template": {
+              "pair": 0.485
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.591796875,
+            "loss": 0.6444500340148807,
+            "by_template": {
+              "color": 0.7109375,
+              "shape": 0.515625,
+              "conjunction": 0.62890625,
+              "pair": 0.51171875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.7044770145416259,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.591796875,
+          "loss": 0.6444500340148807,
+          "by_template": {
+            "color": 0.7109375,
+            "shape": 0.515625,
+            "conjunction": 0.62890625,
+            "pair": 0.51171875
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.5,
+          "loss": 0.7044770145416259,
+          "by_template": {
+            "pair": 0.5
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5,
+          "loss": 0.7271090131253004,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.5,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "schedule": "staged",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "attributes",
+          "batch_train_loss": 0.6950660008192062,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5048828125,
+            "loss": 0.6981463115662336,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.5,
+              "conjunction": 0.51171875,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.699877986907959,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5087890625,
+            "loss": 0.6930204853415489,
+            "by_template": {
+              "color": 0.51953125,
+              "shape": 0.5,
+              "conjunction": 0.51171875,
+              "pair": 0.50390625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5025,
+            "loss": 0.6982818126678467,
+            "by_template": {
+              "pair": 0.5025
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5791015625,
+            "loss": 0.6530269216746092,
+            "by_template": {
+              "color": 0.71875,
+              "shape": 0.47265625,
+              "conjunction": 0.6171875,
+              "pair": 0.5078125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.7276452350616455,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.560546875,
+            "loss": 0.6897849887609482,
+            "by_template": {
+              "color": 0.6328125,
+              "shape": 0.5,
+              "conjunction": 0.58203125,
+              "pair": 0.52734375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.54,
+            "loss": 0.6904352951049805,
+            "by_template": {
+              "pair": 0.54
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.6522736105322838,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6201171875,
+            "loss": 0.6123760957270861,
+            "by_template": {
+              "color": 0.75390625,
+              "shape": 0.4921875,
+              "conjunction": 0.67578125,
+              "pair": 0.55859375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5025,
+            "loss": 0.7232577991485596,
+            "by_template": {
+              "pair": 0.5025
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.6669921875,
+            "loss": 0.550272960215807,
+            "by_template": {
+              "color": 0.8671875,
+              "shape": 0.55078125,
+              "conjunction": 0.734375,
+              "pair": 0.515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.49,
+            "loss": 0.7077402591705322,
+            "by_template": {
+              "pair": 0.49
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.6669921875,
+          "loss": 0.550272960215807,
+          "by_template": {
+            "color": 0.8671875,
+            "shape": 0.55078125,
+            "conjunction": 0.734375,
+            "pair": 0.515625
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.49,
+          "loss": 0.7077402591705322,
+          "by_template": {
+            "pair": 0.49
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5009765625,
+          "loss": 0.8775144629180431,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.50390625,
+            "pair": 0.5
+          }
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "schedule": "reverse",
+      "status": "completed",
+      "steps_run": 600,
+      "exposure_plan": {
+        "total_presentations": 30000,
+        "repetitions_per_example": 3,
+        "counts_by_template": {
+          "color": 7500,
+          "shape": 7500,
+          "conjunction": 7500,
+          "pair": 7500
+        },
+        "planned_updates": 600
+      },
+      "history": [
+        {
+          "step": 100,
+          "phase": "binding",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.4892578125,
+            "loss": 0.6935891713947058,
+            "by_template": {
+              "color": 0.4765625,
+              "shape": 0.5,
+              "conjunction": 0.4921875,
+              "pair": 0.48828125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.52,
+            "loss": 0.6929355716705322,
+            "by_template": {
+              "pair": 0.52
+            }
+          }
+        },
+        {
+          "step": 200,
+          "phase": "conjunction",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.50390625,
+            "loss": 0.6933285780251026,
+            "by_template": {
+              "color": 0.5,
+              "shape": 0.51953125,
+              "conjunction": 0.5,
+              "pair": 0.49609375
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5,
+            "loss": 0.6935754871368408,
+            "by_template": {
+              "pair": 0.5
+            }
+          }
+        },
+        {
+          "step": 300,
+          "phase": "attributes",
+          "batch_train_loss": 0.6936738646030426,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.544921875,
+            "loss": 0.6915234066545963,
+            "by_template": {
+              "color": 0.59375,
+              "shape": 0.515625,
+              "conjunction": 0.5546875,
+              "pair": 0.515625
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5325,
+            "loss": 0.6925003147125244,
+            "by_template": {
+              "pair": 0.5325
+            }
+          }
+        },
+        {
+          "step": 400,
+          "phase": "attributes",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5654296875,
+            "loss": 0.6874151155352592,
+            "by_template": {
+              "color": 0.6171875,
+              "shape": 0.53515625,
+              "conjunction": 0.578125,
+              "pair": 0.53125
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.495,
+            "loss": 0.6933203220367432,
+            "by_template": {
+              "pair": 0.495
+            }
+          }
+        },
+        {
+          "step": 500,
+          "phase": "common_mixed",
+          "batch_train_loss": 0.6768986022472382,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5859375,
+            "loss": 0.6552307102829218,
+            "by_template": {
+              "color": 0.66015625,
+              "shape": 0.54296875,
+              "conjunction": 0.62890625,
+              "pair": 0.51171875
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.515,
+            "loss": 0.7051034927368164,
+            "by_template": {
+              "pair": 0.515
+            }
+          }
+        },
+        {
+          "step": 600,
+          "phase": "common_mixed",
+          "batch_train_loss": null,
+          "id_dev": {
+            "n": 1024,
+            "accuracy": 0.5830078125,
+            "loss": 0.6697578728199005,
+            "by_template": {
+              "color": 0.67578125,
+              "shape": 0.578125,
+              "conjunction": 0.578125,
+              "pair": 0.5
+            }
+          },
+          "ood_dev": {
+            "n": 400,
+            "accuracy": 0.5175,
+            "loss": 0.6994002342224122,
+            "by_template": {
+              "pair": 0.5175
+            }
+          }
+        }
+      ],
+      "final": {
+        "step": 600,
+        "phase": "final",
+        "batch_train_loss": null,
+        "id_dev": {
+          "n": 1024,
+          "accuracy": 0.5830078125,
+          "loss": 0.6697578728199005,
+          "by_template": {
+            "color": 0.67578125,
+            "shape": 0.578125,
+            "conjunction": 0.578125,
+            "pair": 0.5
+          }
+        },
+        "ood_dev": {
+          "n": 400,
+          "accuracy": 0.5175,
+          "loss": 0.6994002342224122,
+          "by_template": {
+            "pair": 0.5175
+          }
+        },
+        "id_dev_constant_image": {
+          "n": 1024,
+          "accuracy": 0.5009765625,
+          "loss": 0.7662185691297054,
+          "by_template": {
+            "color": 0.5,
+            "shape": 0.5,
+            "conjunction": 0.50390625,
+            "pair": 0.5
+          }
+        }
+      }
+    }
+  ],
+  "duration_sec": 187.18209639997804
+}

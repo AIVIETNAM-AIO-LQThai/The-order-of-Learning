@@ -1,0 +1,52 @@
+{
+  "heldout_pairs": [
+    [
+      "blue",
+      "square"
+    ],
+    [
+      "green",
+      "circle"
+    ],
+    [
+      "purple",
+      "triangle"
+    ],
+    [
+      "red",
+      "crescent"
+    ]
+  ],
+  "image_files_generated": true,
+  "manifests_sha256": {
+    "id_dev.jsonl": "ece4b831f1f7fe6efad42b18aca499f12c2d573baa76fc218864bb56fe24b11a",
+    "id_test.jsonl": "86cb4367c01fea79f192fb808fcbb9abc858f749fc045f2a68e5613e4774e7b9",
+    "ood_dev.jsonl": "208a7566cc2082fa4438ec0d003430d0927c54bf82c55bb40fa885ef4961e0aa",
+    "ood_test.jsonl": "5d34455643f4f3883f06e85a25959e2a944cab0d68baef4518abbb0a62ca2d2a",
+    "train.jsonl": "69deccacbac6db25f7ffc8165f01545483d856855282ea640997f6660ce27c26"
+  },
+  "seed": 20261103,
+  "splits": {
+    "id_dev": {
+      "questions": 1024,
+      "scenes": 512
+    },
+    "id_test": {
+      "questions": 1024,
+      "scenes": 512
+    },
+    "ood_dev": {
+      "questions": 400,
+      "scenes": 400
+    },
+    "ood_test": {
+      "questions": 400,
+      "scenes": 400
+    },
+    "train": {
+      "questions": 10000,
+      "scenes": 5000
+    }
+  },
+  "unique_scenes": 6824
+}
