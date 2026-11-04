@@ -1,4 +1,4 @@
-"""Matched-exposure medium-world curriculum experiment with plateau LR scheduling.
+"""Matched-exposure medium-world learning-order and rehearsal study.
 
 Run from repository root:
 python -m experiments.medium_world.compare_learning_schedules --device cuda --seeds 42 --save-models --out outputs/medium_world/experiments/plateau_seed42
@@ -26,7 +26,7 @@ from src.medium_visual_world.learning import (
     evaluate, environment, set_seed
 )
 
-SCHEDULES = ("mixed", "staged", "reverse")
+SCHEDULES = ("mixed", "staged", "staged_rehearsal", "reverse")
 
 
 def verify_dataset(directory: Path, include_test: bool = False) -> dict:
@@ -55,8 +55,95 @@ def repeated(indices: list[int], epochs: int, rng: random.Random) -> list[int]:
     return result
 
 
+def make_rehearsal_blocks(rows: list[dict], main_epochs: int,
+                          common_epochs: int, seed: int,
+                          rehearsal_epochs: int = 1):
+    """Stage later skills with replay, retaining EXACT per-example exposure.
+
+    For main_epochs=12 and rehearsal_epochs=1:
+      attributes: color 10 + shape 10 epochs
+      conjunction: conjunction 11 + color 1 + shape 1 epochs
+      binding: pair 12 + conjunction 1 + color 1 + shape 1 epochs
+      common_mixed: every example 3 epochs (when common_epochs=3)
+
+    Each task's 12 main-epoch permutations are made once, then split across
+    phases. Example counts, not just coarse task proportions, are matched.
+    """
+    if rehearsal_epochs < 1 or main_epochs <= 2 * rehearsal_epochs:
+        raise ValueError("Requires main_epochs > 2 * rehearsal_epochs >= 2")
+    by_task = {task: [] for task in TASKS}
+    for index, row in enumerate(rows):
+        by_task[row["template"]].append(index)
+    if any(not by_task[task] for task in TASKS):
+        raise ValueError("Missing a task")
+    all_ids = list(range(len(rows)))
+    streams = {
+        task: repeated(indices, main_epochs,
+                       random.Random(seed + 3103 + 127 * i))
+        for i, (task, indices) in enumerate(by_task.items())
+    }
+    cursor = {task: 0 for task in TASKS}
+    r = rehearsal_epochs
+    allocations = [
+        ("attributes", {"color": main_epochs - 2*r,
+                        "shape": main_epochs - 2*r}),
+        ("conjunction", {"color": r, "shape": r,
+                         "conjunction": main_epochs - r}),
+        ("binding", {"color": r, "shape": r,
+                     "conjunction": r, "pair": main_epochs})
+    ]
+    blocks = []
+    phase_mix = []
+    for phase_num, (phase, epochs_by_task) in enumerate(allocations):
+        chunks = {}
+        for task, epochs in epochs_by_task.items():
+            length = len(by_task[task]) * epochs
+            start = cursor[task]
+            chunks[task] = streams[task][start:start + length]
+            cursor[task] += length
+        labels = [task for task, ids in chunks.items() for _ in ids]
+        # Shuffle *individual examples*, not whole task blocks, so each
+        # minibatch regularly revisits past skills.
+        random.Random(seed + 7127 + phase_num).shuffle(labels)
+        positions = {task: 0 for task in chunks}
+        ids = []
+        for task in labels:
+            ids.append(chunks[task][positions[task]])
+            positions[task] += 1
+        blocks.append((phase, ids))
+        phase_mix.append({"name": phase, "by_template": {
+            task: len(chunk) for task, chunk in chunks.items()}})
+    if any(cursor[task] != len(streams[task]) for task in TASKS):
+        raise AssertionError("Main-phase exposure differs by task")
+    if common_epochs:
+        common = repeated(all_ids, common_epochs,
+                          random.Random(seed + 8089))
+        blocks.append(("common_mixed", common))
+        phase_mix.append({"name": "common_mixed", "by_template": {
+            task: len(indices) * common_epochs
+            for task, indices in by_task.items()}})
+    exposure = Counter(index for _, ids in blocks for index in ids)
+    if len(exposure) != len(rows) or set(exposure.values()) != {main_epochs + common_epochs}:
+        raise AssertionError("Rehearsal plan must preserve exact example exposure")
+    plan = {
+        "total_presentations": sum(len(ids) for _, ids in blocks),
+        "repetitions_per_example": main_epochs + common_epochs,
+        "counts_by_template": {
+            task: len(indices) * (main_epochs + common_epochs)
+            for task, indices in by_task.items()},
+        "phases": [{"name": phase, "presentations": len(ids)}
+                   for phase, ids in blocks],
+        "phase_task_presentations": phase_mix,
+        "rehearsal_epochs": rehearsal_epochs
+    }
+    return blocks, plan
+
+
 def make_blocks(rows: list[dict], schedule: str, main_epochs: int,
-                common_epochs: int, seed: int):
+                common_epochs: int, seed: int, rehearsal_epochs: int = 1):
+    if schedule == "staged_rehearsal":
+        return make_rehearsal_blocks(rows, main_epochs, common_epochs,
+                                     seed, rehearsal_epochs)
     by_task = {task: [] for task in TASKS}
     for index, row in enumerate(rows):
         by_task[row["template"]].append(index)
@@ -105,6 +192,47 @@ def make_blocks(rows: list[dict], schedule: str, main_epochs: int,
                    for phase, indices in blocks]
     }
     return blocks, plan
+
+
+def read_mixed_lr_reference(path: Path, hashes: dict, args) -> dict:
+    """Freeze the original mixed-baseline plateau LR trace, by paired seed."""
+    report = json.loads(path.read_text(encoding="utf-8"))
+    if report.get("dataset_hashes") != hashes:
+        raise ValueError("LR reference and current dataset hashes differ")
+    config = report["config"]
+    for key, value in (("main_epochs", args.main_epochs),
+                       ("common_epochs", args.common_epochs),
+                       ("batch_size", args.batch_size),
+                       ("eval_every", args.eval_every),
+                       ("lr", args.lr)):
+        if config.get(key) != value:
+            raise ValueError(f"LR reference differs at {key}")
+    if not args.smoke:
+        for key, value in (("dim", args.dim), ("patch_size", args.patch_size),
+                           ("augmentation", args.augment)):
+            if config.get(key) != value:
+                raise ValueError(f"LR reference differs at {key}")
+    traces = {}
+    for run in report["runs"]:
+        if run["schedule"] != "mixed" or run["status"] != "completed":
+            continue
+        seed = run["seed"]
+        if seed in traces:
+            raise ValueError(f"Duplicate mixed LR reference for seed {seed}")
+        previous_lr, previous_step, changes = args.lr, 0, {}
+        for entry in run["lr_reductions"]:
+            step, initial, final = entry["step"], entry["from"], entry["to"]
+            if (step <= previous_step or step % args.eval_every or
+                abs(initial - previous_lr) > 1e-12 or
+                not args.min_lr <= final < initial):
+                raise ValueError(f"Invalid LR reference at seed {seed}, step {step}")
+            changes[step] = final
+            previous_lr, previous_step = final, step
+        traces[seed] = changes
+    missing = sorted(set(args.seeds) - set(traces))
+    if missing:
+        raise ValueError(f"Missing mixed LR reference for seeds: {missing}")
+    return traces
 
 
 def make_scheduler(optimizer, factor: float, patience: int,
@@ -160,11 +288,14 @@ def run_one(schedule: str, seed: int, train: MediumDataset, dev: MediumDataset,
     model = AttributeBindingViT(dim=dim, patch_size=patch_size).to(device)
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    scheduler = make_scheduler(optimizer, args.scheduler_factor,
-                               args.scheduler_patience,
-                               args.scheduler_threshold, args.min_lr)
+    scheduler = (make_scheduler(optimizer, args.scheduler_factor,
+                                args.scheduler_patience,
+                                args.scheduler_threshold, args.min_lr)
+                 if args.lr_policy == "plateau" else None)
+    frozen_changes = (args.lr_traces[seed]
+                      if args.lr_policy == "mixed_reference" else {})
     blocks, plan = make_blocks(train.rows, schedule, args.main_epochs,
-                               args.common_epochs, seed)
+                               args.common_epochs, seed, args.rehearsal_epochs)
     if not args.smoke and any(len(indices) % args.batch_size for _, indices in blocks):
         raise ValueError("Every phase must divide into complete batches")
     plan["planned_updates"] = sum(len(indices) // args.batch_size for _, indices in blocks)
@@ -198,7 +329,11 @@ def run_one(schedule: str, seed: int, train: MediumDataset, dev: MediumDataset,
         # Never step the scheduler at extra phase-boundary evaluations:
         # only identical global evaluation steps may affect learning rate.
         if scheduled and not args.smoke:
-            scheduler.step(dev_loss)
+            if scheduler is not None:
+                scheduler.step(dev_loss)
+            elif step in frozen_changes:
+                for group in optimizer.param_groups:
+                    group["lr"] = frozen_changes[step]
         after = optimizer.param_groups[0]["lr"]
         row["lr_after"] = after
         if after < before:
@@ -277,6 +412,12 @@ def main():
     parser.add_argument("--seeds", nargs="+", type=int, default=[42])
     parser.add_argument("--main-epochs", type=int, default=12)
     parser.add_argument("--common-epochs", type=int, default=3)
+    parser.add_argument("--rehearsal-epochs", type=int, default=1,
+                        help="Rehearsal epochs per earlier task across later stages")
+    parser.add_argument("--lr-policy", choices=("plateau", "frozen", "mixed_reference"),
+                        default="plateau")
+    parser.add_argument("--lr-reference", type=Path,
+                        help="Previous plateau schedule_comparison.json for mixed_reference")
     parser.add_argument("--batch-size", type=int, default=50)
     parser.add_argument("--eval-every", type=int, default=100)
     parser.add_argument("--lr", type=float, default=1e-4)
@@ -297,10 +438,18 @@ def main():
     if (args.main_epochs < 1 or args.common_epochs < 0 or
         args.batch_size < 1 or args.eval_every < 1 or
         args.scheduler_patience < 0 or not 0 < args.scheduler_factor < 1 or
-        args.scheduler_threshold < 0 or not 0 < args.min_lr <= args.lr):
+        args.scheduler_threshold < 0 or not 0 < args.min_lr <= args.lr or
+        args.rehearsal_epochs < 1 or
+        ("staged_rehearsal" in args.schedules and
+         args.main_epochs <= 2 * args.rehearsal_epochs)):
         parser.error("Invalid training/scheduler configuration")
     torch.set_num_threads(min(4, torch.get_num_threads()))
     hashes = verify_dataset(args.data)
+    args.lr_traces = {}
+    if args.lr_policy == "mixed_reference":
+        if args.lr_reference is None:
+            parser.error("--lr-policy mixed_reference requires --lr-reference")
+        args.lr_traces = read_mixed_lr_reference(args.lr_reference, hashes, args)
     train = MediumDataset(args.data / "train.jsonl")
     dev = MediumDataset(args.data / "id_dev.jsonl")
     ood = MediumDataset(args.data / "ood_dev.jsonl")
@@ -323,14 +472,24 @@ def write_report(args, hashes: dict, runs: list[dict], started: float):
         "config": {
             "seeds": args.seeds, "schedules": args.schedules,
             "main_epochs": args.main_epochs, "common_epochs": args.common_epochs,
+            "rehearsal_epochs": args.rehearsal_epochs,
+            "lr_policy": args.lr_policy,
+            "lr_reference": str(args.lr_reference) if args.lr_reference else None,
             "batch_size": args.batch_size, "eval_every": args.eval_every,
             "lr": args.lr, "weight_decay": args.weight_decay,
-            "scheduler": "ReduceLROnPlateau", "scheduler_factor": args.scheduler_factor,
+            "scheduler": ("ReduceLROnPlateau" if args.lr_policy == "plateau"
+                          else "replay_mixed_reference" if args.lr_policy == "mixed_reference"
+                          else "constant"),
+            "scheduler_factor": args.scheduler_factor,
             "scheduler_patience": args.scheduler_patience,
             "scheduler_threshold": args.scheduler_threshold,
-            "scheduler_metric": "fixed ID-dev overall cross-entropy",
+            "scheduler_metric": ("fixed ID-dev overall cross-entropy" if args.lr_policy == "plateau" else None),
             "min_lr": args.min_lr,
             "scheduler_reset": "none (continuous within each run)",
+            "lr_control": "all schedules share the frozen mixed reference within each seed"
+                          if args.lr_policy == "mixed_reference"
+                          else "independent plateau" if args.lr_policy == "plateau"
+                          else "constant LR shared across schedules",
             "dim": 16 if args.smoke else args.dim,
             "patch_size": 8 if args.smoke else args.patch_size,
             "augmentation": args.augment,

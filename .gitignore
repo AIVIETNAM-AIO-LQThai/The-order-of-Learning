@@ -31,3 +31,9 @@ outputs/**/experiments/**/checkpoints/
 /outputs/medium_world/experiments/plateau_seed42/
 /outputs/medium_world/experiments/plateau_five_seeds/*
 !/outputs/medium_world/experiments/plateau_five_seeds/schedule_comparison.json
+
+# Rehearsal curriculum experiments
+/outputs/medium_world/experiments/rehearsal_smoke/
+/outputs/medium_world/experiments/rehearsal_seed42/
+/outputs/medium_world/experiments/rehearsal_five_seeds/*
+!/outputs/medium_world/experiments/rehearsal_five_seeds/schedule_comparison.json
