@@ -26,3 +26,8 @@ outputs/**/dataset/images/
 outputs/**/experiments/**/checkpoints/
 *.pt
 *.pth
+# Plateau curriculum: temporary runs and model artifacts
+/outputs/medium_world/experiments/plateau_smoke/
+/outputs/medium_world/experiments/plateau_seed42/
+/outputs/medium_world/experiments/plateau_five_seeds/*
+!/outputs/medium_world/experiments/plateau_five_seeds/schedule_comparison.json

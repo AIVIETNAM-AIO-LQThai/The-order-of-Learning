@@ -41,7 +41,16 @@ def test_matched_exposure():
         assert sorted(flattened) == sorted(list(range(40)) * 3)
         assert len(blocks) == (2 if schedule == "mixed" else 4)
         plans.append(plan)
-    assert plans[0] == plans[1] == plans[2]
+    for key in ("total_presentations", "repetitions_per_example",
+                "counts_by_template"):
+        assert plans[0][key] == plans[1][key] == plans[2][key]
+
+    assert [p["name"] for p in plans[0]["phases"]] == [
+        "mixed", "common_mixed"]
+    assert [p["name"] for p in plans[1]["phases"]] == [
+        "attributes", "conjunction", "binding", "common_mixed"]
+    assert [p["name"] for p in plans[2]["phases"]] == [
+        "binding", "conjunction", "attributes", "common_mixed"]
     assert make_blocks(rows, "mixed", 2, 1, 42)[0][-1][1] == (
         make_blocks(rows, "staged", 2, 1, 42)[0][-1][1])
 
