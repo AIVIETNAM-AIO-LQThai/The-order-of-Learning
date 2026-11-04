@@ -1,15 +1,7 @@
-"""Run: python -m pytest valid_tests/test_rehearsal_curriculum.py -q"""
+"""Exact per-question curriculum exposure, interleaving, and longer budgets."""
 from collections import Counter
-from pathlib import Path
-from types import SimpleNamespace
-import json
-
 import pytest
-
-from experiments.medium_world.compare_learning_schedules import (
-    make_blocks, read_mixed_lr_reference
-)
-from src.medium_visual_world.learning import TASKS
+from src.medium_visual_world.curriculum import TASKS, make_blocks
 
 
 def test_rehearsal_preserves_exact_per_example_exposure():
@@ -39,8 +31,7 @@ def test_rehearsal_phase_composition_and_interleaving():
         {"color": 2500, "shape": 2500, "conjunction": 2500, "pair": 30000},
         {task: 7500 for task in TASKS}]
     for name, indices in blocks[1:3]:
-        earlier = {"color", "shape"} if name == "conjunction" else {
-            "color", "shape", "conjunction"}
+        earlier = {"color", "shape"} if name == "conjunction" else {"color", "shape", "conjunction"}
         batches_with_rehearsal = sum(
             any(rows[i]["template"] in earlier for i in indices[j:j+50])
             for j in range(0, len(indices), 50))
@@ -54,30 +45,11 @@ def test_invalid_rehearsal_config():
         make_blocks(rows, "staged_rehearsal", 2, 1, 42)
 
 
-def test_paired_mixed_lr_reference(tmp_path: Path):
-    reference = {
-        "dataset_hashes": {"train.jsonl": "same"},
-        "config": {"main_epochs": 12, "common_epochs": 3,
-                   "batch_size": 50, "eval_every": 100,
-                   "lr": 1e-4, "dim": 48, "patch_size": 4,
-                   "augmentation": True},
-        "runs": [
-            {"seed": 42, "schedule": "mixed", "status": "completed",
-             "lr_reductions": []},
-            {"seed": 43, "schedule": "mixed", "status": "completed",
-             "lr_reductions": [{"step": 1000, "from": 1e-4, "to": 5e-5}]}
-        ]
-    }
-    path = tmp_path / "baseline.json"
-    path.write_text(json.dumps(reference), encoding="utf-8")
-    args = SimpleNamespace(seeds=[42, 43], main_epochs=12, common_epochs=3,
-                           batch_size=50, eval_every=100, lr=1e-4,
-                           dim=48, patch_size=4, augment=True,
-                           smoke=False, min_lr=1e-6)
-    traces = read_mixed_lr_reference(path, {"train.jsonl": "same"}, args)
-    assert traces == {42: {}, 43: {1000: 5e-5}}
-    with pytest.raises(ValueError, match="hashes"):
-        read_mixed_lr_reference(path, {"train.jsonl": "different"}, args)
-    args.seeds = [42, 44]
-    with pytest.raises(ValueError, match="Missing"):
-        read_mixed_lr_reference(path, {"train.jsonl": "same"}, args)
+def test_long_budget_matched_exposure():
+    rows = [{"template": task} for task in TASKS for _ in range(10)]
+    for schedule in ("mixed", "staged", "staged_rehearsal", "reverse"):
+        blocks, plan = make_blocks(rows, schedule, 36, 9, 42, rehearsal_epochs=3)
+        seen = Counter(i for _, ids in blocks for i in ids)
+        assert set(seen.values()) == {45}
+        assert len(seen) == 40
+        assert plan["total_presentations"] == 40 * 45

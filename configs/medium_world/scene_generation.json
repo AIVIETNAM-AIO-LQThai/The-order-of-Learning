@@ -1,0 +1,9 @@
+{
+  "seed": 20261103,
+  "train_scenes": 5000,
+  "id_dev_scenes": 512,
+  "id_test_scenes": 512,
+  "ood_dev_scenes": 400,
+  "ood_test_scenes": 400,
+  "materialize": true
+}

@@ -8,7 +8,7 @@ if str(PROJECT_ROOT) not in sys.path:
 import pytest
 torch=pytest.importorskip('torch')
 from src.small_visual_world.learning import VOCAB,CLOSER_ID,encode_tokens,TinyViTQuestion,VQADataset,make_loader,evaluate
-from src.small_visual_world.baseline_training import stratified_adaptation_indices
+from src.small_visual_world.sampling import stratified_adaptation_indices
 
 ROOT=PROJECT_ROOT/'outputs'/'small_world'/'dataset'
 

@@ -1,11 +1,5 @@
-from pathlib import Path
-import sys
-PROJECT_ROOT = Path().cwd()
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
-from experiments.medium_world.train_single_task import balanced_indices, evaluate_indices
-from experiments.medium_world.diagnose_question_shortcuts import categorize, summarize
+from src.medium_visual_world.sampling import balanced_indices
+from src.medium_visual_world.diagnostics import categorize, summarize
 
 
 class SmallDataset:
@@ -46,11 +40,3 @@ def test_binding_hard_negative():
 def test_summarize():
     assert summarize([(1, 1), (0, 1), (0, 0), (1, 0)]) == {
         "count": 4, "accuracy": 0.5, "predicted_positive_rate": 0.5}
-
-
-if __name__ == "__main__":
-    test_balanced_indices()
-    test_conjunction_subgroups()
-    test_binding_hard_negative()
-    test_summarize()
-    print("Medium diagnostics tests passed")

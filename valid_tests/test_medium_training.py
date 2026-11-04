@@ -1,15 +1,8 @@
-from pathlib import Path
-import sys
-PROJECT_ROOT = Path().cwd()
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
-import random
 import torch
-from medium_visual_world.learning import (
-    TASKS, VOCAB, encode_query, AttributeBindingViT, MediumDataset
+from src.medium_visual_world.learning import (
+    TASKS, VOCAB, encode_query, AttributeBindingViT
 )
-from experiments.medium_world.compare_learning_schedules import make_blocks
+from src.medium_visual_world.curriculum import make_blocks
 from src.medium_visual_world.world import Scene, Obj
 from src.medium_visual_world.grammar import exists_color, exists_shape, has_color_and_shape, exists_pair
 from src.medium_visual_world.oracle import evaluate as oracle
@@ -41,18 +34,12 @@ def test_matched_exposure():
         assert sorted(flattened) == sorted(list(range(40)) * 3)
         assert len(blocks) == (2 if schedule == "mixed" else 4)
         plans.append(plan)
-    for key in ("total_presentations", "repetitions_per_example",
-                "counts_by_template"):
+    for key in ("total_presentations", "repetitions_per_example", "counts_by_template"):
         assert plans[0][key] == plans[1][key] == plans[2][key]
-
-    assert [p["name"] for p in plans[0]["phases"]] == [
-        "mixed", "common_mixed"]
-    assert [p["name"] for p in plans[1]["phases"]] == [
-        "attributes", "conjunction", "binding", "common_mixed"]
-    assert [p["name"] for p in plans[2]["phases"]] == [
-        "binding", "conjunction", "attributes", "common_mixed"]
-    assert make_blocks(rows, "mixed", 2, 1, 42)[0][-1][1] == (
-        make_blocks(rows, "staged", 2, 1, 42)[0][-1][1])
+    assert [p["name"] for p in plans[0]["phases"]] == ["mixed", "common_mixed"]
+    assert [p["name"] for p in plans[1]["phases"]] == ["attributes", "conjunction", "binding", "common_mixed"]
+    assert [p["name"] for p in plans[2]["phases"]] == ["binding", "conjunction", "attributes", "common_mixed"]
+    assert make_blocks(rows, "mixed", 2, 1, 42)[0][-1][1] == make_blocks(rows, "staged", 2, 1, 42)[0][-1][1]
 
 
 def test_model_forward_and_gradients():
@@ -70,15 +57,3 @@ def test_model_forward_and_gradients():
     assert torch.isfinite(out).all()
     out.sum().backward()
     assert model.patch.weight.grad is not None
-
-
-def main():
-    test_question_encoding()
-    test_question_semantics()
-    test_matched_exposure()
-    test_model_forward_and_gradients()
-    print("Medium-world training checks passed")
-
-
-if __name__ == "__main__":
-    main()
