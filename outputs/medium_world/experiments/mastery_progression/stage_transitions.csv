@@ -1,0 +1,16 @@
+seed,policy,attributes_end,attributes_reason,conjunction_end,conjunction_reason,common_mixed
+42,fixed_late,3000,fixed_step,5000,fixed_step,7200
+42,fixed_early,1400,fixed_step,2200,fixed_step,7200
+42,mastery,2700,mastery,3500,mastery,7200
+43,fixed_late,3000,fixed_step,5000,fixed_step,7200
+43,fixed_early,1400,fixed_step,2200,fixed_step,7200
+43,mastery,3000,stage_cap,5400,stage_cap,7200
+44,fixed_late,3000,fixed_step,5000,fixed_step,7200
+44,fixed_early,1400,fixed_step,2200,fixed_step,7200
+44,mastery,3000,stage_cap,4000,mastery,7200
+45,fixed_late,3000,fixed_step,5000,fixed_step,7200
+45,fixed_early,1400,fixed_step,2200,fixed_step,7200
+45,mastery,3000,stage_cap,4100,mastery,7200
+46,fixed_late,3000,fixed_step,5000,fixed_step,7200
+46,fixed_early,1400,fixed_step,2200,fixed_step,7200
+46,mastery,3000,stage_cap,5400,stage_cap,7200

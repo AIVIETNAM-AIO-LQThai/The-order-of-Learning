@@ -19,21 +19,11 @@ outputs/**/experiments/**/checkpoints/
 *.pt
 *.pth
 
-# Generated datasets and images
+# Generated dataset images
 outputs/**/dataset/images/
 
-# Model checkpoints
-outputs/**/experiments/**/checkpoints/
-*.pt
-*.pth
-# Plateau curriculum: temporary runs and model artifacts
+# Temporary experiment runs
 /outputs/medium_world/experiments/plateau_smoke/
 /outputs/medium_world/experiments/plateau_seed42/
-/outputs/medium_world/experiments/plateau_five_seeds/*
-!/outputs/medium_world/experiments/plateau_five_seeds/schedule_comparison.json
-
-# Rehearsal curriculum experiments
 /outputs/medium_world/experiments/rehearsal_smoke/
 /outputs/medium_world/experiments/rehearsal_seed42/
-/outputs/medium_world/experiments/rehearsal_five_seeds/*
-!/outputs/medium_world/experiments/rehearsal_five_seeds/schedule_comparison.json

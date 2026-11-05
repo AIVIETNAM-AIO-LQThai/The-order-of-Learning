@@ -1,0 +1,21 @@
+contrast,metric,mean_pp,sd_pp,wins
+staged_rehearsal − staged,pair,-0.390625,0.9959022487485908,1
+staged_rehearsal − staged,ood_pair,0.85,3.4758092582879145,2
+staged_rehearsal − staged,pair_aulc,0.37500000000000283,0.3713392371502228,5
+staged_rehearsal − staged,overall_id,0.390625,0.15440808887540916,5
+staged_rehearsal − staged,shape,1.40625,0.9804609685946197,4
+staged_rehearsal − mixed,pair,1.953125,1.0697706201272776,5
+staged_rehearsal − mixed,ood_pair,-0.2,3.169187593059143,1
+staged_rehearsal − mixed,pair_aulc,0.07812500000000426,0.7028084501560004,1
+staged_rehearsal − mixed,overall_id,1.15234375,1.2684039466105992,4
+staged_rehearsal − mixed,shape,0.46875,2.8086996894136798,3
+staged − mixed,pair,2.34375,1.933495104806966,4
+staged − mixed,ood_pair,-1.05,6.340346993658946,1
+staged − mixed,pair_aulc,-0.29687499999999856,0.5329125015616939,1
+staged − mixed,overall_id,0.76171875,1.3485758864026596,3
+staged − mixed,shape,-0.9375,2.2877422600541126,2
+staged − reverse,pair,2.265625,1.4719877876106853,5
+staged − reverse,ood_pair,-0.05000000000000142,5.400810124416521,1
+staged − reverse,pair_aulc,1.1888020833333344,0.9538549188800645,4
+staged − reverse,overall_id,2.34375,2.226905127146754,4
+staged − reverse,shape,0.859375,3.6892871728492485,4

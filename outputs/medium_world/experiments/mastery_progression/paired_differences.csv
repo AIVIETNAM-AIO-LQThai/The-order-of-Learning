@@ -1,0 +1,22 @@
+contrast,metric,mean_difference,sd,wins
+mastery − fixed_early,heldout_pair,-0.3305785123966928,2.3809686431219754,2
+mastery − fixed_early,id_pair,0.15625,3.156578726693269,3
+mastery − fixed_early,ood_pair,-1.050000000000003,5.007494383421713,2
+mastery − fixed_early,heldout_pair_aulc,-1.0982552800734553,1.465514825011752,1
+mastery − fixed_early,heldout_overall,-0.5078125,1.7004530359124153,2
+mastery − fixed_early,shape,-1.629629629629629,3.3701668640229134,1
+mastery − fixed_early,ood_bce,0.015303854942321782,0.1207186099509229,3
+mastery − fixed_late,heldout_pair,0.1652892561983478,2.945211517554626,3
+mastery − fixed_late,id_pair,0.234375,1.6480486804475771,2
+mastery − fixed_late,ood_pair,-1.45,1.2918010682763859,0
+mastery − fixed_late,heldout_pair_aulc,0.7924701561065234,1.3025761022831572,3
+mastery − fixed_late,heldout_overall,0.15625,0.7738911232874589,4
+mastery − fixed_late,shape,0.4444444444444443,2.597878209888917,3
+mastery − fixed_late,ood_bce,0.04346912574768067,0.029869878345021816,5
+fixed_early − fixed_late,heldout_pair,0.49586776859504056,2.9567841024790655,2
+fixed_early − fixed_late,id_pair,0.078125,3.01819433938779,1
+fixed_early − fixed_late,ood_pair,-0.39999999999999714,3.7691179339468763,3
+fixed_early − fixed_late,heldout_pair_aulc,1.8907254361799786,1.9742947444746193,4
+fixed_early − fixed_late,heldout_overall,0.6640625,1.2008145428858905,4
+fixed_early − fixed_late,shape,2.0740740740740735,2.4789926712120747,4
+fixed_early − fixed_late,ood_bce,0.02816527080535889,0.1377928454469757,2
