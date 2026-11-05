@@ -12,6 +12,7 @@
     "outputs\\small_world\\experiments\\learning_order\\learning_schedule_final_accuracy.png",
     "outputs\\small_world\\experiments\\learning_order\\learning_schedule_binding_trajectories.png",
     "outputs\\small_world\\experiments\\learning_order\\binding_image_swap_sensitivity.png",
+    "outputs\\small_world\\experiments\\learning_order\\small_world_nine_seeds.png",
     "outputs\\small_world\\dataset\\synthetic_scene_gallery.png",
     "outputs\\small_world\\dataset\\scene_counterfactual_examples.png",
     "outputs\\small_world\\dataset\\yellow_presence_distribution.png",
