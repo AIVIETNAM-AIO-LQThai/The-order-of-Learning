@@ -1,0 +1,1545 @@
+{
+  "analysis_name": "representation_evidence_analysis",
+  "generated_utc": "2026-11-09T13:34:39.277678+00:00",
+  "git_revision": "d7137ddf6314fe7e448e6c5808aafd0fd645eb7b",
+  "scope": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "schedules": [
+      "mixed",
+      "prereq_mixed_pair_focus"
+    ],
+    "steps": [
+      5400,
+      7200,
+      9000
+    ],
+    "splits": [
+      "id_dev",
+      "ood_dev"
+    ],
+    "dataset": "frozen Medium World"
+  },
+  "software": {
+    "python": "3.12.4",
+    "numpy": "2.0.0",
+    "pandas": "2.2.2"
+  },
+  "source_hashes": {
+    "src\\medium_visual_world\\learning.py": "e2bfb734be75ab57969710622c6797878ecbbe56171b6b96715d66dda62fcf03",
+    "src\\medium_visual_world\\world.py": "95fa8176df96c588a6662a62d405590ff04a98d2ed0b29b8b5f653ec14184553",
+    "src\\medium_visual_world\\render.py": "b2d4d862026382e266ef2002eeaa81d2ea7a312dc11ac26f15c878243c94ffb8",
+    "src\\medium_visual_world\\representation_probing.py": "5249fbded42d6bb9192276c5d80317f4a340ca73624ec8ae42d806dac52a006a"
+  },
+  "checkpoints": [
+    {
+      "schedule": "mixed",
+      "seed": 42,
+      "step": 5400,
+      "sha256": "1a5f298404afbfe33c736a02a8b49b4fb77aab7bcb62ce3c94ea72dee8109111"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 42,
+      "step": 7200,
+      "sha256": "eb3e098b5ac9ef520d93d7359a4b74b79b806de5745fcdfad66d4cb28b4a34b2"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 42,
+      "step": 9000,
+      "sha256": "ce6a40dcda1c502ace8a3bfaec368b79772e00796e01f637aa1cede44ad3f7b6"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 43,
+      "step": 5400,
+      "sha256": "c926ae40f795bbe0c54a3fa3bb60f52f975e4dad418728aeefd9e8960ae675ab"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 43,
+      "step": 7200,
+      "sha256": "8d0dcc9706e4abbf5b01a93d5de53a914f89c4841f3e3e0147c84e8652e284d0"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 43,
+      "step": 9000,
+      "sha256": "a3c7e979fcef434e6b949f7215b64b0d1ea02f394a552ec32d2961c8ac8572db"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 44,
+      "step": 5400,
+      "sha256": "80339ce336bf688d27020d049fcde4698d0fa367033605cf9cae498c19805759"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 44,
+      "step": 7200,
+      "sha256": "ca2063a0616c880de7ac3176c0dd9a8aed1f405afc5bee5679f8a342274fcad7"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 44,
+      "step": 9000,
+      "sha256": "7387a9f1a497e2eeb5e669ea0aeb5fe57b7fe97896eb43268a87117688b1c3b9"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 45,
+      "step": 5400,
+      "sha256": "4251f7d5185c097270a625ba673764bcaa32c901a91845513c83530de7e1a684"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 45,
+      "step": 7200,
+      "sha256": "72a8a550f798d6601cc5b75b80fe9c7e6e741bfa8f7c356b39d058b95d2d441e"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 45,
+      "step": 9000,
+      "sha256": "ff9cdd89b12fa65bfe91201fde7dcc3f053fa17e41c84fec6299b9c7f787f377"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 46,
+      "step": 5400,
+      "sha256": "096e34abffb78fd10d65b16573d805f5e8ee0ab2486493ee3da513976f6907cf"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 46,
+      "step": 7200,
+      "sha256": "f468730755db8b532a5e399a87e3c3885af49b2e0ffa2004b10627f8924c8c47"
+    },
+    {
+      "schedule": "mixed",
+      "seed": 46,
+      "step": 9000,
+      "sha256": "4dafb7fe2e9ce30c5829095fa901ccec89a89c44cf8a82b06f84f09a0a943a6e"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 42,
+      "step": 5400,
+      "sha256": "651a0caf77accc08c8a8576db75689dd9b0dce87c77f1f0a7ab3632155fb57bb"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 42,
+      "step": 7200,
+      "sha256": "3c4e13106cd2a01f0f00e97b30c3d78a46b165e2095c54e7a7f55cd237a83ebf"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 42,
+      "step": 9000,
+      "sha256": "39dc3b6a6fb5f0d5ca15c480559d003e2f7eaa3273e2af1ef45a888abd24d4a8"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 43,
+      "step": 5400,
+      "sha256": "db8e9d7478c20981bee034b67fe5f7652b69152e6a798351ce43321815bd40ce"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 43,
+      "step": 7200,
+      "sha256": "0ff32d610289beaf555af9926ae7399c40a4beb503fbd0cb7854d8f5526e8fee"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 43,
+      "step": 9000,
+      "sha256": "8dae312f0f6c9e4bca584e611e8846040af39f0f23b23386c4a74e42bf7057ac"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 44,
+      "step": 5400,
+      "sha256": "a26fc4c1dc572d07e4b76de571840c23c974d3b3051abdba492c324ee1e963ae"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 44,
+      "step": 7200,
+      "sha256": "2b90f7590a7cec2d4a6dbce4a71f2c6039789eb6616712888d9bf36ac405b0d3"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 44,
+      "step": 9000,
+      "sha256": "1192334dd351b24e7a605140859fc12f7083db8a30c58f04962fa35a0d7b750b"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 45,
+      "step": 5400,
+      "sha256": "58175de978a8e952ef19411ca20df6f40e5c88f8ae5e943e42003c5e05ac1a20"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 45,
+      "step": 7200,
+      "sha256": "33893d6c2db873fefc4ab16b172ae456b16f574b1f2f9f7236365438f100e6c7"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 45,
+      "step": 9000,
+      "sha256": "4afccb0f879eb790a69fd4521d5846b382b046405919d1ffff312ef105e544bb"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 46,
+      "step": 5400,
+      "sha256": "aebeed6c186b455a0910d2aa1c44f6eb0e7f77c942ab9d9631ee6a42d08c5fdd"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 46,
+      "step": 7200,
+      "sha256": "7b31468715294d37acc75aee4905e0b818bc810117427361c37d00b58d42c28c"
+    },
+    {
+      "schedule": "prereq_mixed_pair_focus",
+      "seed": 46,
+      "step": 9000,
+      "sha256": "8bf1e1b7b1c20c1391a399dd1b91a177ad443795bf4e411c021a3cc55720a844"
+    }
+  ],
+  "checkpoint_reproduction": {
+    "n_compared": 60,
+    "mismatched_predictions": 71,
+    "max_probability_delta": 0.1157318353652954
+  },
+  "inputs_read": {
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\checkpoint_manifest.csv": {
+      "size_bytes": 9403,
+      "sha256": "731aaff1512ea9dbb9051493ea48c47d6020b1824daafe1a45b50ef48fbf884b"
+    },
+    "outputs\\medium_world\\dataset\\train.jsonl": {
+      "size_bytes": 7086856,
+      "sha256": "69deccacbac6db25f7ffc8165f01545483d856855282ea640997f6660ce27c26"
+    },
+    "outputs\\medium_world\\dataset\\id_dev.jsonl": {
+      "size_bytes": 728934,
+      "sha256": "ece4b831f1f7fe6efad42b18aca499f12c2d573baa76fc218864bb56fe24b11a"
+    },
+    "outputs\\medium_world\\dataset\\ood_dev.jsonl": {
+      "size_bytes": 290640,
+      "sha256": "208a7566cc2082fa4438ec0d003430d0927c54bf82c55bb40fa885ef4961e0aa"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed42_step5400.csv": {
+      "size_bytes": 18187371,
+      "sha256": "1cd314134e6316e6f1be23027df5e4af363fcbd8b3207f0408b0d57aa549559e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed42_step7200.csv": {
+      "size_bytes": 18193089,
+      "sha256": "2c3e443ef18c51cf5d225c9eaea4259e6a24663b90dcf69d98c6186f5aecc452"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed42_step9000.csv": {
+      "size_bytes": 18197806,
+      "sha256": "0739604820b7ecc48d83c12a06457349ab8f12ebc878809bb2ae475a65233b1e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed43_step5400.csv": {
+      "size_bytes": 18178814,
+      "sha256": "1debcb43e04aed9fa650522e0c5c4ed77068e88e58b5ec913b25d2ced5e0a476"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed43_step7200.csv": {
+      "size_bytes": 18197596,
+      "sha256": "301a123acecf3c74dead3e8cc57e6d56e8a3db3d17576023d5e3a480d66df3af"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed43_step9000.csv": {
+      "size_bytes": 18197992,
+      "sha256": "43faddaed79a692f634ac03febd79b4e48c4a0ac3e70ec789adace62c955b9ce"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed44_step5400.csv": {
+      "size_bytes": 18118128,
+      "sha256": "e9bccd28076ce48d441c03f0fffda893f64881996e2b5f3f3705a04d30bcd346"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed44_step7200.csv": {
+      "size_bytes": 18124782,
+      "sha256": "979dde60172733177ccb54bb87997e0d1e4501b44314525cec2acad2938c6bc6"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed44_step9000.csv": {
+      "size_bytes": 18133092,
+      "sha256": "461158b13f2fcdc129c7c92bcffdc47b1686fef11e348eee9f5164c769f7240f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed45_step5400.csv": {
+      "size_bytes": 18197043,
+      "sha256": "5d00dcbdeab399dd8b8b4938abb7f4eef67098075bd4d9cea1e753d132888d2d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed45_step7200.csv": {
+      "size_bytes": 18197901,
+      "sha256": "7a6c575fcb00a3316abfe91ff550d02d80eef1436ba16a315dd5f6206c8bd4c3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed45_step9000.csv": {
+      "size_bytes": 18199260,
+      "sha256": "474fc27f8a257256aa573afeb6940d28bb56c374dcebc2bc52c7eb30dd6cf831"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed46_step5400.csv": {
+      "size_bytes": 18151919,
+      "sha256": "cfdf92dec404c5f8904b0946296d969c47e71f7ff425a80d223c0581fd48c28c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed46_step7200.csv": {
+      "size_bytes": 18159795,
+      "sha256": "4889efc564853d5a289c6adb6ff68d00f19336fc3d38057960d5dc8d0d3cabe0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_mixed_seed46_step9000.csv": {
+      "size_bytes": 18165820,
+      "sha256": "0713a2a5c8e41c441f378d0f9890f89e26cb9b54b42b6686e33260f080310136"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed42_step5400.csv": {
+      "size_bytes": 18924374,
+      "sha256": "6f2318b1a53ce7875a1f0816d083fc10aec60c50343e8dc8cacb2d91636be8f2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed42_step7200.csv": {
+      "size_bytes": 18951884,
+      "sha256": "1358bbe2867bc2c3794bb5f9df010b9bf7eb01bad9b2215b77c4c9993a304def"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed42_step9000.csv": {
+      "size_bytes": 18930300,
+      "sha256": "2c921fb5c2cf7bd2645b6cf8b289aab43f864e8427c5842da5eec7e85c738ca5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed43_step5400.csv": {
+      "size_bytes": 18929627,
+      "sha256": "abc31c172eb5ebf1ee8eca3a9330828d12f2d8144e188231d6b1b83ef07a3fce"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed43_step7200.csv": {
+      "size_bytes": 18924894,
+      "sha256": "9254f0e15573293e9989ac4da3c72a7979cd52a9c14bb9d0c5945f48d0a80cf5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed43_step9000.csv": {
+      "size_bytes": 18942023,
+      "sha256": "30b8d6629f3f919b0eaad04d212b13594eb8b7ed99df98f41260458609a998ee"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed44_step5400.csv": {
+      "size_bytes": 18886446,
+      "sha256": "00a0b8df7a0155bd43701ad85df90cd09a3b32d76310827bae2274ee8c568aca"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed44_step7200.csv": {
+      "size_bytes": 18854584,
+      "sha256": "9973c84c6af7713a5722134f3f8419f056e0fc53d80f1ffe6fe1707ad0e74936"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed44_step9000.csv": {
+      "size_bytes": 18885313,
+      "sha256": "98109e748bbc1f74db0c433920329cbc6f8b68ec0469ab665c49b8c34cc1281f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed45_step5400.csv": {
+      "size_bytes": 18936272,
+      "sha256": "0c7149e91cb76f8c444dd94a05bddf6ca67e55aae1c02516594028a8349bc534"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed45_step7200.csv": {
+      "size_bytes": 18934821,
+      "sha256": "b5064ba20ff2b3a04031230718f3ecce89b8d2ef3047b7f0d887789313fea395"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed45_step9000.csv": {
+      "size_bytes": 18935178,
+      "sha256": "f03a713f7723f0367e9d769cd0eddec764d1340a77bdd1c131127ee74beadd6d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed46_step5400.csv": {
+      "size_bytes": 18917130,
+      "sha256": "1a04a1dace558e846f47924032849726162fde378439a4ed53dfd4ed210fe1b4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed46_step7200.csv": {
+      "size_bytes": 18906128,
+      "sha256": "c011e08757fdd7c7deb75f34114464c50ca32a29f55ebcbf4314d6b4a5bf5114"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\same_scene_id_dev_prereq_mixed_pair_focus_seed46_step9000.csv": {
+      "size_bytes": 18910671,
+      "sha256": "f6c4a0768318dd2ce15a93ed60a802c9cb8254094e503392fb486a393c50fecc"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\original_checkpoint_performance.csv": {
+      "size_bytes": 10005,
+      "sha256": "354876207dff39226a3e2b7cee9b5f8679de66f1eda4c2bbc69cae4db9f573d4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed42_step5400.csv": {
+      "size_bytes": 1170282,
+      "sha256": "a55ec3728008521cdbf17c6e6ca56e361f8b7b9f1dd09f0c25bdd4d3ce5792e8"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed42_step7200.csv": {
+      "size_bytes": 1170064,
+      "sha256": "3466bfa4b75d95268b199b351ea1597da75bea570935e05e3fee30f1a0b50ead"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed42_step9000.csv": {
+      "size_bytes": 1169643,
+      "sha256": "c028242d0e1365b3d5ad86b164f7c9549c373bc73a17afef13f4c44ad204b753"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed43_step5400.csv": {
+      "size_bytes": 1170793,
+      "sha256": "9540935b62e6ab70721ddb12c3280a1aca7557120b83efc01331eff4e63d0cc0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed43_step7200.csv": {
+      "size_bytes": 1170737,
+      "sha256": "4dbb0e66107e5d90af5a0a9baf0cd4467df59bf3d4935673d8e934e603dc32b0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed43_step9000.csv": {
+      "size_bytes": 1170421,
+      "sha256": "91732125b4dc19988528ce91848c28885955d4f769fa20d8d12da00710ff3d7d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed44_step5400.csv": {
+      "size_bytes": 1169817,
+      "sha256": "7274e24ee08d5bcdf5353cb43a9329edc70d7e794a069fe6e02221f3f5d6010e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed44_step7200.csv": {
+      "size_bytes": 1169563,
+      "sha256": "43a3efad470469dde654fb3712b3314e67c30efed9ea6589406086c079cf44c3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed44_step9000.csv": {
+      "size_bytes": 1169671,
+      "sha256": "0f97a6a0f8de33e3ff591a019260f83344af9494961fb291363d4962d9a90c83"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed45_step5400.csv": {
+      "size_bytes": 1169381,
+      "sha256": "262bfdd9289b4ce0e83f7e161cf4abe274c140f0dbc2d8b01e958034876aa2d8"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed45_step7200.csv": {
+      "size_bytes": 1168915,
+      "sha256": "c096eed7a8d9a78333fbced053dda89b340fbf1f9ae527fae6d72c6af671e366"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed45_step9000.csv": {
+      "size_bytes": 1168739,
+      "sha256": "6b7467b61f1db2b48a086b86f4910cc117a125e5e4238cee6468588a164f8de2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed46_step5400.csv": {
+      "size_bytes": 1169572,
+      "sha256": "83b044c14f0ae490eccfc0b2eab68a1a9fe38f70336629081cf6528e3584f911"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed46_step7200.csv": {
+      "size_bytes": 1169306,
+      "sha256": "749987d40b5582669e15853cc8021203052db623b34386ef20fee2a0478cc71d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_mixed_seed46_step9000.csv": {
+      "size_bytes": 1169047,
+      "sha256": "72db7fe2e93f1cb20c865dfaac3d6c76d76f889703cd8fc840a6fce265662ed2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed42_step5400.csv": {
+      "size_bytes": 1227993,
+      "sha256": "b91c98c15d31cc085d5f908dd4e6b42059d1cbf99d62274e414986bcc3478814"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed42_step7200.csv": {
+      "size_bytes": 1228965,
+      "sha256": "56c60ccf0b82394c9b4d61a45339e4666b185c53298e85ff6f00bdd536064af6"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed42_step9000.csv": {
+      "size_bytes": 1226843,
+      "sha256": "562694138843ae81b4e49eea475b7ddb63addc6662fdf4b9b5ea86b6c962b677"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed43_step5400.csv": {
+      "size_bytes": 1228354,
+      "sha256": "ae02fb933763320fb6bafe275d52a043784029e572462aff952c0c9887e752fa"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed43_step7200.csv": {
+      "size_bytes": 1228007,
+      "sha256": "a55758fdd880fe5dd0815b162a86fa5ac49c742db6e9f215e2d4d90d36831043"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed43_step9000.csv": {
+      "size_bytes": 1227990,
+      "sha256": "72dbf1347bb24339d22fa54af5cd40bfa3e186f035a3c6c42fc93f22c6131f50"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed44_step5400.csv": {
+      "size_bytes": 1228975,
+      "sha256": "186bc9e0f036b95f4733c32130b582f7a4eae9b303cc2e844f3bacb73f7c795f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed44_step7200.csv": {
+      "size_bytes": 1228501,
+      "sha256": "d3a81647a2956882e054c3885579fec6739f846d0328e1bac984c146ba1fdb18"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed44_step9000.csv": {
+      "size_bytes": 1226995,
+      "sha256": "0f31a0f77f86db24958629d91a24be896752c62fb3da22cb86ac310230842ded"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed45_step5400.csv": {
+      "size_bytes": 1227590,
+      "sha256": "1858684c3e54eda21f089d1291ec60c806a0134d895870f6b7283cc0f8c3b36b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed45_step7200.csv": {
+      "size_bytes": 1226617,
+      "sha256": "c1c8b25a36dde05cb36bdcff92452884e764e9c840a43914cdf02ab90afe698d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed45_step9000.csv": {
+      "size_bytes": 1226080,
+      "sha256": "a6e4c6df5e6d930bbc405712cf9d8cf4802be5b590c022e0ff039e77b8c00fe6"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed46_step5400.csv": {
+      "size_bytes": 1227813,
+      "sha256": "a6963f44576889238f639fe87233aaef6849f11b4740d19d4fc72528a72a2f4b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed46_step7200.csv": {
+      "size_bytes": 1226586,
+      "sha256": "25ccb82c309889f9236880e83368aa9250747a030acf7822a1c28df475ef6cf0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\counterfactual_id_dev_prereq_mixed_pair_focus_seed46_step9000.csv": {
+      "size_bytes": 1226678,
+      "sha256": "6cf0c2467d8a40b2bdb75788eef92df1f771bbb085cc176b881cd66c9ab765cf"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed42_step5400.csv": {
+      "size_bytes": 2224199,
+      "sha256": "62c8929b0ee84a150be59a95b80a0bbef2c3b8658ca5d1ce2805f3c9b587b619"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed42_step5400.csv": {
+      "size_bytes": 2041103,
+      "sha256": "184f04bb4a8af722d7bc8791f04914c7b537c5ee280facfb50c8c5b9a6c73660"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed42_step7200.csv": {
+      "size_bytes": 2224351,
+      "sha256": "35b768a5036527d6ce739635fb60327ebdea5b36ecc2597fe0455fbd8ee45179"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed42_step7200.csv": {
+      "size_bytes": 2041251,
+      "sha256": "b3956f8b88d82f8120bbe92c19be1b7e372e3cafc661a7a4324df42d3d88d847"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed42_step9000.csv": {
+      "size_bytes": 2224774,
+      "sha256": "ce080bc46d5017f3f21f08671a3c06dd30d4d4149a71697cfd1dd5243a06d520"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed42_step9000.csv": {
+      "size_bytes": 2040760,
+      "sha256": "27ab1bd6d5c327680f9acc5ed1900856cbfb9a8614311f2024e1473a4242a057"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed43_step5400.csv": {
+      "size_bytes": 2224274,
+      "sha256": "ab6a4be14f56d923692a4bc0e364cce26007f2f3001932a306597c1065c42a5e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed43_step5400.csv": {
+      "size_bytes": 2042236,
+      "sha256": "9b5e87b924633e9e62eef688b28a40a0bac3451b743da3890a20d62d4405876a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed43_step7200.csv": {
+      "size_bytes": 2224412,
+      "sha256": "fc0102f79de3418ff3520e695af7e8f68916202c1a4dc54b5a53023d8fcf91c9"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed43_step7200.csv": {
+      "size_bytes": 2041916,
+      "sha256": "46bf607791a5ff11902e35594f27d56fc1f14eb598e0d7c5c3e5ee1733bf66ad"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed43_step9000.csv": {
+      "size_bytes": 2224557,
+      "sha256": "cb7b1e3e0c41391dbf2532a9e81501192ef07764c25cea9464027b935e566156"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed43_step9000.csv": {
+      "size_bytes": 2041950,
+      "sha256": "b6ef49a33eaaafaa1ad89092b3c097a255099f0407ad955b07123b82ed1a55d0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed44_step5400.csv": {
+      "size_bytes": 2223466,
+      "sha256": "87a02e19af4fd4fd9e94f37532dc1b5c2beebb8b7d265b1cde5e4b957a5b784d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed44_step5400.csv": {
+      "size_bytes": 2040387,
+      "sha256": "32ee737b1e66d7c1e0017b74826a580aaf9536d9457ef27b40d027f50a5da86c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed44_step7200.csv": {
+      "size_bytes": 2223816,
+      "sha256": "15497b187aeaeb123c03740400bd279462abe274bc8168f6c22d05249f05a9d6"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed44_step7200.csv": {
+      "size_bytes": 2040186,
+      "sha256": "bebdfb8ac22f0efe2699b8088e960c76c650460f265510770b939ab988395e74"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed44_step9000.csv": {
+      "size_bytes": 2223726,
+      "sha256": "d7b13adbd61a6338f750bd37a950d615c65d00909ea1a53de4dd11ef8861faf0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed44_step9000.csv": {
+      "size_bytes": 2040812,
+      "sha256": "3902572532ad620736933577c53d53d53aecc3ef75ee2c7b70392b227b4213a3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed45_step5400.csv": {
+      "size_bytes": 2223400,
+      "sha256": "29047cd16336dab2eeb8e1d15f55651f82bc95080ff3db012f60a6400e152299"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed45_step5400.csv": {
+      "size_bytes": 2041205,
+      "sha256": "91beafefea9643d2e74cc5f54ce95fbe406f1080a2acc22ca07435836ec5d817"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed45_step7200.csv": {
+      "size_bytes": 2223916,
+      "sha256": "77b2e0c464604f69aee6d13c788ce3c5bab6e557a277c8f46c951af52ed640b1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed45_step7200.csv": {
+      "size_bytes": 2041256,
+      "sha256": "f8e1c833a612028628586d55e61d4725c1141d50b97f65ecd3674e1057f1a13a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed45_step9000.csv": {
+      "size_bytes": 2223821,
+      "sha256": "afba05bac75e7bdd7d9e25b1d400b142902ff30b77eed48eba7729063572a513"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed45_step9000.csv": {
+      "size_bytes": 2041687,
+      "sha256": "db7456984d231e62149cae454ba1630143b151a5e2cb2ee457edcdd1080383d7"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed46_step5400.csv": {
+      "size_bytes": 2222887,
+      "sha256": "5e4967cd2b9db29a1b02a7b0f75d0e03099c2542857b0696f1d405205db08515"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed46_step5400.csv": {
+      "size_bytes": 2039819,
+      "sha256": "ba10b0e726c55400a71458e82b3f3f47cbadfd46569e4138cac6574c7e83c547"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed46_step7200.csv": {
+      "size_bytes": 2222011,
+      "sha256": "b16aecfd28b6c6ce3c895b7999c8b9ade629be54b06e6d8512d83fce5247c0aa"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed46_step7200.csv": {
+      "size_bytes": 2041199,
+      "sha256": "691de8a7c618ccdf7db37a4ad8bc4f29c2fc292f057b1a1850c75237bf21b521"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_mixed_seed46_step9000.csv": {
+      "size_bytes": 2222057,
+      "sha256": "e8dc98e80a8d1c075c78bc6eb026ff488714a770aa943f7c312b6f3220e9ba3e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_mixed_seed46_step9000.csv": {
+      "size_bytes": 2041794,
+      "sha256": "eee78eaa2ef8ef7bf78a818f65c3568ae552417d1a2d3bde7dd21b65de19b9ba"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed42_step5400.csv": {
+      "size_bytes": 2322830,
+      "sha256": "a6965ed1c500ba27f2523c28088f670baf4402a03dd17b70c64425d596c25c8f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed42_step5400.csv": {
+      "size_bytes": 2224028,
+      "sha256": "4de70a00f114b3079fa3735d74ee165e81fd03c6aac30abeaff9fd3aad9885af"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed42_step7200.csv": {
+      "size_bytes": 2324072,
+      "sha256": "ecc05eaab7625e6c0523ad7b3c94078b4a23a218a69de71901a94d2e27e4d229"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed42_step7200.csv": {
+      "size_bytes": 2223468,
+      "sha256": "f2b981a25009b271f7a19a0fb997ac1e84686ba9967965f81a01777f7f83167b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed42_step9000.csv": {
+      "size_bytes": 2322777,
+      "sha256": "e4b3d1f7f2c51a0d683302cda4447583888b157a31c74efcfcbea660cc0c2561"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed42_step9000.csv": {
+      "size_bytes": 2224798,
+      "sha256": "3bad0fdd105ddce134f4d4966e95e2a1d478189f52cb02b06d6af124f828982c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed43_step5400.csv": {
+      "size_bytes": 2322956,
+      "sha256": "aa04250e7287f486710199b65099eabb288346c9286e301fd85b41e12085f1a5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed43_step5400.csv": {
+      "size_bytes": 2224390,
+      "sha256": "4f1f48a8d5bbb84229d40492ae6e1de60da110108f427d3f2ac6f5c985d9a0d1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed43_step7200.csv": {
+      "size_bytes": 2326449,
+      "sha256": "9dc44f98565eb09e5b69ef69df4179c42af78217cf63bac2ffb077b77e3743d7"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed43_step7200.csv": {
+      "size_bytes": 2223746,
+      "sha256": "747b09e0166981f1dfed941f18c8ea009354a53d2978a86f72e61c6962fecb65"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed43_step9000.csv": {
+      "size_bytes": 2322784,
+      "sha256": "9016fd221a6b3ecb3744f889208524721adffa703ebeb08ff871912fc31f408b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed43_step9000.csv": {
+      "size_bytes": 2226509,
+      "sha256": "54260d161e4b36420c0e17f1bc28f7fc6862856fdc45f3de47977f60eb4a4e36"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed44_step5400.csv": {
+      "size_bytes": 2321827,
+      "sha256": "9c350da0d8260d73996e552585424941618e8367254e4488d5891b1cfcbf9dfc"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed44_step5400.csv": {
+      "size_bytes": 2224154,
+      "sha256": "1745b7fdbbd8c5742c0b8a43909232cd40672db7d00e8a2bb38ee7d1bf10d57b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed44_step7200.csv": {
+      "size_bytes": 2322905,
+      "sha256": "b2e220ee54b3a67d89beab6cf136aaab1cee19474ca3f1ee57c2c330c6ff835c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed44_step7200.csv": {
+      "size_bytes": 2226047,
+      "sha256": "c88a1fcf7782114432580c420a350670d86bd3c7b4f6c31b9ba834e6c8a4c1ca"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed44_step9000.csv": {
+      "size_bytes": 2321396,
+      "sha256": "01fd82b5cc72e992d2ad8ffa897f13de6bdeff63489cb0a69a3dede2c4c1fc8e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed44_step9000.csv": {
+      "size_bytes": 2225536,
+      "sha256": "535f036d7005dd3ed009f8ce951e8c92971e328b997bccbcdb8e06ecf4d5d1aa"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed45_step5400.csv": {
+      "size_bytes": 2322414,
+      "sha256": "d55b57a38594ab744a421fb37b5333b5d85e86b7ad01e0957720e226c13b9791"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed45_step5400.csv": {
+      "size_bytes": 2224204,
+      "sha256": "94f86d0f587f8f834df5a2f075fe349529f883048c1987664c7f6aeec6a9159e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed45_step7200.csv": {
+      "size_bytes": 2322649,
+      "sha256": "8408594dd1b4ea6d978f225d1dccc01832c97f4a7b922dee3a4cead6ebfc0e49"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed45_step7200.csv": {
+      "size_bytes": 2225531,
+      "sha256": "b59aa04750e7ca1a28d92276f3966c93f1f24d711595319d5c0f237f6c0a31d3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed45_step9000.csv": {
+      "size_bytes": 2321765,
+      "sha256": "f4226f54a3c5a5db034a13c2bdbe91f5118f931f19ad2c1d1b5b6950c9f029c9"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed45_step9000.csv": {
+      "size_bytes": 2226785,
+      "sha256": "f82ccea1227c4aa823a1f04ac806acc5553872a70f5aa7d481125c4218c2b9f4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed46_step5400.csv": {
+      "size_bytes": 2321552,
+      "sha256": "9bbeb9a7d82eeb2f001657b207255533f3ef358716cdf9c07f7f3c09b078d0f3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed46_step5400.csv": {
+      "size_bytes": 2225998,
+      "sha256": "e57f545beb00a5152e036d6d9104902fe2267678972faf5d7d208342da7c7f7a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed46_step7200.csv": {
+      "size_bytes": 2320726,
+      "sha256": "96e9dfa52d233cab16d9225eca0b46252eca9bbdea62cdb3a5744ddaa416fbe4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed46_step7200.csv": {
+      "size_bytes": 2224965,
+      "sha256": "69898cb5e0a647b0176cfd4a7b5074bba9b706cb44b557b83d42b9d85325d65e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\invariance_id_dev_prereq_mixed_pair_focus_seed46_step9000.csv": {
+      "size_bytes": 2320568,
+      "sha256": "ed8aa9c178380dd9cc31046c1fe3bab4890ff49a66b42359d7365b75edd7fe95"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\logical_consistency_id_dev_prereq_mixed_pair_focus_seed46_step9000.csv": {
+      "size_bytes": 2226646,
+      "sha256": "f35a59c28f98eaeeb70982ba30a2b607a520c9920b54b093aa81c4d33378e952"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_mixed_seed42_step9000.csv": {
+      "size_bytes": 9490549,
+      "sha256": "07e4582fc5a3c6fdf8ae5c1e27306977105e9704e142be373620b9cafeb1de85"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_mixed_seed43_step9000.csv": {
+      "size_bytes": 9490716,
+      "sha256": "c491fe8066449c7a50a1eb5d4f211a8b944ad0ea7671392a8c57b9a301094b15"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_mixed_seed44_step9000.csv": {
+      "size_bytes": 9490950,
+      "sha256": "0ad3ebf7cb823a7b32d8f8929c0af4650162e7bec27f25168bfd5eba337809e4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_mixed_seed45_step9000.csv": {
+      "size_bytes": 9490774,
+      "sha256": "cfd2677d78d193c1119ffbf2bd19f115cbb79dabc1c395e61c2b3f2c0a25ecb3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_mixed_seed46_step9000.csv": {
+      "size_bytes": 9491405,
+      "sha256": "b5daa5df3a6124201bae057c5d0f9fa8b02945cb67dbae79bddad05a47672ccf"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_prereq_mixed_pair_focus_seed42_step9000.csv": {
+      "size_bytes": 10294285,
+      "sha256": "ce7d2a0a7134bdcd90afab5fc76bd970f73932c2df7237895949b971c9f29411"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_prereq_mixed_pair_focus_seed43_step9000.csv": {
+      "size_bytes": 10294458,
+      "sha256": "a766212b203bcd45978c7c036a090db85006746d90c4b44cd9c33ca2b703c361"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_prereq_mixed_pair_focus_seed44_step9000.csv": {
+      "size_bytes": 10294592,
+      "sha256": "9d115322c9121a9c351f3741f8e13dd74f9d731cb5d4f12a6787010d22b470ed"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_prereq_mixed_pair_focus_seed45_step9000.csv": {
+      "size_bytes": 10294437,
+      "sha256": "0a3703738fa0e86b310d1c3bda5a6d23990ea0402a5ddd1e0be7f879f02967de"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_predictions_prereq_mixed_pair_focus_seed46_step9000.csv": {
+      "size_bytes": 10295069,
+      "sha256": "96ebed59bac6cc3fd106ccd959fb4c1e06f4289f924b6704d678a9f6a3129af5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\probe_shape_by_geometry.csv": {
+      "size_bytes": 211981,
+      "sha256": "4270fc05ebb42e5a1fa5b4eebb156efd02cdc39b2b31c854dc09a456d2b0503a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed42_step5400_random.csv": {
+      "size_bytes": 424023,
+      "sha256": "41fe4de48774eb1d581e6fe6b3226f372f05aac59d0363ebccc10edc178d813d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed42_step5400_trained.csv": {
+      "size_bytes": 420968,
+      "sha256": "6cd79c5fc340505d7779403e6de5b3e17a53a5752201ddce1e86d13f75e376b2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed42_step7200_random.csv": {
+      "size_bytes": 424023,
+      "sha256": "5d6b8ca42972c86e534220394a08606dafd0edaa46523de712db198b8247615c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed42_step7200_trained.csv": {
+      "size_bytes": 421448,
+      "sha256": "1bb6903fe9dd965da4902c42037b9ffe272a88058a14cab71f7f4aefefe4af29"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed42_step9000_random.csv": {
+      "size_bytes": 424023,
+      "sha256": "bc2923b7d8d53a08cfbd731f844abef387c1914304bc52da47e2e19d47ae51b1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed42_step9000_trained.csv": {
+      "size_bytes": 421623,
+      "sha256": "2a1a3b2efc0db6cf2678fd124cde7e650e81dd64fa9815bb26b0b3d2683b52ba"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed43_step5400_random.csv": {
+      "size_bytes": 422951,
+      "sha256": "865255499f5a0007fa8219ac22c20882c0191d74def6b13c2ee7fe473f13b8e4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed43_step5400_trained.csv": {
+      "size_bytes": 421837,
+      "sha256": "a81cd9db2be87f1553cdec413619dc89567776d03abe01e93f896e2d4ccded02"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed43_step7200_random.csv": {
+      "size_bytes": 422951,
+      "sha256": "186ba41de5d7497574528dab0f095341c405da4c36db33d35b13ed6c607fd93e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed43_step7200_trained.csv": {
+      "size_bytes": 421534,
+      "sha256": "a0f7e2ab92ce0318616ab2acd5d9c0edfb25e91018cd72629dcca4d5eb4f7138"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed43_step9000_random.csv": {
+      "size_bytes": 422951,
+      "sha256": "61ee915bb8fcba411ec1eb7952f03dd28a015cf09ac76d6c22cd259ba5ebb3b1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed43_step9000_trained.csv": {
+      "size_bytes": 421506,
+      "sha256": "0a567d250028cfcf059b93a0ba5545199cbeeb832fa0a0bea775ba102d0d92c4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed44_step5400_random.csv": {
+      "size_bytes": 423183,
+      "sha256": "f2b7d0f571c044b5bc37bbe0a32f122af376537970a8bdebafcf37ecb1252c04"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed44_step5400_trained.csv": {
+      "size_bytes": 420401,
+      "sha256": "34d7e0b8bc69f64ae9de91e13d40e4f9f32faf0c20e6a19b225c0c263cbd89b2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed44_step7200_random.csv": {
+      "size_bytes": 423183,
+      "sha256": "250ddffc6957e3276a0d8c32e64729d30d68464e8b8230e1f10b6778eaab363e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed44_step7200_trained.csv": {
+      "size_bytes": 420756,
+      "sha256": "1f96484fa30d5a8f19fdde174efa8f73ba1f39b6ffd765b4b6ec239370e98e6e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed44_step9000_random.csv": {
+      "size_bytes": 423183,
+      "sha256": "e212c3ed9cebfbb2e6d54372558dd6bbcae50b8f03f00e854eebf9066c2e7a9f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed44_step9000_trained.csv": {
+      "size_bytes": 420826,
+      "sha256": "1fa664aa2442f20c9be9406baad1b4c707efe194b51c2d3f859c58d5278660f1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed45_step5400_random.csv": {
+      "size_bytes": 422892,
+      "sha256": "0fc36701a78341965461b26cb0edaa59c1bfd34006e640eddbabc313e088abdb"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed45_step5400_trained.csv": {
+      "size_bytes": 422798,
+      "sha256": "41018000202ad197aee7899e7a1adb48b17234cb1932adfa717933149c5fc320"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed45_step7200_random.csv": {
+      "size_bytes": 422892,
+      "sha256": "cbb5bc88d13f3a44ed36e52eb425e3ba7d3fd83fe74f61342b0e298d3f28306c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed45_step7200_trained.csv": {
+      "size_bytes": 422777,
+      "sha256": "bb88a78bd52565e5048ab7681fa602a617b19706a464c7a7c1a7a17e689f5b90"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed45_step9000_random.csv": {
+      "size_bytes": 422892,
+      "sha256": "8630c247a057142fa55919ef7c1ebc6a9d0eb274c2141e5d9cdce482bb4f7f84"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed45_step9000_trained.csv": {
+      "size_bytes": 423024,
+      "sha256": "62397b377f6693d1295d8ca6a7a8115bd624c3415a0d285192294be33c077def"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed46_step5400_random.csv": {
+      "size_bytes": 422987,
+      "sha256": "d2efb4885a21fe38e8b15eb78bf59cb9d8e0db4a48ec7b225e3b6933e99fafb0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed46_step5400_trained.csv": {
+      "size_bytes": 424274,
+      "sha256": "ee8bc89ddddd249083514a3e3c7b40f7b3c75c68ecb71d574d0e0bc1569cc02b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed46_step7200_random.csv": {
+      "size_bytes": 422987,
+      "sha256": "b82b5c25618e6403752e1adcce4a90668e9b9d176d3166c7b77ea9ad7b5a885a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed46_step7200_trained.csv": {
+      "size_bytes": 424211,
+      "sha256": "3fc57babee237b9605672ae24befd25563565ca4866280998e56e0c065bf0c35"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed46_step9000_random.csv": {
+      "size_bytes": 422987,
+      "sha256": "1960ee45d3fa553f8365f75b2ce08d4a447b97c29a7d7549de6e73fb10fafa46"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_mixed_seed46_step9000_trained.csv": {
+      "size_bytes": 424476,
+      "sha256": "65e6adeed326bba1c59e2a620b08e0b2c05f5dcf04be836b2c9036f22f646f4b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed42_step5400_random.csv": {
+      "size_bytes": 470679,
+      "sha256": "84d79b9df298974b4226c5510aa71840c9805dea165142963cebc0655d10c125"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed42_step5400_trained.csv": {
+      "size_bytes": 467074,
+      "sha256": "a95aa04566923af1f92f0935c4d596f2074ab1b158b6eed2cb946fc467f69835"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed42_step7200_random.csv": {
+      "size_bytes": 470679,
+      "sha256": "d81b026bb59d04ea4ae0d00a39230a089dc10346c855de1ef3679c3630a6edd3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed42_step7200_trained.csv": {
+      "size_bytes": 468950,
+      "sha256": "3319d9216ef2429cfc1ca0e95f6b5bd9763f93e11f3a3f0f4d11eb0e71e3f863"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed42_step9000_random.csv": {
+      "size_bytes": 470679,
+      "sha256": "6d6375cf3a055ab736263661720307b6c25a000cf07608936ad845534a35c2f2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed42_step9000_trained.csv": {
+      "size_bytes": 467332,
+      "sha256": "d7dbad919021bc0a80f960134c66871f4dd358aaf5a7ce7f527f9debc4f20338"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed43_step5400_random.csv": {
+      "size_bytes": 469607,
+      "sha256": "868157317f0c996931608957c8f4b86b171fa6c8c78328d9a138bbe495815452"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed43_step5400_trained.csv": {
+      "size_bytes": 468656,
+      "sha256": "4a32ecbaf3b9ed3569100bba4c84dc81b7ae8c7a253444513501b7338eff600c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed43_step7200_random.csv": {
+      "size_bytes": 469607,
+      "sha256": "ec78a3f0096a30d08adbb98cc35399e7c62bf3d26c3d93ca22b918162a972b1e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed43_step7200_trained.csv": {
+      "size_bytes": 470490,
+      "sha256": "78e3c647bb6acb4620df74400f06fe4c693f67266f5a2813a127218f595fd690"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed43_step9000_random.csv": {
+      "size_bytes": 469607,
+      "sha256": "6cb2893a2bceb3ca65ed7e23201a21170591d8b9eb73d408cbebe16c49cf684b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed43_step9000_trained.csv": {
+      "size_bytes": 468465,
+      "sha256": "86f99ea30d9369554d14050fea0dd7567eeb3df98865396a5e8dbbabd1dae1af"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed44_step5400_random.csv": {
+      "size_bytes": 469839,
+      "sha256": "b6598529add6ef44afd6ee7be781040c38226daa1bfb0fd49bcb640c4ebbffed"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed44_step5400_trained.csv": {
+      "size_bytes": 467770,
+      "sha256": "c080f3d1749f6e58fcbe12307e22cbd40d5068ba55a4b43275dffec8dbbfcf80"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed44_step7200_random.csv": {
+      "size_bytes": 469839,
+      "sha256": "2cee4a8f29908b3bb9426737f1c2c29b619f540b8c3e2e6b6c0fd20569e604e2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed44_step7200_trained.csv": {
+      "size_bytes": 468027,
+      "sha256": "c69b5792312cefb0924e816bbb4fc6e4460b181a43e98ef5137bd381154ca587"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed44_step9000_random.csv": {
+      "size_bytes": 469839,
+      "sha256": "b2b0f0e7fed8c9d966779ee2dcb24e4b02df691df4d6b9cac97f47a9ce6dafc4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed44_step9000_trained.csv": {
+      "size_bytes": 467883,
+      "sha256": "4cae910b809c75cf217e531108941320d57918dfffe212470ad2858be6c70fa3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed45_step5400_random.csv": {
+      "size_bytes": 469548,
+      "sha256": "a119d588d05e9e654c08d470955c4c09340a00b9f5ac99bb1b817ee0651c5d0d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed45_step5400_trained.csv": {
+      "size_bytes": 468446,
+      "sha256": "01a55e1a05ae82645fe3bd1d244c959cd2ae7006b44b6b510b8003fdb227776e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed45_step7200_random.csv": {
+      "size_bytes": 469548,
+      "sha256": "2dc9452d9ae175211df99dbf74ba397dcb5246a0f6b88e85a5dafce98fe583c1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed45_step7200_trained.csv": {
+      "size_bytes": 468852,
+      "sha256": "59f479e4a86fae50483d3dca8a688c80f62253baa62eb3dd8988282c023dd1c1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed45_step9000_random.csv": {
+      "size_bytes": 469548,
+      "sha256": "5859c239b65726866715efd2299a119cd64acff38c48fe51cfbf7b96364d00e2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed45_step9000_trained.csv": {
+      "size_bytes": 468240,
+      "sha256": "2b2379402b8f94f9a2e40780286b665bc0cc449cde7dd8c4c5f422496ea50927"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed46_step5400_random.csv": {
+      "size_bytes": 469643,
+      "sha256": "54e4e6d449baf08a96511c9b67cc99026d8e37a77e065c44e2559eb7391e6be7"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed46_step5400_trained.csv": {
+      "size_bytes": 470042,
+      "sha256": "cbee1457a53b3beaca2c270d6976d9b43986a5295fcb5cc7ddc7c487a80b4d8f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed46_step7200_random.csv": {
+      "size_bytes": 469643,
+      "sha256": "d13117f52a75536174a362f40adbbc1b7bea820c18063ea168577a806ca482ca"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed46_step7200_trained.csv": {
+      "size_bytes": 470737,
+      "sha256": "5fcaa861d074126fafd6ce48dcd974766abbdb744f207c1a0cd3abf91a705f2d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed46_step9000_random.csv": {
+      "size_bytes": 469643,
+      "sha256": "3fe3b53f2757593ddc16423872f98147737595ded043af67f627252270551e24"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\dissection_prereq_mixed_pair_focus_seed46_step9000_trained.csv": {
+      "size_bytes": 469992,
+      "sha256": "37d06881689dc04f38ed98385a16b53cd6c24d8031a1e236764e6767224a8987"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed42_step5400_random.csv": {
+      "size_bytes": 44006,
+      "sha256": "b657baced16daac847c62ea3588f7e3d3a829f051cf30dcb7878b124d5617857"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed42_step5400_trained.csv": {
+      "size_bytes": 44180,
+      "sha256": "e8df5aad3164b5c66b9ac4d8e70003aa71686dbb431be9fb680c5aed696b7a1e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed42_step5400_random.csv": {
+      "size_bytes": 43937,
+      "sha256": "7ec5de49be47fc5f57548bef13aa7e8ca5ab93c850107c10c0b761675c4914cf"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed42_step5400_trained.csv": {
+      "size_bytes": 44088,
+      "sha256": "e97efd44be54753132068b3ff80bfa6a3b4458e9582008ff1e83d86fc4318572"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed42_step7200_random.csv": {
+      "size_bytes": 44006,
+      "sha256": "575c36e0530f689c530266168f1a93405ce7b1259f74d6e8ae010f799b1598ef"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed42_step7200_trained.csv": {
+      "size_bytes": 44197,
+      "sha256": "fa7c3616e300cb08350e77a736dd0645733ce64114bfd17d7830ae5d27fce694"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed42_step7200_random.csv": {
+      "size_bytes": 43937,
+      "sha256": "ce378e2896673edab12f795eca2f12fdb24b79dd4c6ea53aa717ae4d838502cf"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed42_step7200_trained.csv": {
+      "size_bytes": 44111,
+      "sha256": "960063ac8866efd9348f486af7fcbfc944bd74fe24d735e7c77639fb79b6b02c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed42_step9000_random.csv": {
+      "size_bytes": 44006,
+      "sha256": "28ad4ac06c2e2bd16a90c41076c88f143ddb1c21d1b30da0b1f1100bb04bc77e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed42_step9000_trained.csv": {
+      "size_bytes": 44193,
+      "sha256": "8cf3cf9e872a7ca4d59440181f338e765d822981e6dccadc8151cece642f06a8"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed42_step9000_random.csv": {
+      "size_bytes": 43937,
+      "sha256": "c5cf482c68722b50641d1345cd51363069db37705e6571c818497dd29c7c915d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed42_step9000_trained.csv": {
+      "size_bytes": 44105,
+      "sha256": "6dfb38e7ddd087a73bf165e00aea8dcbbb5371aef6aa22ff76671a57ca77bb24"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed43_step5400_random.csv": {
+      "size_bytes": 43991,
+      "sha256": "75cf7f09a6f815b1c0e6734b0719daf72c7acb8ed998403a05bbb0e87fc3f896"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed43_step5400_trained.csv": {
+      "size_bytes": 44200,
+      "sha256": "b0aa3c6261109e36ebd638ce76b70415437246b8ad007cee0171a327cd558015"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed43_step5400_random.csv": {
+      "size_bytes": 43921,
+      "sha256": "f8246fd26bdbdd2d634d5033eeb2110d29040175bed0bc42381ec085e815e9ad"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed43_step5400_trained.csv": {
+      "size_bytes": 44133,
+      "sha256": "ac7562d5a02be4f23fdbc8babb37f33faebeb0c83513cb131a677c57f9029e49"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed43_step7200_random.csv": {
+      "size_bytes": 43991,
+      "sha256": "c0a3cd0111df9d7892bec681f886a34d254a2a0db86cb122b306cd67ff911eec"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed43_step7200_trained.csv": {
+      "size_bytes": 44190,
+      "sha256": "a1a2f4efc9fe9c063284b1c307d06bca3bd2e6df38b8d2a4cc4383a9bdbab593"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed43_step7200_random.csv": {
+      "size_bytes": 43921,
+      "sha256": "ea82b4e4b30e740c909dc2dec55485875be8695fd8f37813c71cbfc2472af1e9"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed43_step7200_trained.csv": {
+      "size_bytes": 44120,
+      "sha256": "2bc6d5814448ea878ecd9a09796add0edaed6c7a808213d310947f8da1b3fdd2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed43_step9000_random.csv": {
+      "size_bytes": 43991,
+      "sha256": "9572f7c2dd8980afcc2d2303ed5888e5088e8ed403c9a9ce86fb8a00dcf8ef59"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed43_step9000_trained.csv": {
+      "size_bytes": 44189,
+      "sha256": "0717db61a56efb38478491615ece23956a9e28d3e6321e7e8255756b689846d2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed43_step9000_random.csv": {
+      "size_bytes": 43921,
+      "sha256": "34350561038d01ddf6b5d9fc0fbbfc7567aff2dde4d155b210d5b26ab2bc1288"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed43_step9000_trained.csv": {
+      "size_bytes": 44132,
+      "sha256": "5087e6f324c90193a9a7ad10a5da4dfb26974928c180f1aee03d5079f80b8c8a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed44_step5400_random.csv": {
+      "size_bytes": 44010,
+      "sha256": "4fbe3abbc9b02b7f25bdf3293ab7bf04aa0b9431435f9167946c9fb17375a09c"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed44_step5400_trained.csv": {
+      "size_bytes": 44176,
+      "sha256": "fcda0e3f08485ac7490bdac00409af9741f9e5193ffdd947a235b1cf450959a1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed44_step5400_random.csv": {
+      "size_bytes": 43938,
+      "sha256": "3291706f4693f34effd3d40bd98ab0b6e1df6e241cf08b91aa3cb19e4740d717"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed44_step5400_trained.csv": {
+      "size_bytes": 44103,
+      "sha256": "0a8bd3f49bbd64848a9365e1527115f8df18a7cf02768550da82285babb6e8bc"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed44_step7200_random.csv": {
+      "size_bytes": 44010,
+      "sha256": "1e4f3776773f55394b60cfbe209cb54e315394e2328745f97e4cf7a9feaefa63"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed44_step7200_trained.csv": {
+      "size_bytes": 44175,
+      "sha256": "1f385ee8aa152c9aefd70c8d67fac1cb85524a61328fdeaf9017a5c039475899"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed44_step7200_random.csv": {
+      "size_bytes": 43938,
+      "sha256": "3b208841732dc2bac5f5bc2064004796cf310e0df79944b06209947bb03d003b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed44_step7200_trained.csv": {
+      "size_bytes": 44086,
+      "sha256": "c62fff62fb1632422494fe90d03931504279eac926f2fd51955578c021da6af2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed44_step9000_random.csv": {
+      "size_bytes": 44010,
+      "sha256": "4b4c72420a284b87fc40e269b87c6766bf5fa63a35a5454f7989f871e193efe5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed44_step9000_trained.csv": {
+      "size_bytes": 44190,
+      "sha256": "37aaeef54d03c612120cf3bf3ab1764db3301fd7de16a1139fe9f6ba0f9721a7"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed44_step9000_random.csv": {
+      "size_bytes": 43938,
+      "sha256": "4ad01d1e67aa8c621e6b495f509101cfd1b4f2fd6d739b0549912dd3d536c4ec"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed44_step9000_trained.csv": {
+      "size_bytes": 44102,
+      "sha256": "d1faa3ebd6ded2c779380999325f93e5b0221ec5f666069a1271b8b78b868692"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed45_step5400_random.csv": {
+      "size_bytes": 44061,
+      "sha256": "e16ab66c88a0c8ddbfa08ef7e10a86c29ef7a74dda418da27cc58d4e48ee1e08"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed45_step5400_trained.csv": {
+      "size_bytes": 44210,
+      "sha256": "f0312afc4c9396d6215cbd6fef61f3b1ee49274317d55543ca52e36a10b29766"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed45_step5400_random.csv": {
+      "size_bytes": 43980,
+      "sha256": "c3b7e699bc671a46c262365e277143f15b178b9044e51c6f152e022ea94092dd"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed45_step5400_trained.csv": {
+      "size_bytes": 44102,
+      "sha256": "01d3cfce0bdead27c406f37fb85a0460cf2af82c2062e0465920783b435cf390"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed45_step7200_random.csv": {
+      "size_bytes": 44061,
+      "sha256": "6183e2c9f8a0b3cd83c8319d92f079a7e2ff9865b309e6779dda1af341ceb9c9"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed45_step7200_trained.csv": {
+      "size_bytes": 44212,
+      "sha256": "033bd79ac43ab133865e2443035d9ee94dfc662fb95ecf1529085ee937ef030b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed45_step7200_random.csv": {
+      "size_bytes": 43980,
+      "sha256": "3e2459defb8aaac5ecded4d618bb6d6e4b1a47cac10dfd0aec18a5124eca0e19"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed45_step7200_trained.csv": {
+      "size_bytes": 44098,
+      "sha256": "bd42f74c5fb073a0d132aca1547c8bf0360fc4c8a982d1711bb9cf3aacd85c73"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed45_step9000_random.csv": {
+      "size_bytes": 44061,
+      "sha256": "b3ea62480cc20172128ff4b221946474ad8c156ab2dd53cb64e778cdb51c328a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed45_step9000_trained.csv": {
+      "size_bytes": 44207,
+      "sha256": "239121c79956c7a02dfcb6f05578ac4d4673b9a67eba9f430c72e1338d9a39c5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed45_step9000_random.csv": {
+      "size_bytes": 43980,
+      "sha256": "8d1fc3e5b4f370a2c8703d256943a924141b5000e29ad9bf37a7bb3d75a62664"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed45_step9000_trained.csv": {
+      "size_bytes": 44096,
+      "sha256": "1325610b91eb9ea4b61c488e8d875fe61608c71a17a6895ff6127f3ba18d535b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed46_step5400_random.csv": {
+      "size_bytes": 44001,
+      "sha256": "7869ddd385fce32e570f01b122e73e20c8a3b9e9aaaa4bcb1f64d7d615022414"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed46_step5400_trained.csv": {
+      "size_bytes": 44171,
+      "sha256": "ef6b10d67387e1cfc820e455d0b6999bf21774925f3466350fb052f7fee57fa7"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed46_step5400_random.csv": {
+      "size_bytes": 43920,
+      "sha256": "fae0e5b015ea57d0adadc1b654619a8aa6aa7922594f9131e52d24b86be21f11"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed46_step5400_trained.csv": {
+      "size_bytes": 44107,
+      "sha256": "c68dad646f012828707058ecd24e3a051e6c4da7f9e3ec09071ec8cfa61687ec"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed46_step7200_random.csv": {
+      "size_bytes": 44001,
+      "sha256": "de939708d1bb647ee6ac91afe3e1f6fc3c0f3d137601c540162c94ecd9375e0e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed46_step7200_trained.csv": {
+      "size_bytes": 44181,
+      "sha256": "77ab7cf5ebca6fc36c9fd4de88c179311fcfc9e77d12cd2c78ee88347c951364"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed46_step7200_random.csv": {
+      "size_bytes": 43920,
+      "sha256": "b468b690decf82da57c574671d3e3e98f01f8382362180711d70ec4bf9104a7d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed46_step7200_trained.csv": {
+      "size_bytes": 44086,
+      "sha256": "cb29b668a97149d64b12664fb352e88729ff70b27f454387c32abea12f7ff828"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed46_step9000_random.csv": {
+      "size_bytes": 44001,
+      "sha256": "a1056dc22a1ef233071a7c35238bf4aa23a917f81fa4de6da1654e08308dec03"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_mixed_seed46_step9000_trained.csv": {
+      "size_bytes": 44187,
+      "sha256": "5988c8e86000e2b2db0a1e531c038def404e33f9629b69170ee38a49e888d685"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed46_step9000_random.csv": {
+      "size_bytes": 43920,
+      "sha256": "a929f5b9225551d804f9405c906ef93c273ae63d99416c5a59e5154cf708a6a9"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_mixed_seed46_step9000_trained.csv": {
+      "size_bytes": 44098,
+      "sha256": "6f701e32e1510d2a231f23991edfefd2b99b5363e0b4ec4efcb7e9ef1b6a747b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed42_step5400_random.csv": {
+      "size_bytes": 46886,
+      "sha256": "e1153a81fc98005b0ede031e0d204247210f5b53c6b4e70c355078e137d5f3d7"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed42_step5400_trained.csv": {
+      "size_bytes": 47038,
+      "sha256": "d2a587374626f6af802c000410a1f6b721fb5cbcccfd93362a6ebd46d3b04761"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed42_step5400_random.csv": {
+      "size_bytes": 46817,
+      "sha256": "13144753c33fb40892971ca132451be7d3e9807c55634924fd38504c82e1234e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed42_step5400_trained.csv": {
+      "size_bytes": 46959,
+      "sha256": "e4891302bf3541d434e8e4618740c37951e26d46cc7bd5ea2ed04bef982c34f9"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed42_step7200_random.csv": {
+      "size_bytes": 46886,
+      "sha256": "4997040f4873828f7c40d80aadc4a54970d6d6f59d6cebf979e80f45a9464f88"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed42_step7200_trained.csv": {
+      "size_bytes": 47085,
+      "sha256": "649fd749c40fd76cf823a693a3c2e9bfeb0c65d84e69f581d796331a8d78313e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed42_step7200_random.csv": {
+      "size_bytes": 46817,
+      "sha256": "42fe61ad28ed2e70167a1e4b195d4c4274ea37501329250bd9e9c3ebd3def2ff"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed42_step7200_trained.csv": {
+      "size_bytes": 47011,
+      "sha256": "11b36db3299361eac0c43847f4c491a26fb8195ef252a0855634105c16408e38"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed42_step9000_random.csv": {
+      "size_bytes": 46886,
+      "sha256": "f715795ad139831297c2c58e8d10609a9b9e720890bd2d84bcaf82736b955e96"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed42_step9000_trained.csv": {
+      "size_bytes": 47070,
+      "sha256": "a875fac326ed27706d66637adcb7ba08f79e5994d9b0f2a8680f7063f3ec10ca"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed42_step9000_random.csv": {
+      "size_bytes": 46817,
+      "sha256": "fe372953728480bdf6f61e6d65d198d4450924de757df374bbae1dfd822b89f0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed42_step9000_trained.csv": {
+      "size_bytes": 46982,
+      "sha256": "b0ff9ac7f0456dcf702afcf3e1eb787d19051cc7ef3ab4b64d5178bbf58fdaba"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed43_step5400_random.csv": {
+      "size_bytes": 46871,
+      "sha256": "f77e4291a3160422586fe9ede9c74e59789b5f6c625b83afe599fd9481822354"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed43_step5400_trained.csv": {
+      "size_bytes": 47041,
+      "sha256": "e0a540274acf4ecdf17fec2785cf070981fcf8ed0279610cf9792a73d8c06b48"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed43_step5400_random.csv": {
+      "size_bytes": 46801,
+      "sha256": "ce2cb862a966ef3a3a6314c8efac2336c470df77b6c610394ffed36da3d98cce"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed43_step5400_trained.csv": {
+      "size_bytes": 46959,
+      "sha256": "fa24ff74a1aef0dfdb0857c880522548a46a5e017679f9f0ed9ad2cf8ae68d91"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed43_step7200_random.csv": {
+      "size_bytes": 46871,
+      "sha256": "34ae55f2605e0ab990e2a98ad09c961ab526a59681c660098d330ce961975d64"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed43_step7200_trained.csv": {
+      "size_bytes": 47103,
+      "sha256": "bf721027889a01225d7abb3d7c4650ff5b2820500eb235ab2bd01beabf29e1e4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed43_step7200_random.csv": {
+      "size_bytes": 46801,
+      "sha256": "609013799eaab4d2aa11dd6ef2790243ab68f0610489a8e011fc7361d44899c5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed43_step7200_trained.csv": {
+      "size_bytes": 47053,
+      "sha256": "92e915ad3720713dc960b701ae7b47f321ff6dc06dcc8c24fc742c8d85df83e5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed43_step9000_random.csv": {
+      "size_bytes": 46871,
+      "sha256": "873f8291fc97e894bda6d9065cd4b1829198d1d6612222fd71e2f1e0352c69d2"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed43_step9000_trained.csv": {
+      "size_bytes": 47074,
+      "sha256": "1f05e0b87865b0b7149ac45a08bd990cde9181b1b9fd298f49f8749ebb7caeb1"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed43_step9000_random.csv": {
+      "size_bytes": 46801,
+      "sha256": "5ddd08980f59a077158dfc4688be037b5f3e5ee58915639995358b8fd9167e00"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed43_step9000_trained.csv": {
+      "size_bytes": 47018,
+      "sha256": "9774b9fdbc22f376f5cdea3b6dd253b2438632115398e85c9c89390d7107996e"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed44_step5400_random.csv": {
+      "size_bytes": 46890,
+      "sha256": "327707ef67d898e6ca50c91e14390a66afb338ca3767f855f8d879de327aac77"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed44_step5400_trained.csv": {
+      "size_bytes": 47040,
+      "sha256": "524420ae18b569e64f7624faa492edf4acf260796ad8c06de8570e008130499a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed44_step5400_random.csv": {
+      "size_bytes": 46818,
+      "sha256": "863fa9ea8df664932eab2d4c55c82d2e021c862eadcc1d9f7ebb3388174054d0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed44_step5400_trained.csv": {
+      "size_bytes": 46952,
+      "sha256": "9d1e8f6453a9e9a42cd695fd5edae0832ba019dec281be888acf38d4f3a73437"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed44_step7200_random.csv": {
+      "size_bytes": 46890,
+      "sha256": "e9ac848f5dbfd64ca045a487c90d89b6f8b64938ce279440b8af78b9c46d73bf"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed44_step7200_trained.csv": {
+      "size_bytes": 47064,
+      "sha256": "47bcbee627cb045c6df915d126d42100d0d1382b01e7f4c3e42a2910084aa04a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed44_step7200_random.csv": {
+      "size_bytes": 46818,
+      "sha256": "9347545d90e3d0dd572f86d3ce63f64cbabc6634b26c3cd04398f3bd199a46c7"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed44_step7200_trained.csv": {
+      "size_bytes": 46976,
+      "sha256": "73cd3ae2680b947b452fd3c64254c4ab550a504a9d642fe9e6490804d6501eac"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed44_step9000_random.csv": {
+      "size_bytes": 46890,
+      "sha256": "d4d574b0817210b17ca059b21f3fa92803522f88e85f63b540e08935b71905b3"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed44_step9000_trained.csv": {
+      "size_bytes": 47065,
+      "sha256": "af79f6337f65cc77316fcd538614262814406e35e193b5b8fc77eee3471e6f60"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed44_step9000_random.csv": {
+      "size_bytes": 46818,
+      "sha256": "d09bc3b1f4affa2b25da42ffd529d78375cb4231dc438747cfc31bc20b2bb484"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed44_step9000_trained.csv": {
+      "size_bytes": 46963,
+      "sha256": "3a14ce9add45fe4a7653d598a9c7fc0b43596a94b2424b88d175d8417129fe67"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed45_step5400_random.csv": {
+      "size_bytes": 46941,
+      "sha256": "1ec4b3380fc52f4a94a6d4124bf16cd5947b4f64d7b57bb6fdb19c8b57956d41"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed45_step5400_trained.csv": {
+      "size_bytes": 47031,
+      "sha256": "160eeeedb5c9a7e1f00c57fa94d8dd5d2b94faa3b196bc4f3f438875fccbf80f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed45_step5400_random.csv": {
+      "size_bytes": 46860,
+      "sha256": "b191c14575941396513b39b9fef4a7df6cfbd3ac62eef9fd8787db7d163e021d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed45_step5400_trained.csv": {
+      "size_bytes": 46961,
+      "sha256": "9710f42e922cec7eee4e370f2fe27de4245c05459e6ffc2ae975a46c9433ff90"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed45_step7200_random.csv": {
+      "size_bytes": 46941,
+      "sha256": "b4fbf1f8befd90d35af3cdefd6dd165f3b7ccdc6605fe543e8bfaa44a676fefa"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed45_step7200_trained.csv": {
+      "size_bytes": 47086,
+      "sha256": "caeb7c46647d3d75bbf3bc8fdce4fd5e12ccc5eb0d0e439d52d612ad78d7bda0"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed45_step7200_random.csv": {
+      "size_bytes": 46860,
+      "sha256": "7b90c20b7f260ef2d50b11514f3a93a672b6493fdae0826384857dcd17ea03e5"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed45_step7200_trained.csv": {
+      "size_bytes": 46984,
+      "sha256": "4742f7f72fb3d8478d0d77aae50e76ec7e457b3bd21bd1c0380dd58962fe5f7f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed45_step9000_random.csv": {
+      "size_bytes": 46941,
+      "sha256": "9951e44bb483d31cbf70b542112cc708834a678166b936e9f8182a91b1feadaf"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed45_step9000_trained.csv": {
+      "size_bytes": 47100,
+      "sha256": "4646a1b644612930197d1ce81e35a17fe65b970defdd082bb77131fd321f8542"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed45_step9000_random.csv": {
+      "size_bytes": 46860,
+      "sha256": "e59a4e92cdf54211bc149ce0484d1bb54871f55e36d722c45436c6349c011fd9"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed45_step9000_trained.csv": {
+      "size_bytes": 47009,
+      "sha256": "d52b4c8f98b50e0ab0b688455c35098b51c525fa122902e40ebd166e8ee08289"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed46_step5400_random.csv": {
+      "size_bytes": 46881,
+      "sha256": "996ef9b6d57fb92c4d911afabe035c814c003e18b2be09b2cf76d3a940f69a1b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed46_step5400_trained.csv": {
+      "size_bytes": 47073,
+      "sha256": "1d4877f174c7696c5617b7fa35335b1f6d64b874ea3a926c705e02c11c215d25"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed46_step5400_random.csv": {
+      "size_bytes": 46800,
+      "sha256": "8e47527bd8603db1cf4d796678dd40b65b187ffdd6d517fb8a1cbbe8d49e7c2a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed46_step5400_trained.csv": {
+      "size_bytes": 47024,
+      "sha256": "7cacb013e5899523d3afc43731d33d8a0ad4180da520cab8cd3ea70381e1ee84"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed46_step7200_random.csv": {
+      "size_bytes": 46881,
+      "sha256": "0c4caffe0fa36b04f1924158ed7f5372db5aaec18ef84d74089836652d4aed2f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed46_step7200_trained.csv": {
+      "size_bytes": 47074,
+      "sha256": "07603aeec8005588991a9d04f9d264945bd3da8a6df31f75f3ac96de6748d7dd"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed46_step7200_random.csv": {
+      "size_bytes": 46800,
+      "sha256": "5dbcf58b175ceb330562fe3b5cd9e49f54cbdf97189618f75877af452f5156e8"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed46_step7200_trained.csv": {
+      "size_bytes": 47022,
+      "sha256": "81cd99ed012b62d1ab70ab4b0ffeaa2816c2ce357e7fe023e630796d076bbd41"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed46_step9000_random.csv": {
+      "size_bytes": 46881,
+      "sha256": "033b4cba900a1d1e7d2ad6f0933e3a7bdeb40a27459b28bc3ded44b9661cb681"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_id_dev_prereq_mixed_pair_focus_seed46_step9000_trained.csv": {
+      "size_bytes": 47078,
+      "sha256": "71990eade90bbe8fe13a19bd322a693c424435a3ca86ef565ef638ff3f783c7f"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed46_step9000_random.csv": {
+      "size_bytes": 46800,
+      "sha256": "a442e5ddfa399c47c368dbc00adda3c3681da4361ae3edded7eee54ca7879f0b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_clusters_ood_dev_prereq_mixed_pair_focus_seed46_step9000_trained.csv": {
+      "size_bytes": 47009,
+      "sha256": "0cda86f22e771b32cdc0c72378a9be42664298881fb011ef0a34d526390c599a"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_maps_id_dev_prereq_mixed_pair_focus_seed42_step5400_trained.npz": {
+      "size_bytes": 156789,
+      "sha256": "609d86fbc1c9df85a29ef22f0498e9373a44c49d1157e1eeeb47ca24706b079d"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_maps_id_dev_prereq_mixed_pair_focus_seed42_step7200_trained.npz": {
+      "size_bytes": 156678,
+      "sha256": "b6b94c17408d235efab9316c690f01893a0cb7a1634c860eb7837328af32c017"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_maps_id_dev_prereq_mixed_pair_focus_seed42_step9000_trained.npz": {
+      "size_bytes": 155762,
+      "sha256": "8cae2df3efcc1be0a21e556ebb4d1b1686106d6d5915694b5cd9346b5c2b2cc4"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\explanation_maps_id_dev_prereq_mixed_pair_focus_seed42_step9000_random.npz": {
+      "size_bytes": 60335,
+      "sha256": "a6163f3081d55edd1c578780e0a3984c96b2f32c38d083975bb480dfd0e55c46"
+    },
+    "outputs\\medium_world\\experiments\\phase_aware_lr\\schedule_comparison.json": {
+      "size_bytes": 32495279,
+      "sha256": "602fead73077e6df144c2a62cbcc3224b1f5c8191f5adbe409c1cb8aa269850b"
+    },
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\checkpoint_reproduction_audit.csv": {
+      "size_bytes": 20619,
+      "sha256": "193978a3cdc6c489db177d5120b5ddc17db904cd0486862cf9fcb228ab881820"
+    }
+  },
+  "outputs_written": {
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\original_vs_same_scene_crosscheck.csv": "99974dd46d05258e4977b70c6375178af42e7782f01c1c6aa079906d97ffc8ce",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\original_id_performance_recomputed.csv": "360e820acab845dd82542e5373e269576414f29f6e4353d50d8bece69d7c1917",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_figures\\representation_stage_trajectories.png": "e12993f23423d0c6f56901a82bc172bc69652f3285d679d1a182d9fc0c81c9a5",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\counterfactual_run_level.csv": "84337df428d85a57f99d62c5c2c6591f346beb17c50f9b97d34defbe5dd16396",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\invariance_by_run.csv": "cee7b254916c9f719ab0d16493d4f0d88fa50ee7a2fcbbde53f0b9717247c841",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\logical_consistency_by_run.csv": "cb54101b755accc0238e7c2af2456bf51e33dc93222733c5676e069f73d51ac6",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\head_feature_auc_by_seed.csv": "afdad174ffb0bf4f5c6d5a1881540cdd91dceadb5f5ff5486a846203012308ee",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_figures\\representation_head_feature_auc.png": "7540e0d3febdbfb5b29d1eecf5fe5d3b34c26b5c0f779c705aab1b22442f8803",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\probe_heldout_accuracy_by_seed.csv": "6b1cb40d79eb0d16b078d7493c799a0aa108a59946e14c5a38849e226d65e1ae",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\shape_radius_accuracy_by_seed.csv": "b583eba09dc946ac574d1e6a6e361ac3c4a11970f739262af1a99f690364fef1",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_figures\\representation_shape_radius_effect.png": "aab76b1f46d00d6f4d97ab203cfe111d554273dd2a5361843ceb4fe7512128d7",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\ood_shape_by_color_shape_seed.csv": "7491713ed080475f628b7cf52be6b54921a23a725be126852f10e18fc17b7c3d",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_figures\\representation_probe_color_shape_heatmap.png": "3ed93b599224453dbdbbe1a419d2dc54a6cfc26531b6ccd92286de593f42c3e2",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\dissection_best_unit_by_concept.csv": "b85db9cc829a55dcd7b8c885f89382a78120758aedf19de93e7ca010c3caca7f",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_figures\\representation_dissection_channels.png": "2b5b209cafe4f13ad97dded2a36be1a76b0f951efa8f9f2b8cd950d833a4acd4",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\spectral_cluster_semantic_associations.csv": "1741b635656d4be1ce6a44e71ceaf63ca9e5a31b2351554489a52e45c3dc1bce",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_figures\\representation_spectral_cluster_association.png": "ebe4c587b2de428d8b7302a5879b909a56161a225803767401105e1311703ba0",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\explanation_selected_examples.csv": "b1d91df9771b1e3b0fa7296e91d5cac9c8396ad8e6e9beb4100e7e427997dddc",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_figures\\representation_explanation_evolution.png": "66999f18bc53e52776553fcc0192ce145b6b27b0c7a66dfd29cbfe074ead83f7",
+    "outputs\\medium_world\\experiments\\representation_diagnostics\\five_seeds\\evidence_tables\\lr_reset_constant_checkpoint_comparison.csv": "be9a7712fbebc8be9c66fe33d079f1f79e50070a2e2e3e5b45009ea5de028971"
+  },
+  "limitations": [
+    "Development data only; not an untouched test-set evaluation.",
+    "Five seeds; correlated questions within scenes.",
+    "Saved gradient maps re-plotted, not differentiated anew.",
+    "Single-scalar AUC and unit IoU are descriptive, not causal attributions.",
+    "Random/learned Shape-probe differences depend on fixed-ROI mean pooling."
+  ]
+}

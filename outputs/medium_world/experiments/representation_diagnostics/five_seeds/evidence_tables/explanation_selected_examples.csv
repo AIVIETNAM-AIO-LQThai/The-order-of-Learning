@@ -1,0 +1,7 @@
+scene_id,task,color,shape,label,logic_case,map_index,prob_yes,correct
+3b04251d16418d744b06b7f676299fa897f0e135bed7af1e566a890aade8727d,pair,yellow,circle,0,attributes_separate,25,0.8790176510810852,0
+ab252f1ecf50aa74c70fb1095f594662a3c4c0a4b6ad417176cbbc56732f2973,pair,purple,square,0,attributes_separate,66,0.2367010563611984,1
+a72999f4fc60bc4bb45a3ded7518028ca1bfe31dd6d4d39bfe44c00c42d969c2,pair,blue,triangle,1,present_pair,51,0.8328421115875244,1
+49cc71841d6e6b8efa43c448198166d47e8dc4bae3ec2920bc0f296476fc46e7,pair,yellow,crescent,1,present_pair,118,0.2921061217784881,0
+be1cbf5f3e07b1aaba53673f9d19ef3c94b5d8d128464d551aa4330b387cb330,pair,green,triangle,0,attributes_separate,75,0.8312947750091553,0
+ca04c0edb5b8f02bb865da5406f254ada8f428f03f6adba6f786f64725697199,pair,yellow,circle,1,present_pair,50,0.94405996799469,1

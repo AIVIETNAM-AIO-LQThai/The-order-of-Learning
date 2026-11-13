@@ -1,0 +1,9 @@
+decoder,accuracy,n_train,n_dev,seed,supervision,encoder,schedule,step
+mean48,0.5342465753424658,19905,2044,42,oracle_object_label,trained,prereq_mixed_pair_focus,7200
+spatial1200,0.8718199608610567,19905,2044,42,oracle_object_label,trained,prereq_mixed_pair_focus,7200
+shuffled1200,0.5083170254403131,19905,2044,42,oracle_object_label,trained,prereq_mixed_pair_focus,7200
+head_like_object,0.6692759295499021,19905,2044,42,oracle_object_label,trained,prereq_mixed_pair_focus,7200
+mean48,0.5332681017612525,19905,2044,42,oracle_object_label,random,prereq_mixed_pair_focus,7200
+spatial1200,0.8786692759295499,19905,2044,42,oracle_object_label,random,prereq_mixed_pair_focus,7200
+shuffled1200,0.5244618395303327,19905,2044,42,oracle_object_label,random,prereq_mixed_pair_focus,7200
+head_like_object,0.6942270058708415,19905,2044,42,oracle_object_label,random,prereq_mixed_pair_focus,7200

@@ -1,0 +1,4 @@
+readout,seed,supervision,n,yes,no,tp,fn,tn,fp,accuracy,balanced_accuracy,tpr,tnr,pred_yes,always_no_accuracy,step,schedule,checkpoint_sha256
+original_frozen_model,44,same_scene_shape_yesno,256,128,128,80,48,89,39,0.66015625,0.66015625,0.625,0.6953125,0.46484375,0.5,5400,prereq_mixed_pair_focus,a26fc4c1dc572d07e4b76de571840c23c974d3b3051abdba492c324ee1e963ae
+retrained_head_on_8,44,same_scene_shape_yesno,256,128,128,80,48,84,44,0.640625,0.640625,0.625,0.65625,0.484375,0.5,5400,prereq_mixed_pair_focus,a26fc4c1dc572d07e4b76de571840c23c974d3b3051abdba492c324ee1e963ae
+spatial_conv_probe,44,same_scene_shape_yesno,256,128,128,78,50,96,32,0.6796875,0.6796875,0.609375,0.75,0.4296875,0.5,5400,prereq_mixed_pair_focus,a26fc4c1dc572d07e4b76de571840c23c974d3b3051abdba492c324ee1e963ae

@@ -1,0 +1,5 @@
+decoder,accuracy,n_train,n_dev,seed,supervision,encoder
+mean48,0.47309197651663404,19905,2044,45,oracle_object_label,random
+spatial1200,0.8708414872798435,19905,2044,45,oracle_object_label,random
+shuffled1200,0.46477495107632094,19905,2044,45,oracle_object_label,random
+head_like_object,0.6247553816046967,19905,2044,45,oracle_object_label,random

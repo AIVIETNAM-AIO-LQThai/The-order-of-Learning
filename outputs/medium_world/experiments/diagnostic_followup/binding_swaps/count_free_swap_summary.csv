@@ -1,0 +1,2 @@
+schedule,seed,step,n,both_correct,correct_direction,before_accuracy,after_accuracy
+prereq_mixed_pair_focus,42,7200,109,0.45871559633027525,0.7798165137614679,0.7247706422018348,0.6788990825688074

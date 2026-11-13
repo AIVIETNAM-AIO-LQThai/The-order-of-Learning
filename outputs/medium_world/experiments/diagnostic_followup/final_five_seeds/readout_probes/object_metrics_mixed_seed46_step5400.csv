@@ -1,0 +1,5 @@
+decoder,accuracy,n_train,n_dev,seed,supervision,encoder,step,schedule,checkpoint_sha256
+mean48,0.48043052837573386,19905,2044,46,oracle_object_label,trained,5400,mixed,096e34abffb78fd10d65b16573d805f5e8ee0ab2486493ee3da513976f6907cf
+spatial1200,0.8414872798434442,19905,2044,46,oracle_object_label,trained,5400,mixed,096e34abffb78fd10d65b16573d805f5e8ee0ab2486493ee3da513976f6907cf
+shuffled1200,0.4471624266144814,19905,2044,46,oracle_object_label,trained,5400,mixed,096e34abffb78fd10d65b16573d805f5e8ee0ab2486493ee3da513976f6907cf
+head_like_object,0.6912915851272016,19905,2044,46,oracle_object_label,trained,5400,mixed,096e34abffb78fd10d65b16573d805f5e8ee0ab2486493ee3da513976f6907cf

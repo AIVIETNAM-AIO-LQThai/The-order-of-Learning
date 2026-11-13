@@ -26,4 +26,4 @@ outputs/**/dataset/images/
 /outputs/medium_world/experiments/plateau_smoke/
 /outputs/medium_world/experiments/plateau_seed42/
 /outputs/medium_world/experiments/rehearsal_smoke/
-/outputs/medium_world/experiments/rehearsal_seed42/
+/outputs/medium_world/experiments/rehearsal_seed42/*.zip

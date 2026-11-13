@@ -1,97 +1,172 @@
-# Medium-world EDA — answers and research implications
+# Medium World EDA: what the dataset makes easy—and what it does not measure
 
-**Source:** executed `eda_medium_world(1).ipynb` supplied on 4 November 2026. Results come from the saved outputs; the held-out test splits were not inspected. Counts of attributes in images below are **deduplicated by scene**.
+*November 13, 2026*
 
-## 1. Dataset inventory and label balance
+The Medium World is meant to distinguish detecting Color and Shape from combining them across, or within, objects. Its label balance and hard Binding negatives are useful, but the way scenes and questions are sampled also creates shortcuts. This report examines those facts as constraints on how the model's later accuracy should be interpreted.
 
-| Split | Question rows | Distinct scenes | Object occurrences | Tasks |
+The principal distinction is **label balance versus capability balance**. A dataset can have exactly half Yes and half No answers while a model can still obtain high accuracy by ignoring an attribute or detecting a scene-level correlation rather than answering the question as intended.
+
+## 1. What is in the frozen data?
+
+| Split | Questions | Unique scenes | Object occurrences | Tasks |
 |---|---:|---:|---:|---|
-| train | 10,000 | 5,000 | 19,905 | 2,500 each of color, shape, conjunction, pair |
-| id_dev | 1,024 | 512 | 2,044 | 256 per task |
-| ood_dev | 400 | 400 | 1,677 | pair only |
+| Train | 10,000 | 5,000 | 19,905 | Color, Shape, Conjunction, Binding (2,500 each) |
+| ID-dev | 1,024 | 512 | 2,044 | Same four tasks (256 each) |
+| OOD-dev | 400 | 400 | 1,677 | Binding only |
 
-Each train/ID-dev scene is queried **twice**; each OOD-dev scene once. Thus **question-weighted counts are not independent image counts**. All tasks are **exactly 50% Yes / 50% No**, with no scene-ID overlaps between inspected splits. Mean object count is **3.98 train**, **3.99 ID-dev**, **4.19 OOD-dev**.
+The generator also defines separate **ID-test** and **OOD-test** splits (1,024 and 400 questions respectively); their outcomes are not part of this EDA. No inspected scene ID overlaps across splits. Every original task/split combination has **50% Yes and 50% No** labels.
 
-## 2. Which colors and shapes most often occur in scenes?
+Train and ID scenes each receive **two distinct questions**, whereas each OOD scene is queried once. A collection of question rows is therefore not a collection of independent images. This matters especially for uncertainty estimates and the expanded diagnostic grids that query one image many times.
 
-Training color objects: **yellow 5,009** (largest), green 3,739, blue 3,738, purple 3,719, red 3,700. Percent of distinct training scenes containing each: **yellow 67.8%**, green 56.1%, blue 55.3%, purple 55.3%, red 54.8%. Yellow is more common but the other four are close to one another.
+Scenes contain **3–5 objects**. Their mean counts are 3.98 in Train, 3.99 in ID-dev and 4.19 in OOD-dev. The visual world has five colors and four shapes, with radii 5–8 pixels, shape-dependent rotations, a fixed renderer, and non-overlap constraints.
 
-Training shape objects: **circle 5,136** (largest), triangle 4,972, square 4,919, crescent 4,878. Distinct-scene presence: circle **68.3%**, triangle 66.7%, square 66.2%, crescent 65.9%. Shape imbalance is modest.
+## 2. Scene attributes are repeated and not equally frequent
 
-A scene has on average **2.89 distinct colors** and **2.67 distinct shapes** in train, among ~3.98 objects. Hence objects sharing a color or shape are frequent and object-level binding cannot be reduced to assuming every attribute identifies a unique object.
+The original training scenes contain these object occurrences:
 
-## 3. Which attributes are most often asked, and how does this vary by task?
+| Color | Count |
+|---|---:|
+| Yellow | **5,009** |
+| Green | 3,739 |
+| Blue | 3,738 |
+| Purple | 3,719 |
+| Red | 3,700 |
 
-The simple training `color` task is near uniform: red 502, blue 498 and each other color 500 requests. The simple `shape` task is also near uniform: circle 626, triangle 626, square 625, crescent 623.
+Yellow occurs in **67.8%** of unique training scenes; each of the other colors occurs in roughly **54.8–56.1%**. This is related to the pair holdout design: Yellow retains four allowed Shape partners, while Red, Blue, Green and Purple each lose one of their four possible combinations.
 
-In `conjunction` and `pair`, **yellow is asked more frequently**: conjunction asks yellow **626** times versus **466–472** for other colors; pair asks yellow **621** times versus **468–473** otherwise. This parallels yellow's higher object prevalence. Query shape counts are close to uniform in both tasks (~621–628 each).
+The four Shape counts are much closer (Circle 5,136; Triangle 4,972; Square 4,919; Crescent 4,878). A typical training scene has **2.89 distinct colors** and **2.67 distinct shapes** among its 3.98 objects. Repeated colors occur in approximately **77%** of training scenes and repeated shapes in **84%**.
 
-All 16 allowed training color–shape pairs have close frequencies (for example `pair`: **153–159** asks per pair); the four held-out combinations are not asked in train.
+These repetitions make object association necessary for some queries: one attribute need not identify a unique object. They also create possible *statistical* signals—how many objects match an attribute, where they are placed, and what distractors coexist with them—that can correlate with a label without enforcing the intended logic.
 
-## 4. Does the requested attribute appear in the image? Does this depend on answer?
+## 3. Balanced questions do not guarantee balanced evidence
 
-**Presence probabilities in train** (percentage of *questions*, conditional on task and answer):
+The training target selection is close to uniform over *allowed* Color–Shape pairs (approximately 153–159 Pair queries per allowed combination). Simple Color and Shape queries are also nearly evenly distributed. At the aggregate level, a query-only majority lookup has little target-specific label advantage because targets are balanced across Yes and No labels.
 
-| Task | Requested attribute | No (label 0) | Yes (label 1) |
-|---|---|---:|---:|
-| Color | Color exists | 0% | 100% |
-| Shape | Shape exists | 0% | 100% |
-| Conjunction | Color exists | **42.72%** | 100% |
-| Conjunction | Shape exists | **57.28%** | 100% |
-| Conjunction | Both independent attributes exist | 0% | 100% |
-| Pair | Color exists | 100% | 100% |
-| Pair | Shape exists | 100% | 100% |
-| Pair | Exact same-object pair exists | 0% | 100% |
+But the **scene conditional on the question and answer** differs substantially across tasks:
 
-For conjunction, **60.72% of positive examples also contain the exact queried pair**, but that coincidence is *not required* by the conjunction rule. The remaining positive cases still need both attributes but can have them on different objects.
+| Task and label | Queried Color present? | Queried Shape present? | Queried same-object pair present? |
+|---|---|---|---|
+| Color / No | No | Not relevant | Not relevant |
+| Color / Yes | Yes | Not relevant | Not relevant |
+| Shape / No | Not relevant | No | Not relevant |
+| Shape / Yes | Not relevant | Yes | Not relevant |
+| Conjunction / No | Present in 42.72% of negatives | Present in the other 57.28% | No |
+| Conjunction / Yes | Yes | Yes | May or may not occur |
+| Binding / No | Yes | Yes | **No** |
+| Binding / Yes | Yes | Yes | **Yes** |
 
-## 5. Are there question-only target/label associations?
+For Conjunction negatives, **42.72%** contain the queried Color but lack the queried Shape; the remaining **57.28%** contain the queried Shape but lack the queried Color. When both independent attributes occur, Conjunction is always Yes, even when they occur on different objects.
 
-Every task's overall Yes rate is 50%. In the notebook's training target-conditioned audit, deviations from 50% are at most roughly **0.33 percentage points** among the displayed top rows; queried attribute identity alone provides no substantial label-rate shortcut in those aggregates. This does **not** rule out visual shortcuts or correlations involving multiple question tokens.
+For Binding negatives, both attributes occur but are on **different objects**. Therefore detecting their independent presence alone yields no information about the balanced Binding answer. This is an important strength of the generator—but it does not remove all non-binding cues.
 
-## 6. Is conjunction solvable by a shortcut? Are pair negatives hard?
+## 4. Conjunction permits a strong Color-only shortcut
 
-The notebook computes *oracle rules on scene attributes*, not model predictions:
+Consider the heuristic:
 
-| Training task | Color-only rule | Shape-only rule | Both independent attributes |
+$$
+\widehat{J}(I,c,s)=C(I,c),
+$$
+
+which ignores the Shape entirely. Because all Conjunction positives contain the requested Color, and 57.28% of negatives lack it, the heuristic reaches
+
+$$
+\frac{1}{2}\left(1+0.5728\right)=78.64\%
+$$
+
+on balanced training Conjunction questions. The measured ID-dev value is **79.69%**. The opposite Shape-only heuristic reaches approximately **71.4%** in Train and **70.3%** in ID-dev.
+
+| Oracle-derived heuristic | Train Conjunction | ID-dev Conjunction | Train Binding |
 |---|---:|---:|---:|
-| Conjunction | **78.6%** | 71.4% | **100%** |
-| Pair | 50.0% | 50.0% | 50.0% |
+| Color present | **78.6%** | **79.7%** | 50% |
+| Shape present | 71.4% | 70.3% | 50% |
+| Both attributes present independently | 100% | 100% | 50% |
 
-In ID-dev, conjunction color-only is **79.7%**, shape-only **70.3%**. This is an important **generator-induced asymmetry**: a model with imperfect shape recognition can score close to 80% on conjunction by using only color.
+These are **oracle-metadata rules**, not measurements of what the model has internally learned. They establish the difficulty of the benchmark: a model that completely neglects Shape may appear proficient at Conjunction.
 
-For pair questions, **100% of negative examples contain both requested attributes on different objects, without the target pair**. Therefore independent attribute detectors are chance-level (50%) on the balanced pair task. The scene-derived oracle agrees with **all 11,424** inspected question labels, indicating the metadata and simple-task semantics are consistent.
+Even the Conjunction positives are heterogeneous. In **60.72%** of positive training cases, the requested Color and Shape happen to coexist on the *same* object; in the remaining cases they can occur on different objects. A strong Conjunction score alone cannot distinguish whether the model learned independent attribute detection, a same-object co-occurrence rule, or a Color-dominant approximation.
 
-**Caution:** high shortcut-rule accuracy does not prove the trained model actually relies on that rule. Prediction-conditioned analyses are required for that claim.
+The most discriminating negative subgroup is **Color present, Shape absent**. On the original ID-dev set, this subgroup contains **52** of the **128** Conjunction negatives; a Color-only classifier rejects **none** of them. Later constant-LR model diagnostics show only about **24–28%** correct rejection at the final checkpoint. This directly supports the description **Color-dominant, not strictly Color-only**: the model sometimes uses additional evidence, but its performance remains weak where Shape is the deciding missing attribute.
 
-## 7. Does object count explain the answers or OOD difficulty?
+**Meaning:** Conjunction accuracy around 80% should not be used as proof that the model mastered a prerequisite logical-AND operation. The subgroup behavior contradicts that interpretation.
 
-Medium-world scenes have **3–5 objects**, with means ~4.0. Train mean by task/label (No → Yes): color **3.95 → 4.00**, conjunction **3.98 → 4.00**, pair **4.04 → 3.98**, shape **3.88 → 4.02**. These are relatively small differences; they do not provide a compelling *simple mean-count shortcut* for the task labels, although a stratified test could quantify any residual association.
+## 5. Binding negatives are hard, yet counting remains a possible confound
 
-OOD-dev has **4.19** objects/scene versus **3.98** in train. It also has more distinct colors (**3.06** vs **2.89**) and shapes (**2.87** vs **2.67**). Hence OOD-dev differs in scene complexity, and OOD performance cannot be attributed strictly to held-out combinations without a matched-complexity analysis.
+A correct Binding answer is
 
-Repeated color appears in **77%** and repeated shape in **84%** of unique training scenes. Geometric variation is present: object radii 5–8 pixels and several allowed angles (0° most frequent). This EDA does not test model accuracy conditioned on these geometry factors.
+$$
+B(I,c,s)=\mathbb{1}\{\exists o:\operatorname{color}(o)=c\land\operatorname{shape}(o)=s\}.
+$$
 
-## 8. Are held-out combinations truly absent from training?
+Every original negative Binding question contains the queried Color and Shape somewhere in the scene. A rule using only either attribute's binary presence—or their independent logical AND—achieves **50%** accuracy on the original balanced task. Hence the dataset removes the most obvious shortcut from separate attribute detectors.
 
-Yes. The four OOD queried pairs are **blue + square, green + circle, purple + triangle, red + crescent**. For each, **zero occurrences as rendered objects** and **zero pair-question targets** in train and ID-dev, while OOD-dev contains both examples and rendered target instances:
+It does **not** guarantee that the model bases its answer on same-object comparison. Total object count, the number of objects bearing each queried attribute, other attribute combinations, object geometry and the spatial arrangement of distractors may all correlate with Binding labels.
 
-| Held-out pair | OOD-dev question targets | Rendered OOD-dev object occurrences |
+The original full-dataset EDA found only small differences in mean object count between negative and positive training Binding questions (**4.04 versus 3.98**). But similar marginal means do not imply the absence of useful count-conditioned rules.
+
+### What the later count-controlled audit clarified
+
+A targeted analysis selected ID-dev Binding questions where there is **exactly one queried-Color object and exactly one queried-Shape object**. It contains **109 questions: 34 Yes and 75 No**.
+
+On this subset, the two requested-attribute counts are identical regardless of the correct answer; their equality does not specify whether the same object supplies both. But other features remain imbalanced:
+
+- Positive scenes average **4.15 objects**, compared with **3.80** for negative scenes.
+- A simple `n_objects >= 4` metadata rule achieves approximately **59.6% balanced accuracy**.
+- Stratifying by total object count weakens that particular alternative: subsequent Constant-LR model analyses retain above-chance discrimination within the 3-, 4- and 5-object strata. That supports sensitivity beyond the tested count cues, not exclusive reliance on a symbolic object-level mechanism.
+
+Because this selected subset has a No-majority, an **always-No predictor gets 68.81% raw accuracy** but **50% balanced accuracy**. For this diagnostic, raw accuracy cannot be compared directly with the original balanced benchmark's 50% majority-class baseline. Always report positive recall, negative specificity and balanced accuracy or AUC.
+
+The separate **attribute-preserving Color-swap experiment** is more direct: it holds a scene's Color and Shape multisets, positions and shape geometry fixed while changing which object bears which Color. Success on both versions of such a pair is evidence of *behavioral association sensitivity* beyond global counts; it still does not identify an explicit object-slot representation.
+
+## 6. The held-out split has a decisive label-construction shortcut
+
+The four held-out pairs are **Blue–Square, Green–Circle, Purple–Triangle and Red–Crescent**. They appear as neither rendered objects nor queried Pair targets in Train or ID-dev.
+
+| Held-out pair | OOD-dev queries | Rendered OOD-dev object occurrences |
 |---|---:|---:|
-| Blue + square | 97 | 65 |
-| Green + circle | 109 | 77 |
-| Purple + triangle | 111 | 76 |
-| Red + crescent | 83 | 54 |
+| Blue–Square | 97 | 65 |
+| Green–Circle | 109 | 77 |
+| Purple–Triangle | 111 | 76 |
+| Red–Crescent | 83 | 54 |
 
-The four OOD target counts sum to 400, matching all OOD-dev questions (pair only). Their object occurrence counts are not equal to their question counts, because negative examples have no true instance of the queried pair.
+The counts of rendered objects need not equal target-query counts, because a negative query refers to a pair not present on any object.
 
-## 9. Differences across train, ID-dev and OOD-dev
+The deeper problem is how the generator creates OOD labels. It constructs **Yes scenes** from all permitted and held-out combinations, requiring the queried held-out pair to appear. It constructs **No scenes** using only the 16 training-allowed combinations, then asks a held-out pair whose two attributes appear separately.
 
-The **train and ID-dev question mixes** are matched (four tasks with balanced labels), and both have two questions per image. OOD-dev contains **only binding (`pair`)** questions and distinct held-out combinations, plus mildly more objects and attribute diversity. We should report it as an OOD binding evaluation, not a directly comparable overall-task split.
+Therefore, for the **400 OOD-dev questions**:
 
-## 10. Implications for staged-learning experiments
+$$
+\mathbb{1}\{\text{any held-out pair appears anywhere in the scene}\}
+=\text{correct answer}.
+$$
 
-- The dataset strongly differentiates **independent conjunction** from **same-object binding**; pair negatives cannot be solved by detecting attributes separately.
-- A substantial **color-only conjunction shortcut** is built into the generator. Therefore use **binding accuracy as the primary metric**; conjunction accuracy alone is not sufficient evidence of composition.
-- The current object-count plot needs only a clearer *visualization*: all numerical object-count summaries were already recorded. **No rerun is necessary to support the findings above.**
-- To isolate whether OOD failure comes from unseen bindings, an additional **matched-object-count OOD breakdown** would be valuable later, but it is not needed to update this notebook's graph.
+This metadata rule is correct on **400/400** questions. It is independent of which held-out pair the query actually asks about.
+
+This **does not establish that the ViT discovered the shortcut**. Detecting those unfamiliar objects visually might itself be difficult; in fact, later count-controlled OOD analysis found approximately **49.8–52.1% balanced accuracy** for Constant-LR models. But the benchmark is incapable of cleanly identifying whether the model has generalized the *queried same-object relation* to novel pairs.
+
+OOD-dev also differs from Train in scene complexity:
+
+| Quantity per scene | Train | OOD-dev |
+|---|---:|---:|
+| Objects | 3.98 | **4.19** |
+| Distinct colors | 2.89 | **3.06** |
+| Distinct shapes | 2.67 | **2.87** |
+
+And OOD-dev contains only Binding questions, unlike the four-task ID-dev distribution. All of these differences matter when interpreting apparent OOD gains or losses.
+
+**Conclusion:** the existing OOD split is a shifted Binding evaluation, **not an identified test of zero-shot compositional transfer**. Statements such as “curriculum X generalizes to unseen combinations” or “the architecture cannot transfer composition” are not warranted by its aggregate accuracy.
+
+## 7. What the dataset still supports
+
+The generator does establish several useful things:
+
+1. **The oracle is consistent with the recorded labels.** The original EDA audited **11,424** train/ID-dev/OOD-dev question records, matching their symbolic answers. This is an audit of those records, not a claim that every potential visual shortcut is excluded.
+2. **Independent attribute presence is insufficient for Binding hard negatives.** Their construction requires distinguishing where attributes are paired, or using an alternative scene-correlated signal.
+3. **Color-only Conjunction is a strong known baseline.** A model must be tested on missing-Shape negatives before Conjunction proficiency can be claimed.
+4. **Attribute and scene count analyses are necessary but not decisive.** Count-free controls and fixed-multiset swaps are more informative about association behavior than raw Binding accuracy alone.
+5. **Query-level label balance is not a guarantee of distributional comparability.** The OOD label construction supplies a perfect metadata-level shortcut and also changes scene complexity.
+
+Taken together, these observations change how the learning-order results should be read. We can still ask whether curricula change acquisition, retention, count-controlled Binding and response to interventions **on this frozen dataset**. We cannot conclude that any schedule demonstrates a reusable concept hierarchy merely because it reaches high Conjunction accuracy or modestly exceeds chance on the original OOD split.
+
+The most important distinction is between **what the oracle question logically requires** and **what the sampled distribution permits the model to exploit**. The evaluation must measure the gap between the two.
+
+[Dataset design](dataset_design.md) · [Evaluation methods](evaluation_methods.md) · [Diagnostic follow-up](diagnostic_followup_findings.md)

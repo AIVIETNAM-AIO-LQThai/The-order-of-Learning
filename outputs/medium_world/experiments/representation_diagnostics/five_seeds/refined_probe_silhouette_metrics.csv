@@ -1,0 +1,5 @@
+regime,split,accuracy,macro_f1,n_eval_objects
+original,id_dev,1.0,1.0,2044
+recolored_balanced,id_dev,1.0,1.0,2044
+original,ood_dev,1.0,1.0,1677
+recolored_balanced,ood_dev,1.0,1.0,1677
