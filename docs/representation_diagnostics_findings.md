@@ -273,7 +273,7 @@ Two further analyses examined whether individual channels or visual explanations
 
 ### Network Dissection-style channel alignment
 
-A thresholded-channel analysis compared visual feature activations with renderer-derived Color and Shape masks, using train scenes for activation thresholds and separate ID-dev scenes for overlap. The method measured best-channel intersection-over-union (IoU) in patch space, including random-encoder controls.
+A thresholded-channel analysis compared visual feature activations with renderer-derived Color and Shape masks, using train scenes for activation thresholds and separate ID-dev scenes for overlap. The method measured best-channel intersection-over-union (IoU) in patch space, including random-encoder controls. The 99th- and 99.5th-percentile activation thresholds were estimated separately on Train features; renderer masks, including object outlines, were downsampled by area coverage to the **16×16 patch grid**. These thresholds define a sensitivity check of individual-channel alignment, not a confidence interval for concept presence.
 
 For fused features at step 9,000 with the 99th-percentile activation threshold, mean best-channel IoU by concept family was approximately:
 
@@ -290,7 +290,7 @@ Therefore the result cannot justify “the encoder has no Shape representation.�
 
 ### SpRAy-inspired explanation clustering
 
-The analysis also formed signed gradient×(input−background) explanations for the Yes-minus-No logit margin, reduced them to spatial maps, and clustered those maps using a spectral nearest-neighbor graph. ID and OOD examples were analyzed separately, as were true Yes and No questions.
+The analysis also formed signed gradient×(input−background) explanations for the Yes-minus-No logit margin, reduced them to spatial maps, and clustered those maps using a spectral nearest-neighbor graph. ID and OOD examples were analyzed separately, as were true Yes and No questions. The maps were reduced to **16×16**, L1-normalized, and joined using a symmetric cosine-distance nearest-neighbor affinity before graph-Laplacian eigengap inspection and spectral clustering. Cluster labels were not treated as comparable across seeds. The ID explanations used present-pair positives and hard negatives, while OOD explanations came from the original held-out-query split; those are different distributions.
 
 All inspected neighbor graphs were connected and had no entirely zero explanation maps. Those checks exclude gross numerical degeneracy but do not establish semantic validity.
 

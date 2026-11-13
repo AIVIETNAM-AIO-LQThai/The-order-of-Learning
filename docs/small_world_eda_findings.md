@@ -1,75 +1,57 @@
-# Small-world EDA — answers and research implications
+# Small World: Dataset Structure and Shortcut Audit
 
-**Source:** executed `eda_small_world(1).ipynb` supplied on 4 November 2026. All numbers below come from the notebook's saved outputs, not from a new model evaluation. Splits inspected: `train`, `id_dev`, `ood_dev`, `adapt_train`; held-out tests are excluded.
+*13 November 2026*
 
-## 1. How many scenes, questions, objects, and labels?
+The first visual world was designed to test attribute recognition, grounded spatial relations, and their logical composition. This audit asks whether those tasks were correctly generated and which distributional cues could affect a learning-order comparison. Dataset checks establish properties of the examples; they do not establish what a trained ViT uses to make predictions.
 
-| Split | Questions | Distinct scenes | Object occurrences | Tasks |
+## 1. Data and task balance
+
+| Inspected split | Questions | Distinct scenes | Objects | Task distribution |
 |---|---:|---:|---:|---|
-| train | 1,800 | 1,800 | 5,400 | above 300, color 200, left 300, pair 200, shape 200, xor 600 |
-| id_dev | 360 | 360 | 1,080 | above 60, color 40, left 60, pair 40, shape 40, xor 120 |
-| ood_dev | 360 | 360 | 1,080 | above 60, left 60, pair 120, xor 120 |
-| adapt_train | 128 | 128 | 384 | closer 128 |
+| Train | 1,800 | 1,800 | 5,400 | Color 200; Shape 200; Pair 200; Left 300; Above 300; XOR 600 |
+| ID-dev | 360 | 360 | 1,080 | Color 40; Shape 40; Pair 40; Left 60; Above 60; XOR 120 |
+| OOD-dev | 360 | 360 | 1,080 | Pair 120; Left 60; Above 60; XOR 120 |
+| Adapt-train | 128 | 128 | 384 | CLOSER 128 |
 
-Every question uses its own scene in the inspected small-world splits (one question per scene); no scene-ID overlap was detected between splits. Every task in every inspected split is **exactly 50% Yes / 50% No**. The scene-count and question-count denominators therefore coincide here (but do **not** coincide in medium world).
+Every scene has **three objects**, two distinct Colors and two distinct Shapes. Each inspected question has a balanced Yes/No label, and each scene receives one question in this world. The four relational predicates are defined by the symbolic scene oracle rather than image classification heuristics.
 
-## 2. Which colors/shapes appear most often? Does repeating them matter?
+The full generator also produced ID-test and OOD-test (360 questions each) and adaptation-test (240 questions), for **3,608 scene-disjoint records** across seven partitions. The generation audit checked oracle consistency and structural properties of those splits. Those checks are not evidence that a model was evaluated successfully on held-out tests.
 
-The most frequent training color is **yellow**: **2,231 object occurrences** versus red 1,087, blue 1,067 and green 1,015. Yellow appears in **75.5% of distinct training scenes**, compared with red 42.3%, blue 41.7%, green 40.4%. Yellow contributes ~41.3% of the 5,400 training object occurrences, even though there are four color categories.
+## 2. What appears in the images
 
-The most frequent training shape is **circle** (1,849 occurrences, in 68.1% of scenes), followed by square (1,797; 66.5%) and triangle (1,754; 65.4%). Shape counts are much more balanced than colors.
+- **Colors in training:** Yellow occurs on 2,231 of 5,400 objects and in **75.5% of scenes**, compared with Red 1,087, Blue 1,067, and Green 1,015 object occurrences. Yellow is consequently overrepresented in many relational questions.
+- **Shapes in training:** Circle 1,849 occurrences; Square 1,797; Triangle 1,754. Scene presence is approximately 65–68%, considerably more even than Color.
+- **Sizes:** 2,711 large and 2,689 small objects. Object count and repeated attributes cannot distinguish labels within Small World, since every scene has exactly three objects and repeats both a Color and a Shape.
+- **Question targets:** Simple Color questions ask each Color exactly 50 times. More complex spatial questions reference Yellow disproportionately, reflecting the underlying scene construction.
 
-All scenes contain exactly **three objects, two distinct colors and two distinct shapes**. Therefore a color and a shape always repeat within each scene; object-occurrence counts are **not equivalent** to scene-presence rates. The repeated attributes are a construction property, not evidence of naturally emerging repetition.
+The scene-level skew matters even when Yes and No labels are balanced. A model can encounter some colors or relations more frequently, leading to uneven learned evidence without any mistake in the oracle.
 
-## 3. What attributes are asked most often, and does this depend on task?
+## 3. Which shortcuts were excluded?
 
-**Simple attribute questions are deliberately balanced.** In the 200 training `color` questions, each of red/blue/green/yellow is asked exactly 50 times. In the 200 training `shape` questions, circle is asked 68 times, square 66, triangle 66.
+For every negative `EXISTS_PAIR` question in the inspected train, ID-dev and OOD-dev samples, the requested Color and Shape both occur in the scene, but **not on the same object**. Color-only and Shape-only existence rules therefore score **50%** on this balanced task. That removes the simplest independent-attribute shortcut; it does not rule out all image-level or query-conditioned correlations.
 
-The **nested/relational tasks favor yellow**, matching its high scene prevalence. Examples (distinct target mentions, training split): `above` asks about yellow 220 times versus red 130, blue 126, green 124; `left` 144 yellow versus 48–56 other colors; `xor` 440 yellow versus 248–260 others. For pair references, each of the three yellow combinations is queried 240–244 times in XOR, versus 172–188 for most nonyellow combinations. `EXISTS_PAIR` target counts are closer to uniform (yellow pairs 22 each; other valid pairs 22–24 each).
+`LEFT` and `ABOVE` reference present objects. XOR combines their two truth values, with all four constituent truth patterns balanced. A correct result must therefore go beyond deciding whether the referenced attributes exist. `CLOSER` uses an oracle geometric distance comparison; the 128 adaptation examples split into 64 Yes and 64 No with a separation margin, not overlapping distance ties.
 
-Thus **most asked** and **most depicted** coincide for yellow in relational questions, but **not** in the simple `color` task. Circle is the most depicted shape and slightly the most mentioned; the differences among shapes are small.
+The recorded oracle audit found agreement on the **840** checked simple Color/Shape/Pair questions. Additional generator checks passed for graph disjointness, holdout isolation, scene geometry, unique references, balanced XOR truth patterns and manifest hashes. Eight oracle-validated counterfactual pairs also flipped their intended answers (three Pair, one Left, one Above and three XOR). These are *generator validation*, not trained-model counterfactual results.
 
-## 4. When a question mentions an attribute, is it actually in the image?
+A basic exact-query majority lookup, trained without seeing image pixels, scored **50%** across the reported task/split cells. This excludes that particular text-only heuristic on the tested generator; it does not establish that every possible query-only classifier must fail.
 
-In training `EXISTS_COLOR` questions: requested color present in **0% of No**, **100% of Yes**. In `EXISTS_SHAPE`: requested shape present in **0% of No**, **100% of Yes**. In `EXISTS_PAIR`: both requested individual attributes are present in **100% of both labels**, but the *joint pair* exists in **0% of No**, **100% of Yes**.
+## 4. An important correction in the original generator
 
-For `LEFT`, `ABOVE`, `XOR` and `CLOSER`, all queried reference attributes and queried reference pairs are present irrespective of the answer. These tasks cannot be solved by merely checking reference existence; they require spatial, Boolean or distance relationships.
+The first sampling rule required the *absent fourth Color–Shape pair* to be outside the held-out set in every ID task. That restriction unintentionally made Yellow present in every ID image. It was corrected before the audited dataset was released: the strict absent-pair rule remains only where it is needed to generate hard-negative Pair questions, while the other tasks draw from a broader set of valid scenes.
 
-## 5. Can the answer be guessed from the question wording alone?
+The correction matters scientifically because deterministic Color presence could make an attribute question solvable from a class prior rather than from pixels. Passing a balanced-label check alone would not have discovered that problem.
 
-No strong target-specific label imbalance is reported. Overall Yes rate is 50% for each task/split; the notebook's high-count training target-by-task rows have Yes rates of 50% (zero percentage-point shift from task baseline). This is a **marginal audit** only: it does not prove the absence of every possible multifeature/text-only shortcut.
+## 5. What does OOD change?
 
-## 6. Are pair negatives truly difficult? How good are shortcut rules?
+Held-out combinations are **Blue–Square, Green–Circle and Red–Triangle**. None appears in training objects or Pair targets. They do occur as OOD questions and objects.
 
-For the 200 training, 40 ID-dev, and 120 OOD-dev `EXISTS_PAIR` questions, the notebook reports:
+But OOD also changes Color prevalence: Yellow is present in **75.5%** of training scenes, **70.8%** of ID-dev scenes and only **35.8%** of OOD-dev scenes. The OOD contrast therefore includes more than unseen pair composition. Failure on a relational OOD question might reflect reference grounding, attribute-distribution shift or the relation itself. These explanations require separate controls.
 
-- **100% of negative pair questions** show *both individual attributes* somewhere, while the requested pair itself is absent.
-- Predicting Yes from the requested color's presence, the shape's presence, or both independently gives **50% accuracy**, i.e., the balanced-label baseline.
-- The scene-derived oracle matches all **840** audited simple-operation questions (color/shape/pair across the splits).
+## Interpretation
 
-So the generator **forces same-object binding** to distinguish the pair labels; color-only or shape-only existence rules are insufficient.
+Small World established a consistent symbolic generator with genuinely nontrivial Pair negatives and balanced logical truth patterns. It also exposed meaningful sampling asymmetries and the limits of a small, rigid scene grammar.
 
-## 7. Do object count or repeated attributes make some questions easier?
+The audit cannot certify model learnability or generalization. The dataset's structure, plus the limited dev support (only **40 Pair questions**), explains why a single favorable curriculum run required replication and why subsequent experiments moved to a larger Medium World.
 
-**Object count cannot explain label differences in small world:** every question in every inspected task/split has exactly 3 objects (mean 3.0, SD 0.0). Each scene also always repeats one color and one shape. These variables have no variance within this dataset; their effect on model performance cannot be estimated here.
-
-Object size *does* vary: train has 2,711 large versus 2,689 small object occurrences, approximately balanced. A model-performance breakdown by size was **not** performed in this EDA.
-
-## 8. Which combinations are genuinely held out? What shifts across splits?
-
-Three combinations are absent from **both training objects and training pair targets**: **blue + square, green + circle, red + triangle**. The OOD-dev split contains them as rendered objects (116, 68, 116 occurrences respectively) and as targets (136, 88, 136 mentions across tasks respectively, according to the notebook's aggregate target table).
-
-The color distribution changes noticeably: yellow occurs in **75.5% of train scenes**, **70.8% of ID-dev scenes**, but only **35.8% of OOD-dev scenes**. OOD therefore differs in **color prevalence** as well as withheld attribute bindings. We should not attribute every OOD-performance change exclusively to unseen pairs.
-
-## 9. What do the nested relational tasks reveal?
-
-For `LEFT` and `ABOVE`, each question contains on average **two distinct reference pairs**, all present in the scene, so the model has to resolve the relationship rather than existence. XOR contains **three distinct reference pairs** on average, again all present. Across train/ID/OOD, the four XOR subquestion truth combinations `[0,0]`, `[0,1]`, `[1,0]`, `[1,1]` are evenly represented, with answer 1 for exactly the two mixed-truth cases, as expected from XOR.
-
-`CLOSER` appears in **adapt_train only** (128 questions: 64 Yes / 64 No). Its signed margin is negative for all 64 No examples (max −4.39) and positive for all 64 Yes examples (min +4.80). No margin overlap is visible in the summary; whether the model exploits pixel-distance cues is not evaluated here.
-
-## 10. Consequences for learning-order research
-
-- The small world is balanced by labels, but **not uniformly distributed by object color** (yellow dominates), especially in relational questions.
-- The held-out OOD split changes both **attribute combinations and color frequencies**; note this in generalization claims.
-- No need to rerun to interpret object count: the notebook conclusively reports exactly 3 objects in every inspected small-world question.
-- These are **dataset-level** findings; the notebook does not load model predictions, so it cannot establish that a trained ViT used any particular shortcut.
+Evidence: [EDA notebook](../notebooks/small_world/eda.ipynb), [generator and audit code](../src/small_visual_world/), and the saved Small World dataset/audit outputs under [`outputs/small_world/`](../outputs/small_world/).

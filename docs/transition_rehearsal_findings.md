@@ -1,62 +1,66 @@
-# Transition Rehearsal — Five-Seed Findings
+# Transition rehearsal: what happens after Binding specialization?
 
-**Project:** The Order of Learning · Medium World  
-**Sources:** Executed `transition_rehearsal(1).ipynb`, `transition_rehearsal_analysis(1).ipynb`, and `paired_differences(1).csv`  
-**Scope:** ID-dev and OOD-dev; five paired seeds (42–46); no test-set evaluation.
+*November 13, 2026*
 
-## Experimental setting
+## The controlled question
 
-The existing `AttributeBindingViT` (dimension 48, patch size 4, one Transformer layer) is trained on the frozen Medium World dataset: 10,000 training questions across Color, Shape, Conjunction, and same-object Binding (2,500 per task). Training uses AdamW (learning rate `1e-4`, weight decay 0), batch size 50, image augmentation, and 9,000 updates. Each exact training question is presented 45 times. Evaluation occurs every 100 updates, with 256 ID-dev and 400 OOD-dev Binding questions.
+After a model has practiced Binding alone, should earlier tasks return abruptly, gradually, or in a way that keeps more Binding practice late? The first matched-exposure curricula suggested that the common Mixed phase could reduce newly acquired Binding accuracy. This study changed the **continuation after the same trained prefix**, rather than training each schedule independently from initialization.
 
-For each seed, a *single parent* trains with Color/Shape/Conjunction mixed through step 5,400, then Binding through step 6,300. Three continuations restore **identical model weights, optimizer state, and random-number-generator state** at step 6,300. They also preserve the within-task question order and final per-question exposure.
+For each of five seeds (42–46), one Medium World `AttributeBindingViT` was trained with Color, Shape and Conjunction mixed to update 5,400, followed by Binding alone to update **6,300**. The three suffixes then restored the **same saved model weights, AdamW state and Python/NumPy/PyTorch RNG states** for that seed. Within-task question order and final exposure counts were matched. This makes the branching comparison stronger than independently training similar prefixes.
 
-| Continuation | Steps 6,300–6,600 | 6,600–7,200 | 7,200–9,000 |
+All runs used constant LR `1e-4`, batch size 50, the same data and augmentations, and a fixed **9,000-update** endpoint. Each question appeared **45 times** by the end; the runs were evaluated on the same ID-dev and OOD-dev questions every 100 updates.
+
+## Three continuations
+
+| Suffix schedule | 6,300–6,600 | 6,600–7,200 | 7,200–9,000 |
 |---|---|---|---|
-| **Abrupt** | Binding only | Binding only | Uniform four-task mix |
-| **Gradual bridge** | Binding only | 75% Binding, 25% earlier tasks | 33⅓% Binding, 66⅔% earlier tasks |
-| **Late Binding** | Binding only | 25% Binding, 75% earlier tasks | 50% Binding, 50% earlier tasks |
+| **Abrupt** | 100% Binding | 100% Binding | 25% Binding |
+| **Gradual bridge** | 100% Binding | 75% Binding | 33⅓% Binding |
+| **Late Binding** | 100% Binding | 25% Binding | 50% Binding |
 
-The earlier-task percentage is divided evenly among Color, Shape, and Conjunction. Each continuation uses 27 Binding passes and nine passes per earlier task after the branch, so **total exposure is identical at step 9,000**. Exposure differs at intermediate checkpoints.
+The remaining percentage in each block is divided equally among Color, Shape and Conjunction. Every suffix has **27 Binding passes and nine passes per prerequisite task** after the shared branch. Final exposure is equal, but **intermediate exposure at update 7,200 is not**. Therefore, a 7,200-point difference is not a matched-Binding-exposure effect.
 
-**Integrity:** The executed notebooks report 15 completed runs, five distinct shared parents, matching parent hashes and prefix predictions within each seed, verified dataset hashes, 91 checkpoints per run, and the required final exposure counts.
+Saved run checks reported **five common parents**, **15 completed continuations**, matching parent hashes and prefix predictions within each seed, 91 evaluation checkpoints per run, and the expected dataset and exposure records.
 
-## Final Binding performance
+## Final results
 
-Mean across the five seeds at step 9,000; the ± value is between-seed standard deviation.
+Five-seed means at update 9,000:
 
-| Continuation | ID accuracy | OOD accuracy | OOD positive recall | OOD negative specificity |
+| Continuation | ID Binding | OOD-dev Binding | OOD positive recall | OOD negative specificity |
 |---|---:|---:|---:|---:|
-| Abrupt | 62.50% ± 1.85 pp | 57.20% ± 2.69 pp | 67.2% | 47.2% |
-| Gradual bridge | **65.86% ± 2.61 pp** | 58.90% ± 2.68 pp | 70.7% | 47.1% |
-| Late Binding | **65.86% ± 2.00 pp** | **59.60% ± 2.39 pp** | **72.6%** | 46.6% |
+| Abrupt | 62.50% | 57.20% | 67.2% | 47.2% |
+| Gradual bridge | **65.86%** | 58.90% | 70.7% | 47.1% |
+| Late Binding | **65.86%** | **59.60%** | 72.6% | 46.6% |
 
-Paired differences (percentage points; five seeds; 95% *t* intervals):
+Paired differences in percentage points (five seeds; unadjusted 95% Student-*t* intervals):
 
-| Contrast | ID difference [95% CI] | OOD difference [95% CI] |
+| Contrast | ID Binding | OOD-dev Binding |
 |---|---:|---:|
 | Gradual − Abrupt | **+3.36 [+1.17, +5.54]** | +1.70 [−0.86, +4.26] |
 | Late − Abrupt | **+3.36 [+1.12, +5.60]** | +2.40 [−1.42, +6.22] |
-| Gradual − Late | +0.00 [−2.20, +2.20] | −0.70 [−3.02, +1.62] |
+| Gradual − Late | 0.00 [−2.20, +2.20] | −0.70 [−3.02, +1.62] |
 
-Both alternatives outperform Abrupt on **final ID Binding in all five seeds**. Late Binding also exceeds Abrupt on OOD in all five, while Gradual does so in four. However, the OOD paired intervals include zero. **There is no resolved difference between Gradual and Late Binding at the final endpoint.**
+Both alternatives improved final ID Binding relative to Abrupt in **all five seeds**. Their OOD mean differences are uncertain, and **Gradual does not outperform Late Binding** on the primary endpoint. The result supports changing the abrupt continuation, but it does not isolate transition smoothness as the cause. Gradual and Late also change *how recently* Binding questions are seen.
 
-## Behavior around step 7,200
+## Immediate prediction disruption
 
-At step 7,200, the schedules have **different cumulative Binding exposure**; these comparisons characterize their trajectories, not an exposure-controlled treatment effect.
+At update 7,200 the suffixes enter different mixtures, starting from different intermediate Binding exposure and performance:
 
-| Continuation | ID: 7,200 → 7,300 | OOD: 7,200 → 7,300 | Previously correct ID questions becoming incorrect | Same measure, OOD |
-|---|---|---|---:|---:|
-| Abrupt | 67.3% → 61.9% | 59.9% → 57.8% | 18.1% | 19.0% |
-| Gradual bridge | 65.4% → 64.2% | 58.4% → 59.4% | 10.7% | 9.9% |
-| Late Binding | 59.8% → 62.2% | 56.6% → 58.4% | 12.0% | 9.5% |
+| Continuation | ID Binding 7,200 → 7,300 | OOD Binding 7,200 → 7,300 | Previously correct ID Binding questions that become incorrect |
+|---|---|---|---:|
+| Abrupt | 67.3% → 61.9% | 59.9% → 57.8% | **18.1%** |
+| Gradual bridge | 65.4% → 64.2% | 58.4% → 59.4% | 10.7% |
+| Late Binding | 59.8% → 62.2% | 56.6% → 58.4% | 12.0% |
 
-The abrupt switch exhibits the largest immediate drop and the highest question-level correctness churn (19.1% ID and 20.9% OOD). Gradual bridge has lower churn (12.7% ID, 12.5% OOD); Late Binding has 16.6% ID and 12.3% OOD churn. Of questions that were correct at 7,200 and incorrect at 7,300, the fractions correct again by 9,000 are 50.5%/33.6% (Abrupt, ID/OOD), 64.3%/45.5% (Gradual), and 38.4%/32.2% (Late). These are descriptive conditional rates, with different initial-error denominators across schedules.
+The Abrupt continuation has the largest immediate drop. Its ID correctness churn was **19.1%**, versus **12.7% Gradual** and **16.6% Late**. On OOD, churn was **20.9%, 12.5% and 12.3%**, respectively.
 
-The final OOD gains are mainly associated with **higher positive recall**, not better negative rejection: specificity stays around 47% for all three continuations. The model still struggles to reject many nonexistent color–shape pairs.
+Of ID questions that were correct at 7,200 but wrong at 7,300, the fraction correct again by 9,000 was **50.5% Abrupt**, **64.3% Gradual**, and **38.4% Late**. These are conditional rates over different sets of forgotten questions, not a direct comparison of recovered knowledge in identical populations.
 
-## OOD held-out combinations
+The results show **prediction instability during the task-mixture transition**. They do not prove that visual features were erased or that gradual training mechanically prevents forgetting. The suffixes receive different amounts of Binding at the transition and have different accuracies at its start.
 
-Pooled final accuracy across the five paired seeds. Subgroup support and labels are identical between continuations.
+## What the OOD errors mean
+
+Performance on the four held-out combinations varied:
 
 | Held-out pair | Abrupt | Gradual | Late Binding |
 |---|---:|---:|---:|
@@ -65,13 +69,17 @@ Pooled final accuracy across the five paired seeds. Subgroup support and labels 
 | Purple–triangle | 52.3% | 52.8% | 51.7% |
 | Red–crescent | 49.9% | 52.5% | 53.5% |
 
-The improvements are uneven. Green–circle contributes clearer gains; purple–triangle and red–crescent remain much harder. This experiment improves the *timing* of Binding practice without establishing robust compositional generalization across held-out combinations.
+The OOD mean improvement mainly came from **higher positive recall**, while negative specificity remained around **47%** in all three continuations. The model therefore still made many false positive Binding predictions.
+
+The Medium World OOD generator also makes held-out-object presence perfectly track the scene's OOD label. These numbers describe this particular confounded benchmark; they do **not** establish genuine transfer to previously unseen combinations.
 
 ## Interpretation
 
-1. **Reordering the post-Binding continuation matters.** Under equal final exposure and identical parent states, both Gradual and Late Binding improve final ID Binding over an abrupt return to uniformly mixed tasks.
-2. **The abrupt transition produces more immediate prediction disruption.** The lower forgetting and churn under the alternatives are consistent with reduced short-term interference, although the strategies have different Binding exposure at step 7,200.
-3. **A uniquely beneficial gradual-transition mechanism is not established.** Gradual and Late Binding have equal mean final ID accuracy, similar OOD accuracy, and different late-stage task proportions. The current comparisons cannot separate smoothness from recency of Binding exposure.
-4. **OOD Binding remains limited.** Most OOD improvement reflects positive recall, while hard-negative specificity and performance on difficult held-out combinations remain weak.
+- **Continuation strategy matters for final ID Binding.** From identical saved parent states and equal final exposure, Gradual and Late both improved over an abrupt return to Mixed.
+- **The first Mixed updates are particularly disruptive** after prolonged Binding-only practice, but intermediate comparisons have unequal Binding exposure.
+- **A special benefit from smoothness is not identified.** Gradual and Late are similar at the fixed final endpoint; their differences mix transition shape with recency of Binding practice.
+- **Prediction changes are not representation loss.** The evidence concerns correctness, recall and recovery on fixed question IDs.
 
-**Next methodological priority:** Analyze Color/Shape/Conjunction retention under these continuations, then design a tighter smoothness-versus-recency control that matches task proportions in comparable late-training windows. Preserve the current runs and their fixed-final endpoints as the reference.
+This experiment narrowed the curriculum question from “does rehearsal help?” to **which properties of the continuation schedule matter when the model starts from exactly the same state**. The later Smoothness × Recency study was designed to separate those factors more carefully.
+
+The completed notebooks are [`transition_rehearsal.ipynb`](../notebooks/medium_world/transition_rehearsal.ipynb) and [`transition_rehearsal_analysis.ipynb`](../notebooks/medium_world/transition_rehearsal_analysis.ipynb). The saved histories and per-question analyses are under [`outputs/medium_world/experiments/transition_rehearsal/five_seeds/`](../outputs/medium_world/experiments/transition_rehearsal/five_seeds/). All intervals and interpretations are exploratory and based on repeatedly inspected development sets.

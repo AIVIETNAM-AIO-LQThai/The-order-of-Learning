@@ -1,53 +1,51 @@
-# What happens on nine seeds instead of one?
+# Small World: Nine-Seed Learning-Order Replication
 
-## Purpose
+*13 November 2026*
 
-Evaluate whether the order of learning color, shape, and color–shape binding changes final performance and task retention in the original synthetic visual world. Check consistency of the 3 mode performance.
+An initial single-seed result suggested that Staged training might improve Color–Shape Binding. Replicating the comparison across seeds tested whether that difference was a stable effect or a favorable run.
 
-## Protocol
+## Comparison
 
-- Seeds: 42–50 (nine seeds); schedules: `mixed`, `staged`, `reverse` (27 runs).
-- Same 600 Level-1 training examples, architecture, batch size 32, learning rate 0.002, D4 augmentation, and 450 updates per schedule within each seed.
-- Each example is presented 24 times; 75 of the 450 updates are the **common mixed-rehearsal phase**, present in all three schedules.
-- Primary comparison: accuracy at the fixed final update on the same ID-development set (40 examples per task).
-- Source: `schedule_comparison.json`; environment recorded there as PyTorch 2.13.0+cu130 / NVIDIA RTX 5050 Laptop GPU.
+- **27 runs:** Mixed, Staged and Reverse schedules, paired across seeds **42–50**.
+- **Same exposure:** 600 Level-1 training examples, batch size 32, learning rate 0.002, D4 image augmentation and **450 updates** per run. Every example appeared **24 times**, including a common **75-update Mixed rehearsal** suffix.
+- **Main measure:** fixed-final ID-dev accuracy, with **40 questions per task**. These are exploratory development results, not held-out transfer tests.
 
-## Final ID-development results
+## Final accuracy
 
-| Task                | Mixed mean | Staged mean | Reverse mean |
-| ------------------- | ---------: | ----------: | -----------: |
-| Color               |     98.61% |      96.11% |       96.11% |
-| Shape               |     71.39% |      71.39% |       72.50% |
-| Color–shape binding |     69.72% |      71.94% |       65.28% |
-| Overall             |     79.91% |      79.81% |       77.96% |
+| Task | Mixed | Staged | Reverse |
+|---|---:|---:|---:|
+| Color | **98.61%** | 96.11% | 96.11% |
+| Shape | 71.39% | 71.39% | **72.50%** |
+| Binding | 69.72% | **71.94%** | 65.28% |
+| Overall | **79.91%** | 79.81% | 77.96% |
 
-Binding sample standard deviations across seeds: mixed 5.07 pp, staged 9.17 pp, reverse 9.14 pp.
+Binding standard deviations across seeds were **5.07**, **9.17**, and **9.14 percentage points**, respectively. The paired final Binding contrasts were:
 
-Paired binding differences, with approximate two-sided 95% t intervals (df=8):
+| Contrast | Mean difference | Approximate paired 95% interval |
+|---|---:|---:|
+| Staged − Mixed | **+2.22 pp** | **[−6.12, +10.57]** |
+| Staged − Reverse | +6.67 pp | [−1.98, +15.31] |
+| Mixed − Reverse | +4.44 pp | [−4.91, +13.80] |
 
-| Comparison       | Mean difference |             95% CI |
-| ---------------- | --------------: | -----------------: |
-| Staged − mixed   |        +2.22 pp | [−6.12, +10.57] pp |
-| Staged − reverse |        +6.67 pp | [−1.98, +15.31] pp |
-| Mixed − reverse  |        +4.44 pp | [−4.91, +13.80] pp |
-
-All three intervals include zero. Staged is numerically best on average for binding, but these runs do not establish a reliable final-performance advantage. Mixed has marginally higher mean overall accuracy and lower binding variance.
+Every interval includes zero. In particular, the +2.22 pp mean Staged advantage is much smaller and less certain than the motivating single-seed result. This is **not evidence of equivalence**, but it does not demonstrate a dependable final benefit either.
 
 ## Learning dynamics
 
-| Comparison                                                      | Mean pair accuracy (earlier) | Mean pair accuracy (later) |    Change |
-| --------------------------------------------------------------- | ---------------------------: | -------------------------: | --------: |
-| Staged: end of attributes (250) → end of binding (375)          |                       50.56% |                     76.11% | +25.56 pp |
-| Staged: end of binding (375) → end of mixed rehearsal (450)     |                       76.11% |                     71.94% |  −4.17 pp |
-| Reverse: end of binding (125) → end of attributes (375)         |                       59.72% |                     51.67% |  −8.06 pp |
-| Reverse: end of attributes (375) → end of mixed rehearsal (450) |                       51.67% |                     65.28% | +13.61 pp |
+| Training interval | Earlier Binding | Later Binding | Change |
+|---|---:|---:|---:|
+| Staged: end of attributes (250) → end of Binding (375) | 50.56% | 76.11% | **+25.56 pp** |
+| Staged: Binding (375) → Mixed consolidation (450) | 76.11% | 71.94% | **−4.17 pp** |
+| Reverse: Binding (125) → end of attributes (375) | 59.72% | 51.67% | **−8.06 pp** |
+| Reverse: attributes (375) → Mixed consolidation (450) | 51.67% | 65.28% | **+13.61 pp** |
 
-These trajectories suggest interference and recovery; they do not isolate whether the causal driver is task order, phase duration, recency, or rehearsal amount.
+The trajectories show that a task's score can rise under focused training and fall when the training distribution changes. Common Mixed training sometimes restores performance. These are prediction-level effects; they do not identify whether the underlying features have been erased, how rehearsal works, or which component of the schedule caused the change.
 
-## Limitations and next experiment
+## Interpretation
 
-- Only 40 ID-development examples per task; evaluations are exploratory and are not held-out test/OOD evidence.
-- The original strict-ID pair scene distribution has known attribute-distribution constraints, motivating a cleaner dataset design.
-- Preserve this dataset and all 27 run records unchanged. Do not pool the earlier seed-42 single run as an independent tenth seed.
-- Next: a versioned, harder synthetic visual world (purple, crescent, 3–5 objects, 5,000 unique training scenes) with independent-conjunction versus same-object-binding questions and scene-disjoint evaluation. Continue comparing mixed, staged, and reverse schedules with matched exposures.
-- Future mechanism study: vary attribute-phase duration and final mixed-rehearsal duration **in separate controlled experiments** to distinguish prerequisite learning from recency/interference.
+The nine-seed replication **weakened the initial claim of Staged superiority**. It also highlighted the difference between a high intermediate Binding peak and a smaller fixed-final difference after consolidation.
+
+The original world had only 40 ID-dev questions per task, strong structural constraints and nonuniform Color exposure. Those limitations motivated the later Medium World with 3–5 objects, more attributes, and a separate independent-Conjunction task. The later dataset is not a simple larger sample of the same task grammar, so its results cannot be pooled with this replication.
+
+The earlier single-seed trial is part of the motivation, **not a tenth independent seed** in this analysis.
+
+Evidence: the original nine-seed saved schedule comparison and Small World learning notebooks; see also [Small World EDA](small_world_eda_findings.md) and [feasibility findings](small_world_feasibility_findings.md).

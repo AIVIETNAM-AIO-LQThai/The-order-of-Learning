@@ -31,7 +31,7 @@ Five paired initialization seeds (42–46) produced **20 completed runs**, each 
 
 Every schedule then receives the same 1,800-update mixed consolidation phase.
 
-The cleanest designed contrast is **Staged versus Prerequisites mixed**. Both first encounter Binding at update 5,400, receive the same Binding question stream afterward, and have identical total exposure. Their difference lies in the preceding organization of Color, Shape and Conjunction, not in the amount of Binding supervision.
+The cleanest designed contrast is **Staged versus Prerequisites mixed**. Both first encounter Binding at update 5,400, receive the same Binding question stream afterward, and have identical total exposure. Their difference lies in the preceding organization of Color, Shape and Conjunction, not in the amount of Binding supervision. For each paired seed, the schedules reuse the same within-task question order. The final **900-update Binding focus block** is also matched among the three focus schedules, and the last 1,800-update Mixed question sequence is matched across all four. Matching the planned examples does **not** mean matching the trained model or optimizer state at the start of those blocks; their earlier histories differ.
 
 The other comparisons are informative but less isolated. Mixed → Pair changes both *when* Binding first appears and the distribution of practice. Fully Mixed has no Binding-only block. Different schedules also reach later phases with different learned weights and AdamW optimizer states; matching examples and learning rates does not make those internal states identical.
 

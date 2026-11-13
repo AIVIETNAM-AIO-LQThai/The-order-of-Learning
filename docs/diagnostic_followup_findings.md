@@ -22,7 +22,7 @@ Our regular Binding negatives already require the requested Color and Shape to o
 
 Notebook [`01_count_free_curves.ipynb`](../notebooks/medium_world/01_count_free_curves.ipynb) therefore re-examines saved predictions only on questions for which **exactly one object has the requested Color and exactly one object has the requested Shape**. In a positive scene those attributes belong to the same object; in a negative scene they belong to different objects. Their marginal counts are identical in either case.
 
-The resulting ID-development subset has **109 questions: 34 Yes and 75 No**. An always-No classifier would obtain **68.81% raw accuracy** but **50% balanced accuracy**. The appropriate primary score is consequently
+The resulting ID-development subset has **109 questions: 34 Yes and 75 No**. An always-No classifier would obtain **68.81% raw accuracy** but **50% balanced accuracy**. The complementary OOD count-controlled subset has **154 questions (46 Yes, 108 No)** and is not label-balanced, so OOD results must also separate class-specific behavior. The count filter fixes the two queried-attribute counts, not every scene statistic. The appropriate primary score is consequently
 
 $$
 \operatorname{BA}=\frac{1}{2}\left(\operatorname{TPR}+\operatorname{TNR}\right).
@@ -90,7 +90,7 @@ Notebook [`02_binding_swaps.ipynb`](../notebooks/medium_world/02_binding_swaps.i
 
 It swaps the Colors of two objects, leaving the number of objects, the entire Color and Shape multisets, their positions, sizes, and rotations unchanged. The oracle Binding label changes. A prediction rule based only on the requested attributes' independent presence or multiplicities cannot distinguish the original and edited images.
 
-The notebook evaluates **30 frozen checkpoints**: Mixed and Prereq-Mixed→Pair, five seeds each, at updates 5,400, 7,200, and 9,000. Each checkpoint uses **109 eligible original questions**, with **75 original No** and **34 original Yes** labels.
+The notebook evaluates **30 frozen checkpoints**: Mixed and Prereq-Mixed→Pair, five seeds each, at updates 5,400, 7,200, and 9,000. Each checkpoint uses **109 eligible original questions**, with **75 original No** and **34 original Yes** labels. Candidate edits are accepted only when the scene validator and symbolic oracle verify the intended label change. Because the image is edited rather than the optimizer, the comparison tests the trained function’s response to the change, not the causal history by which the function was learned.
 
 Two outcomes answer different questions:
 

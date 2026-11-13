@@ -58,10 +58,11 @@ The reports are organized by scientific question. They retain the controls and n
 | Question | Findings |
 |---|---|
 | How balanced and shortcut-resistant are the generated worlds? | [Small World EDA](docs/small_world_eda_findings.md), [Medium World EDA](docs/medium_world_eda_findings.md) |
+| Could the first multimodal architecture learn beyond tiny memorization tests? | [Small World feasibility](docs/small_world_feasibility_findings.md) |
 | Does the original sequence replicate? | [Small World nine-seed comparison](docs/nine_seeds_comp_small_world.md), [Medium World five-seed curriculum](docs/five_seed_curriculum_findings.md) |
 | Does a matched Binding focus expose a prerequisite-order advantage? | [Mixed → Pair controls](docs/mixed_pair_control_findings.md) |
 | Does mastery-guided scheduling change the result? | [Mastery progression](docs/mastery_evaluation_findings.md) |
-| What happens when task mixtures change? | [Transition rehearsal](docs/transition_rehearsal_findings.md), [Smoothness × Recency](docs/smoothness_recency_findings.md), [Scaffolded Spiral](docs/scaffolded_spiral_findings.md) |
+| What happens when task mixtures change? | [Early staged rehearsal](docs/rehearsal_curriculum_findings.md), [Transition rehearsal](docs/transition_rehearsal_findings.md), [Smoothness × Recency](docs/smoothness_recency_findings.md), [Scaffolded Spiral](docs/scaffolded_spiral_findings.md) |
 | How does the optimizer's learning-rate history matter? | [LR policy findings](docs/lr_reset_findings.md) |
 | What explains Shape and Binding failures? | [Representation diagnostics](docs/representation_diagnostics_findings.md), [Diagnostic follow-up](docs/diagnostic_followup_findings.md) |
 

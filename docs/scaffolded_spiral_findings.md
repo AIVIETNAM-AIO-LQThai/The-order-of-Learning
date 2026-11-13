@@ -1,33 +1,39 @@
-# Scaffolded Spiral — Five-Seed Findings
+# Scaffolded Spiral: balancing Binding specialization and earlier-task retention
 
-## Research question
+*November 13, 2026*
 
-Can a **scaffolded, rehearsed Binding curriculum** improve final same-object Binding and its generalization without sacrificing Color, Shape, and Conjunction? Does **Binding specialization followed by rebalancing** outperform the same two blocks in the opposite order?
+## Why this curriculum was tested
 
-The combined schedule was motivated by earlier curriculum, transition, and rehearsal studies. Its components are **not** separately identified by a comparison of complete schedules.
+Earlier experiments showed that training heavily on Binding can improve Binding accuracy while disrupting Color, Shape and Conjunction answers. Rehearsal reduces some of that disruption, but it does not establish a better final Binding outcome. Scaffolded Spiral combined staged prerequisites, later Binding focus and broader rehearsal to test whether these effects could be balanced within the same fixed budget.
 
-## Setup and experimental integrity
+A second schedule, **Spiral Late Focus**, reversed the order of the last two training blocks. This asked a narrower question: after a shared planned prefix, should Binding-heavy practice come **before** or **after** rebalancing?
 
-- **World:** frozen Medium World, 64×64 RGB scenes; 10,000 training questions (2,500 each for Color, Shape, Conjunction, Binding). ID-dev has 256 questions per task; OOD-dev contains 400 Binding questions covering held-out color–shape combinations.
-- **Architecture:** unchanged `AttributeBindingViT(dim=48, patch_size=4, depth=1)`. AdamW, constant `lr=1e-4`, weight decay 0, batch 50, gradient clipping 1.0, image augmentation enabled. **No LR reset or architecture modification was tested here.**
-- **Design:** five paired seeds, 42–46, across five curricula; **25 completed runs**, all at 9,000 updates. Every exact training question is presented **45 times** (450,000 total presentations per run). Per-task question streams and the final nine-pass Mixed block are matched by seed.
-- **Measurements:** step 0, every 100 updates, phase boundaries and 100 updates after boundaries. Main outcome: **ID-dev Binding at the fixed step-9,000 endpoint**; OOD-dev and other diagnostics are secondary. No test split was evaluated for this report.
+## The comparison
 
-| Curriculum | Main training before common Mixed (steps 7,200–9,000) |
-|---|---|
-| `scaffolded_spiral` | Color/Shape jointly to 2,800 → Conjunction + prerequisite rehearsal to 4,450 → Binding-heavy rehearsal to 6,100 → broader rebalancing to 7,200 |
-| `spiral_late_focus` | Identical planned first 4,450 steps → rebalancing to 5,550 → Binding-heavy rehearsal to 7,200 |
-| `staged_rehearsal` | Attributes → Conjunction with rehearsal → Binding with rehearsal |
-| `prereq_mixed_pair_focus` | Color/Shape/Conjunction mixed to 5,400 → Binding-only to 7,200 |
-| `mixed` | All four tasks mixed throughout |
+Five seeds (42–46) were run across five curricula using the frozen Medium World and the same `AttributeBindingViT`. AdamW used a **constant learning rate of `1e-4`**, batch size 50 and unchanged augmentations. Every run had **9,000 updates**, **45 presentations per question**, and an identical planned nine-pass Mixed consolidation block during updates 7,200–9,000. Results below use fixed-final development checkpoints, not the best checkpoint selected afterward.
 
-For Scaffolded Spiral, Binding is **absent** until step 4,450, then comprises **78.8%** of the Binding-specialization phase and **45.5%** of rebalancing. The last 1,800 updates are uniformly mixed across tasks in every curriculum. These allocations are fixed **time-based stages**, not mastery-triggered transitions.
+The two Spiral schedules were:
 
-## Final Binding results
+| Phase | Scaffolded Spiral | Spiral Late Focus |
+|---|---|---|
+| 0–2,800 | Color and Shape | Same |
+| 2,800–4,450 | Conjunction with earlier-task rehearsal | Same |
+| 4,450–5,550 | Binding-heavy practice (part of block ending at 6,100) | Broader rebalancing |
+| 5,550–6,100 | Binding-heavy practice | Binding-heavy practice (part of block ending at 7,200) |
+| 6,100–7,200 | Broader rebalancing | Binding-heavy practice |
+| 7,200–9,000 | Common Mixed | Common Mixed |
 
-Means over five seeds, at the predefined final checkpoint (percent accuracy; AULC is Binding accuracy integrated over all 9,000 optimizer steps):
+More precisely, the **Scaffolded** suffix is `C2 S2 J3 P26` passes for 1,650 updates, followed by `C3 S3 J6 P10` for 1,100 updates. **Late Focus** reverses those two blocks. Before this suffix, `C28 S28` passes occupy 2,800 updates and `C3 S3 J27` passes occupy 1,650. These allocations give the two schedules equal total presentations; their timing differs. In Scaffolded Spiral, Binding makes up **78.8%** of the focus block and **45.5%** of rebalancing.
 
-| Curriculum | ID-dev Binding | OOD-dev Binding | ID Binding AULC |
+The comparison also included Staged Rehearsal, Prerequisite-Mixed → Pair Focus, and Fully Mixed as references. All five schedules share task-level exposure totals but not the same intermediate state or task sequence.
+
+**Important execution limit:** the two Spiral runs were trained separately rather than forked from the same saved model, AdamW and RNG state at update 4,450. Their recorded prefix predictions match for seeds **43–46**, but **seed 42 differs slightly before the intended divergence**. Therefore the suffix contrast is not a perfect same-state causal intervention. It measures the realized schedules with that qualification.
+
+## Fixed-final results
+
+Five-seed mean at update 9,000:
+
+| Curriculum | ID Binding | OOD-dev Binding | ID Binding AULC |
 |---|---:|---:|---:|
 | Prerequisite-Mixed → Pair Focus | **62.97%** | **57.50%** | 54.99% |
 | Staged Rehearsal | 62.73% | 56.65% | 55.17% |
@@ -35,45 +41,35 @@ Means over five seeds, at the predefined final checkpoint (percent accuracy; AUL
 | **Scaffolded Spiral** | **61.25%** | **55.45%** | **54.94%** |
 | Spiral Late Focus | 60.78% | 55.90% | 54.73% |
 
-Paired differences in percentage points, five paired seeds, two-sided 95% *t* intervals (unadjusted for multiple comparisons):
+Paired contrasts for Scaffolded Spiral minus its references (percentage points, unadjusted 95% Student-*t* intervals across five seeds):
 
-| Contrast (Scaffolded Spiral − reference) | ID Binding [95% CI] | OOD Binding [95% CI] |
+| Reference | ID Binding | OOD-dev Binding |
 |---|---:|---:|
-| Staged Rehearsal — **prespecified primary** | −1.48 [−4.42, +1.45] | −1.20 [−4.19, +1.79] |
+| Staged Rehearsal, primary comparison | **−1.48 [−4.42, +1.45]** | −1.20 [−4.19, +1.79] |
 | Spiral Late Focus | +0.47 [−1.51, +2.45] | −0.45 [−2.01, +1.11] |
 | Prerequisite-Mixed → Pair Focus | −1.72 [−4.80, +1.36] | −2.05 [−7.88, +3.78] |
 | Fully Mixed | −0.63 [−3.63, +2.38] | −1.00 [−8.26, +6.26] |
 
-**No fixed-final Binding contrast demonstrates a repeatable Scaffolded Spiral advantage.** The primary ID difference favors Staged Rehearsal in mean, but its paired interval spans zero. With only five seeds and several comparisons, intervals should be read descriptively, not as decisive evidence of equality or inferiority.
+**No comparison shows a reliable fixed-final Binding advantage for Scaffolded Spiral.** The small mean ID difference between the two Spiral suffix orders is unresolved, and the seed-42 prefix discrepancy further limits its interpretation.
 
-Global-step Binding AULC is **1.83 pp lower than Fully Mixed** for Scaffolded Spiral (paired interval [−3.25, −0.41]; all five seeds lower). This is an end-to-end efficiency result: Fully Mixed receives Binding questions from step 0, while Spiral does not see them until step 4,450. Therefore AULC **does not isolate post-introduction learning efficiency**.
+The global-step Binding AULC for Scaffolded Spiral was **1.83 pp below Fully Mixed** (paired interval **[−3.25, −0.41] pp**; lower in all five seeds). Fully Mixed encounters Binding from the beginning, whereas Spiral first encounters it at update 4,450. This AULC difference describes end-to-end performance under equal global budgets; it does **not** isolate learning efficiency after Binding introduction.
 
-## What happened at the learning stages?
+## What changed during training
 
-### The prerequisite stage did not establish Shape mastery
+Immediately before Binding was introduced in Scaffolded Spiral (update 4,450), the mean ID-dev accuracies were **99.22% Color**, **63.59% Shape**, **79.92% Conjunction**, and **50.39% Binding**. The curriculum had completed the planned prerequisites, but had **not** demonstrated robust Shape mastery. The apparently strong Conjunction result also needs the shortcut analysis below.
 
-Immediately before Binding introduction in Scaffolded Spiral (step 4,450), five-seed ID-dev mean accuracies were:
+At update 7,200, just before the final Mixed period:
 
-| Color | Shape | Conjunction | Untrained Binding |
-|---:|---:|---:|---:|
-| 99.22% | **63.59%** | 79.92% | 50.39% |
-
-The schedule successfully defers Binding exposure, but **passing a prerequisite stage is not evidence that its intended skill has been mastered**. Shape remains weak and the Conjunction score conceals an important shortcut (below).
-
-### Rehearsal retains earlier-task performance during specialization
-
-At step 7,200, immediately before common consolidation:
-
-| ID-dev task | Scaffolded Spiral | Prerequisite-Mixed → Pair Focus | Staged Rehearsal |
+| Task | Scaffolded Spiral | Prerequisite-Mixed → Pair Focus | Staged Rehearsal |
 |---|---:|---:|---:|
 | Color | 98.83% | 94.30% | 98.36% |
-| Shape | **63.83%** | 57.34% | **64.61%** |
-| Conjunction | **79.77%** | 70.55% | 78.44% |
+| Shape | 63.83% | 57.34% | 64.61% |
+| Conjunction | 79.77% | 70.55% | 78.44% |
 | Binding | 61.64% | **67.73%** | 64.06% |
 
-The pure Binding-focus reference reaches higher intermediate Binding accuracy while earlier tasks deteriorate. Scaffolded Spiral preserves substantially more of Color, Shape, and Conjunction, but acquires less Binding by the same global step. **This is a specialization–retention trade-off**, not proof that rehearsal alone causes the difference: these complete curricula also vary in earlier exposure and timing. Staged Rehearsal achieves a somewhat better Binding/Shape combination, indicating that rehearsal quantity and placement matter.
+Scaffolded Spiral preserved earlier-task answers better than the Binding-only reference at this point, but learned less Binding by the same global update. This is a **specialization–retention trade-off in predictions**, not evidence that the two schedules differ in one isolated mechanism or that one has stored better object representations.
 
-The shared 1,800-step Mixed consolidation changes mean ID-dev scores as follows (step 7,200 → 9,000):
+During final Mixed consolidation (7,200 → 9,000):
 
 | Curriculum | Shape change | Binding change |
 |---|---:|---:|
@@ -83,65 +79,37 @@ The shared 1,800-step Mixed consolidation changes mean ID-dev scores as follows 
 | Prerequisite-Mixed → Pair Focus | **+9.45 pp** | **−4.77 pp** |
 | Fully Mixed | +2.42 pp | +1.41 pp |
 
-Common consolidation restores earlier-task performance most strongly after pure Binding focus, where those skills had fallen furthest. It may also reduce Binding performance. These are accuracy and question-correctness changes, **not direct measurements of erased or recovered internal representations**.
+The strongest Shape rebound follows the most concentrated Binding phase. Conversely, that schedule loses the largest mean Binding accuracy during consolidation. The short-term question-level forgetting rate over the first 100 mixed updates is **18.57%** for Prerequisite-Mixed → Pair Focus versus **9.39%** for Scaffolded Spiral, among previously correct ID Binding questions. Their correctness churn is **19.92%** versus **11.41%**. Again, differing entry accuracies and task histories prevent a rehearsal-only causal explanation.
 
-Immediately after the step-7,200 transition (through step 7,300), **18.57%** of previously correct ID Binding questions become incorrect under Prerequisite-Mixed → Pair Focus, versus **9.39%** under Scaffolded Spiral. The corresponding correctness churn is **19.92% versus 11.41%**. These trace-based transition rates support a difference in short-term prediction disruption, but the groups enter consolidation with different Binding exposure trajectories and accuracies; they do not isolate rehearsal as the cause.
+The two Spiral suffix orders also differ by **+0.94 pp final ID Shape** in favor of specialization-before-rebalancing (paired interval **[+0.38, +1.49] pp**). This is a small secondary observation with multiple comparisons and an imperfect shared prefix; it should not determine an optimal schedule.
 
-### Does specialization-before-rebalancing outperform the reverse?
+## What the errors reveal
 
-The two Spiral schedules have the same intended prefix, totals, and final common-Mixed block. At step 9,000, specialization-before-rebalancing yields **+0.47 pp ID Binding** (CI [−1.51, +2.45]) and **−0.45 pp OOD Binding** (CI [−2.01, +1.11]) relative to the reverse order. Neither establishes a Binding advantage. Final ID Shape is **+0.94 pp** higher (paired CI [+0.38, +1.49], positive in all five seeds), a modest secondary observation that warrants replication.
+### High Conjunction accuracy does not establish the prerequisite
 
-**Prefix caveat:** the recorded pre-divergence dev trajectories of these schedules match exactly for seeds 43–46, but have small discrepancies for seed 42 despite the intended identical prefix. This is unresolved in the available outputs. The two runs were independently trained rather than forked from a persisted common model/optimizer/RNG checkpoint; thus this is **not** a perfectly controlled common-state continuation experiment. A future causal suffix comparison should save and restore one parent state per seed.
+The ID-dev Conjunction split contains **128 positive cases**, **76 negatives with the queried Color missing**, and **52 negatives with Color present but the queried Shape missing**, per seed. A Color-only oracle would therefore score **79.69%**.
 
-## Error analysis: why high prerequisite accuracy is deceptive
+Scaffolded Spiral scored **80.00%** overall. On the critical Color-present/Shape-missing negatives, it correctly rejected only **25.38%**; it rejected **99.21%** when Color was missing. The pattern is **strongly Color-dominant**, though not perfectly Color-only. Thus an approximately 80% Conjunction score is not persuasive evidence that the model reliably checks both attributes.
 
-### Conjunction is consistent with a Color-only shortcut
+Shape also remains uneven: at the final checkpoint the accuracies by queried Shape were **80.9% circle**, **67.4% crescent**, **65.0% triangle**, and **58.5% square**.
 
-For Scaffolded Spiral at the final checkpoint, pooled over five seeds:
+### Aggregate Binding hides different decisions
 
-| Conjunction question type | Accuracy |
-|---|---:|
-| Both requested attributes exist (`Yes`) | 90.78% |
-| Requested Color is missing (`No`) | **99.21%** |
-| Requested Shape is missing, Color is present (`No`) | **25.38%** |
+On the original OOD-dev questions, Scaffolded Spiral achieved **59.4% positive recall** and **51.5% negative specificity**, versus **77.3% recall** and **35.6% specificity** for Fully Mixed. Spiral predicted `Yes` less often (53.95% versus 70.85%). Better negative rejection came at the cost of more missed positives.
 
-The split contains 128 positives, 76 missing-Color negatives, and 52 missing-Shape negatives **per seed**. A classifier that simply answers whether the requested Color is present would therefore achieve **(128 + 76)/256 = 79.69% accuracy** on this ID-dev task. Scaffolded Spiral achieves **80.00%** overall Conjunction accuracy, nearly the same.
+The schedules disagreed in correctness on **292/1,280 (22.8%)** ID Binding seed-question instances and **576/2,000 (28.8%)** OOD instances. Similar overall accuracy therefore conceals substantial differences in which questions were answered correctly. Such differences do not identify whether the model changed its representation, evidence pooling or decision threshold.
 
-This strongly suggests that high Conjunction accuracy can be attained without reliably checking both attributes. It is **behavioral evidence consistent with a Color-dominant shortcut**, not proof of the network's internal mechanism. It undermines the assumption that Conjunction performance alone certifies prerequisite understanding for same-object Binding. A shape-controlled counterfactual evaluation is needed.
+The mean OOD cross-entropy was **0.793** for Scaffolded Spiral versus **0.758** for Fully Mixed. An accuracy above chance does not imply reliable probability estimates.
 
-### Shape and held-out composition remain difficult
+The OOD-dev generator has since been found to contain a scene-level label shortcut based on the presence of any held-out object. Accordingly, these OOD differences **cannot establish compositional transfer**.
 
-Final Scaffolded Spiral ID-dev Shape accuracy by queried shape: **circle 80.9%, crescent 67.4%, triangle 65.0%, square 58.5%** (pooled across seeds). Weak Shape recognition persists despite extensive foundations training.
+## Interpretation
 
-Final OOD-dev Binding accuracy on held-out combinations (pooled over seeds):
+- **No final advantage from the full Spiral schedule:** the proposed combination of scaffolding, focused Binding and rebalancing did not exceed its references reliably.
+- **Rehearsal-rich training preserved earlier-task answers better** during Binding practice, while Binding-only training reached higher intermediate Binding accuracy and lost more of it during consolidation. The compared schedules changed multiple ingredients.
+- **Suffix order remained unresolved:** the point differences were small, the comparisons exploratory, and one seed did not preserve the intended prefix exactly.
+- **The proposed prerequisite hierarchy was not verified:** Shape remained weak and Conjunction success was compatible with a strong Color-based shortcut.
 
-| Combination | Scaffolded Spiral | Prerequisite-Mixed | Staged Rehearsal |
-|---|---:|---:|---:|
-| Blue–square | 62.9% | 60.6% | 61.6% |
-| Green–circle | 59.4% | 65.0% | 59.8% |
-| Purple–triangle | **48.5%** | 52.6% | 50.5% |
-| Red–crescent | **50.8%** | 50.6% | 54.9% |
+The lasting finding is that curricula change *what the model can answer at each stage*, but a sophisticated schedule does not automatically build a reusable object-level capability or improve the final Binding endpoint.
 
-Purple–triangle and red–crescent remain near chance. Since held-out pairs also differ in their component attributes and scene composition, these results **cannot isolate** a shape-specific causal explanation; they motivate architecture and counterfactual diagnostics.
-
-### Similar accuracy, different prediction behavior
-
-On OOD Binding, Scaffolded Spiral has **59.4% positive recall / 51.5% negative specificity**, while Fully Mixed has **77.3% recall / 35.6% specificity**. Spiral predicts `Yes` less often (53.95% versus 70.85%). Better negative rejection comes with more missed true pairs; neither pattern alone establishes improved object-level Binding.
-
-`paired_question_disagreement.csv` shows correctness disagreements between Scaffolded Spiral and Fully Mixed on **292/1,280 (22.8%) ID Binding seed-question instances** and **576/2,000 (28.8%) OOD instances**. On OOD instances, Spiral alone is correct on **278**, versus **298** for Mixed alone. Their near-similar aggregate accuracy masks substantially different choices; without feature probes, these cannot be attributed uniquely to representation changes instead of decision-boundary or confidence differences.
-
-Mean final OOD cross-entropy is **0.793 for Scaffolded Spiral**, compared with 0.758 for Fully Mixed; the Spiral value exceeds the approximately 0.693 loss of uninformative 50/50 probabilities. Accuracy above 50% thus does not imply good OOD probability quality or calibration.
-
-## Interpretation and next experiment
-
-1. **The full combined curriculum is not validated as better.** Scaffolded Spiral does not improve the prespecified fixed-final Binding outcome or OOD generalization over the existing controls. The result is informative even without a winning schedule.
-2. **Specialization versus retention is the main learning-dynamics finding.** Rehearsal-rich schedules preserve older-task accuracy better during Binding practice, whereas pure Binding focus can acquire higher intermediate Binding accuracy and subsequently lose some of it during consolidation. A schedule-level comparison cannot assign the effect to one ingredient.
-3. **There is no established optimal order of the two Spiral suffixes.** Swapping rebalancing and Binding focus yields no resolved final Binding difference; a genuinely shared checkpoint is needed for a cleaner follow-up.
-4. **The assumed prerequisite hierarchy is not yet verified.** Color can approach mastery while Shape remains weak, and Conjunction can look successful under a Color-only heuristic. Task accuracy is an imperfect proxy for acquiring the underlying visual relationship.
-5. **Next, test phase-aware learning-rate resets while freezing the architecture and data.** Compare constant LR, global decay, and resets at **genuine task-mixture boundaries**, holding task schedules and example exposure fixed. After the optimization experiment, redesign Shape/object-sensitive representations and rerun relevant historical curriculum controls on the *new* architecture rather than comparing architectures indirectly.
-
-## Evidence and limitations
-
-Sources: executed `scaffolded_spiral(1).ipynb`, `scaffolded_spiral_analysis(1).ipynb`, `schedule_comparison(20261108-105603).json`, `paired_differences(3).csv`, `phase_exposure(1).csv`, `prediction_change_summary(1).csv`, `prediction_error_subgroups(2).csv`, and `paired_question_disagreement.csv`. Corresponding project outputs are under `outputs/medium_world/experiments/scaffolded_spiral/`.
-
-Only the **development splits** were analyzed. Both are repeatedly inspected in this research line and should not be presented as a fresh, sealed final test. The present file-level review verifies the supplied aggregate histories and CSVs; the compressed prediction trace files and original frozen scene images were not independently re-executed here. Five seeds, non-independent evaluations of the same questions, unadjusted multiple contrasts, and the seed-42 common-prefix discrepancy limit stronger causal claims. No additional training was performed for this report.
+The training and analysis are in [`scaffolded_spiral.ipynb`](../notebooks/medium_world/scaffolded_spiral.ipynb) and [`scaffolded_spiral_analysis.ipynb`](../notebooks/medium_world/scaffolded_spiral_analysis.ipynb). Saved metrics, prediction traces and paired contrasts are in [`outputs/medium_world/experiments/scaffolded_spiral/`](../outputs/medium_world/experiments/scaffolded_spiral/). The results use repeatedly inspected development sets and unadjusted exploratory contrasts; no untouched final test was conducted.

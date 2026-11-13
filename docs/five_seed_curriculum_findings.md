@@ -1,91 +1,86 @@
-# Five-seed curriculum experiment — answers and interpretation
+# Early Medium World curricula: what the five-seed comparison established
 
-**Source:** executed `analyze_plateau_five_seeds.ipynb` and its saved five-seed summary for seeds **42–46** (4 November 2026). Only **development** evaluations; no held-out test split is used. All accuracy differences below are **percentage points (pp)** unless noted.
+*November 13, 2026*
 
-## 1. Was the schedule comparison fair in training exposure?
+## What was tested
 
-**Yes for total optimizer updates and per-task presentations.** Every one of 15 runs completed **3,000 updates**, **150,000 example presentations**, and exactly **37,500 presentations per task** (`color`, `shape`, `conjunction`, `pair`). The schedules differ in order, not total amount of labeled training exposure.
+The first Medium World curriculum comparison asked whether presenting the tasks in a prerequisite order improves final same-object Binding over mixing all tasks from the start. A Reverse order tested whether the opposite sequence was harmful.
 
-**However, realized learning rates differ:** the adaptive scheduler responds to a schedule-dependent ID-dev loss. Therefore this experiment is not a pure _order-only, fixed-LR_ causal contrast.
+All 15 runs used the same 10,000-question training set, `AttributeBindingViT`, five paired seeds (42–46), and **3,000 optimizer updates**. Each task had 2,500 questions. Every question was presented **15 times**: 12 passes in the first 2,400 updates and three more during the final 600-update Mixed consolidation. Therefore, all schedules had 150,000 total presentations and 37,500 per task.
 
-## 2. Which schedule performs best on final metrics?
+| Schedule | Updates 0–2,400 | Updates 2,400–3,000 |
+|---|---|---|
+| Mixed | All four tasks interleaved | Common Mixed |
+| Staged | Color + Shape (1,200) → Conjunction (600) → Binding (600) | Common Mixed |
+| Reverse | Binding (600) → Conjunction (600) → Color + Shape (1,200) | Common Mixed |
 
-Mean ± sample SD over five seeds, fixed-final checkpoint:
+This was **not an order-only experiment**. All runs started with AdamW at learning rate `1e-4`, but `ReduceLROnPlateau` monitored *overall* ID-dev cross-entropy every 100 updates and carried its scheduler state across phases. It halved the LR after plateaus (patience three evaluations, absolute improvement threshold 0.001, floor `1e-6`). Each schedule therefore experienced a different effective LR history as its task mix changed. The results compare **complete training procedures: task order together with its induced LR schedule**.
 
-| Metric                  |            Mixed |           Staged |       Reverse |
-| ----------------------- | ---------------: | ---------------: | ------------: |
-| Overall ID accuracy (%) | **72.46 ± 2.39** |     71.68 ± 2.35 |  63.63 ± 6.33 |
-| Color ID (%)            | **96.80 ± 4.36** |     95.16 ± 3.99 | 79.22 ± 12.90 |
-| Shape ID (%)            | **61.33 ± 1.33** |     60.47 ± 1.45 |  56.25 ± 5.12 |
-| Conjunction ID (%)      | **78.13 ± 3.75** |     76.95 ± 4.48 |  66.25 ± 7.70 |
-| Binding ID (%)          |     53.59 ± 2.73 | **54.14 ± 3.78** |  52.81 ± 1.69 |
-| OOD binding (%)         | **54.20 ± 1.98** |     52.30 ± 5.52 |  51.70 ± 2.29 |
-| Binding AULC (fraction) |        **0.530** |            0.521 |         0.514 |
+The primary observations were the fixed-final ID-dev Binding score, Binding accuracy over global training steps (AULC), and task behavior around transitions. OOD-dev was inspected as a secondary, exploratory dataset. No held-out test split was used.
 
-**Reading:** staged has the highest _mean final ID binding_ accuracy but by only **+0.55 pp** over mixed. Mixed wins on overall ID, OOD binding, and binding efficiency. Binding remains near chance under all schedules, despite much stronger color and conjunction scores.
+## Final performance
 
-## 3. Do paired seeds consistently favor staged over mixed?
+Five-seed means ± sample SD at update 3,000:
 
-Final ID-binding differences (staged − mixed):
+| Metric | Mixed | Staged | Reverse |
+|---|---:|---:|---:|
+| Overall ID accuracy | **72.46 ± 2.39%** | 71.68 ± 2.35% | 63.63 ± 6.33% |
+| Color | **96.80 ± 4.36%** | 95.16 ± 3.99% | 79.22 ± 12.90% |
+| Shape | **61.33 ± 1.33%** | 60.47 ± 1.45% | 56.25 ± 5.12% |
+| Conjunction | **78.13 ± 3.75%** | 76.95 ± 4.48% | 66.25 ± 7.70% |
+| Binding | 53.59 ± 2.73% | **54.14 ± 3.78%** | 52.81 ± 1.69% |
+| OOD-dev Binding | **54.20 ± 1.98%** | 52.30 ± 5.52% | 51.70 ± 2.29% |
+| ID Binding AULC | **0.530** | 0.521 | 0.514 |
 
-| Seed | Difference (pp) |
-| ---- | --------------: |
-| 42   |          −3.516 |
-| 43   |          +1.172 |
-| 44   |          −0.781 |
-| 45   |          +2.734 |
-| 46   |          +3.125 |
+The **Staged − Mixed** final ID Binding difference was **+0.55 percentage points**, with Staged ahead in only three of five seeds. Its descriptive paired bootstrap 95% interval was **[−1.64, +2.58] pp**. The direction is uncertain: these results do not show that the proposed prerequisite sequence wins reliably.
 
-**3 of 5 seeds** favor staged on final binding. Mean paired advantage **+0.547 pp**, descriptive paired bootstrap 95% interval **[−1.64, +2.58] pp**. This interval spans zero; the data do **not** justify claiming a robust staged advantage.
+Reverse finished below Mixed in overall ID accuracy in all five seeds, by **−8.83 pp** on average (descriptive bootstrap interval **[−14.02, −3.63] pp**). This is a consistent disadvantage of the **Reverse procedure as implemented**. Because its LR also decayed differently, the result cannot be assigned uniquely to reversed task order.
 
-Reverse is lower than mixed on overall ID for **all five seeds**, by an average **−8.83 pp** (descriptive bootstrap interval **[−14.02, −3.63] pp**). Reverse underperformance is much more consistent than staged's small binding advantage.
+## Learning speed and transitions
 
-## 4. Does staged improve _learning efficiency_?
+The global-step Binding AULC values were **0.5299 Mixed**, **0.5208 Staged**, and **0.5136 Reverse**. Staged − Mixed was **−0.0091** (about −0.91 pp of average accuracy), higher for Staged in one of five seeds; descriptive bootstrap interval **[−0.0156, −0.0009]**.
 
-**No in this experiment.** Binding learning-curve area (AULC), averaged over the entire 0–3,000-update budget:
+This metric includes the time before Staged receives any Binding examples. It measures performance over the *entire training budget*, not how efficiently Binding is learned after it first appears.
 
-- Mixed: **0.5299**
-- Staged: **0.5208**
-- Reverse: **0.5136**
+The Staged task transitions caused large short-term changes. Mean ID-dev accuracy changes over the first 100 updates after the **Conjunction → Binding** transition (1,800 → 1,900) were:
 
-Staged − mixed AULC is **−0.0091** (about **−0.91 pp** of average binding accuracy across the training trajectory). Staged has higher AULC in **only 1 of 5 seeds**. The notebook's descriptive bootstrap interval is **[−0.0156, −0.0009]**. With five seeds, treat this as suggestive rather than decisive inference.
-
-**Metric nuance:** AULC includes steps before binding is first introduced in staged training; that is intentional for measuring end-to-end sample/update efficiency, not an assessment of how rapidly _the binding-only stage itself_ learns.
-
-## 5. What happens at stage transitions? Is there forgetting?
-
-The most consequential transition is **staged conjunction → binding**, measured from step **1,800** to **1,900** (the first 100 binding updates), mean changes across five seeds:
-
-| ID metric   |        Change |
-| ----------- | ------------: |
-| Color       | **−14.84 pp** |
-| Shape       |      −2.97 pp |
+| Task | Change |
+|---|---:|
+| Color | **−14.84 pp** |
+| Shape | −2.97 pp |
 | Conjunction | **−12.97 pp** |
-| Binding     |      +3.59 pp |
-| Overall     |  **−6.80 pp** |
+| Binding | +3.59 pp |
+| Overall | −6.80 pp |
 
-This is strong observational evidence of **short-term interference/forgetting** when earlier tasks disappear from training. Starting **common mixed consolidation** (2,400 → 2,500) recovers on average **+15.70 pp color**, **+12.34 pp conjunction**, **+7.52 pp overall**, while binding dips **−2.27 pp** over the first 100 updates. This looks like a retention–adaptation trade-off; it does **not** show perfect recovery by the final checkpoint.
+After the switch to common Mixed consolidation (2,400 → 2,500), Color increased **+15.70 pp** and Conjunction **+12.34 pp** on average, while Binding decreased **−2.27 pp**. The earlier **Attributes → Conjunction** switch also reduced Color by **−3.67 pp** and improved Conjunction by **+7.42 pp**.
 
-The attributes → conjunction boundary reduces color by **−3.67 pp** and increases conjunction by **+7.42 pp**, on average. Transition deltas are descriptive; they depend on the fixed 100-update observation window and contain schedule changes and continued optimization.
+These are changes in *answers*, not proof that features were deleted or restored. They show that specializing on one task changes performance on others, and that a common Mixed suffix can reverse some of those changes.
 
-## 6. Is OOD binding better when ID binding is better?
+## Why the LR history changes the interpretation
 
-**Not consistently.** Mixed mean OOD binding = **54.2%**, staged **52.3%**, reverse **51.7%**. Staged − mixed OOD difference = **−1.9 pp**, with a wide descriptive bootstrap interval **[−6.25,+3.90] pp**. Staged is higher on OOD in only **one of five seeds**.
+The same adaptive LR rule had different outcomes:
 
-Illustrative discrepancy: seed **46** staged reaches **55.47% ID binding** but **46.5% OOD binding**; seed **45** staged reaches **60.16% ID** and **61.25% OOD**. Results are variable, so higher ID performance cannot yet establish robust transfer to unseen pairs.
+- **Mixed:** no LR reductions in the five seeds; final LR `1e-4`.
+- **Staged:** one to three reductions; final LR about `1.25e-5` to `5e-5`.
+- **Reverse:** one to five reductions; in some runs the final LR reached about `3.125e-6`.
 
-## 7. Are adaptive LR trajectories an interpretation confound?
+The scheduler evaluated all four tasks even while a stage withheld some of them. Worse overall validation loss or plateaus could trigger a reduction before a newly introduced task had much training. Consequently, a task that arrived late did not necessarily receive the same-size optimization updates as a task that arrived early.
 
-**Yes.** All runs start at `1e-4` and use the same `ReduceLROnPlateau` rule, but actual reductions differ:
+The experiment therefore cannot tell us how much of Reverse's weakness, or Staged's limited improvement, came from task order rather than **task-dependent LR decay**. Later constant-LR and phase-aware-LR experiments were needed to examine that ambiguity.
 
-- Mixed: **0 reductions in all five seeds**; ends at `1e-4`.
-- Staged: **1–3 reductions**, ending around `1.25e-5` to `5e-5`.
-- Reverse: **1–5 reductions**, ending as low as roughly `3.125e-6`.
+## What the OOD result can and cannot say
 
-The scheduler monitors **overall ID-dev cross-entropy** even when the staged phase hasn't trained some tasks yet. This makes LR reductions coincide with changes in task exposure; the run combines order effects with adaptive optimization effects. It is still a valid comparison of **full training procedures**, but not clean evidence for order in isolation.
+Staged's mean OOD-dev Binding score was **1.90 pp below Mixed**; the descriptive paired bootstrap interval **[−6.25, +3.90] pp** spans both directions. Staged was ahead on OOD-dev in only one seed. ID and OOD rankings varied noticeably by seed.
 
-## 8. Conclusion and next experiment
+The later dataset audit found a deeper limitation: in the current Medium World OOD generator, a scene contains **any held-out Color–Shape object if and only if the OOD Binding label is Yes**. Scene complexity also differs from ID. The OOD score is therefore **not a clean test of novel-combination compositional transfer**. The historical numbers remain useful for comparing predictions on that fixed evaluation set, but should not be used as proof of successful or failed transfer.
 
-The five-seed data show that **task order matters as part of the training procedure**: reverse is consistently poor overall, and staged shows sizeable short-term forgetting at its transitions. **They do not demonstrate that non-rehearsal staged training is better than mixed training** in efficiency, OOD binding, or stable final ID binding.
+## Interpretation
 
-The next fair experiment should preserve the same architecture, examples, final exposure counts, and total updates while introducing a **rehearsal-based staged schedule** as a fourth, explicitly new variant. Compare it against existing schedules, and separately control or replay LR trajectories if the aim is to isolate task order from scheduler behavior. Avoid inspecting held-out test sets while designing the new strategy.
+- **No reliable prerequisite-first advantage:** Staged had a small mean final Binding benefit, but it was inconsistent across seeds and did not improve global-step AULC.
+- **The Reverse training procedure was worse overall:** this includes both its learning order and the LR reductions induced by that order.
+- **Training-stage transitions matter:** Binding gains were accompanied by losses in earlier-task answers; Mixed consolidation often recovered earlier tasks while reducing some Binding performance.
+- **The underlying prerequisite capabilities were not established:** Shape remained weak, and later audits showed that the Conjunction generator permits a strong Color-only shortcut.
+
+The outcome justified more controlled work on exposure timing, rehearsal and learning-rate policy, rather than a conclusion that the intended hierarchy of visual concepts had been acquired.
+
+The executed training and analysis are in [`plateau_five_seeds.ipynb`](../notebooks/medium_world/plateau_five_seeds.ipynb) and [`plateau_five_seeds_analysis.ipynb`](../notebooks/medium_world/plateau_five_seeds_analysis.ipynb). The saved results are under [`outputs/medium_world/experiments/plateau_five_seeds/`](../outputs/medium_world/experiments/plateau_five_seeds/). All uncertainty estimates here are exploratory and use repeatedly inspected development data.
