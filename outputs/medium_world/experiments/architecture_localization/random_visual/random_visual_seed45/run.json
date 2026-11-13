@@ -1,0 +1,14 @@
+{
+  "seed": 45,
+  "step": 9000,
+  "control": "random_visual_trained_query",
+  "source_checkpoint_sha256": "ff9cdd89b12fa65bfe91201fde7dcc3f053fa17e41c84fec6299b9c7f787f377",
+  "epochs": 30,
+  "batch_size": 128,
+  "lr": 0.001,
+  "readout_params": {
+    "scalar": 2818,
+    "spatial": 2978,
+    "tokens": 2892
+  }
+}

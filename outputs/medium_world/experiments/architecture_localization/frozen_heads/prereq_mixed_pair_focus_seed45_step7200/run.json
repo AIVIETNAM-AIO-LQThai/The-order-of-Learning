@@ -1,0 +1,14 @@
+{
+  "schedule": "prereq_mixed_pair_focus",
+  "seed": 45,
+  "step": 7200,
+  "source_checkpoint_sha256": "33893d6c2db873fefc4ab16b172ae456b16f574b1f2f9f7236365438f100e6c7",
+  "epochs": 30,
+  "batch_size": 128,
+  "lr": 0.001,
+  "readout_params": {
+    "scalar": 2818,
+    "spatial": 2978,
+    "tokens": 2892
+  }
+}

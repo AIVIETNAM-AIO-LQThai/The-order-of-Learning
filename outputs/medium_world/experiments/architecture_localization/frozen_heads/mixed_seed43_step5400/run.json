@@ -1,0 +1,14 @@
+{
+  "schedule": "mixed",
+  "seed": 43,
+  "step": 5400,
+  "source_checkpoint_sha256": "c926ae40f795bbe0c54a3fa3bb60f52f975e4dad418728aeefd9e8960ae675ab",
+  "epochs": 30,
+  "batch_size": 128,
+  "lr": 0.001,
+  "readout_params": {
+    "scalar": 2818,
+    "spatial": 2978,
+    "tokens": 2892
+  }
+}
