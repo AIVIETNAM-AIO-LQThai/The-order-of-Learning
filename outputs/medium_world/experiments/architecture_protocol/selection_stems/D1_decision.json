@@ -1,0 +1,20 @@
+{
+  "D1_selected": true,
+  "candidate": "conv_stem",
+  "shape_gain": 0.07333333333333336,
+  "recolor_gain": 0.08133333333333341,
+  "color_gain": -0.00511111111111114,
+  "SESOI_shape": 0.05,
+  "paired_shape_sd": 0.011590225767142557,
+  "illustrative_confirmation_n": 8,
+  "planned_confirmation_n": 8,
+  "confirmation_seed_cap": 8,
+  "planning_sd_floor": 0.04,
+  "precision_goal_met_under_cap": true,
+  "seed_basis": [
+    42,
+    43,
+    44
+  ],
+  "selection_only": true
+}

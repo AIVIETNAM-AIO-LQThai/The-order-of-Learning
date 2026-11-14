@@ -1,0 +1,4 @@
+stem,seed,mode,step,train_loss,shape_balanced_accuracy,shape_recolor_both_correct,shape_recolor_both_correct_single_instance
+patchify,42,shape_only,750,0.6993579268455505,0.605,0.498,0.5728155339805825
+patchify,42,shape_only,1500,0.622245728969574,0.657,0.58,0.49514563106796117
+patchify,42,shape_only,2250,0.617647647857666,0.6659999999999999,0.578,0.5436893203883495

@@ -15,10 +15,12 @@ def render(s:Scene,size=64,scale=4) -> Image.Image:
     im=Image.new('RGB',(size*scale,size*scale),BACKGROUND)
     draw=ImageDraw.Draw(im)
     for o in s.objs():
-        x=o.x*scale;y=o.y*scale
+        x=o.x*scale
+        y=o.y*scale
         r=(4.7 if o.size=='small' else 6.6)*scale
         box=(round(x-r),round(y-r),round(x+r),round(y+r))
-        fill=PALETTE[o.color];outline=(41,51,59)
+        fill=PALETTE[o.color]
+        outline=(41,51,59)
         if o.shape=='circle':draw.ellipse(box,fill=fill,outline=outline,width=max(1,round(scale*.55)))
         elif o.shape=='square':draw.rectangle(box,fill=fill,outline=outline,width=max(1,round(scale*.55)))
         elif o.shape=='triangle':

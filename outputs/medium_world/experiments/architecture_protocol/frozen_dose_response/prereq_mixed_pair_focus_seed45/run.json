@@ -1,0 +1,63 @@
+{
+  "source_checkpoint_sha256": "4afccb0f879eb790a69fd4521d5846b382b046405919d1ffff312ef105e544bb",
+  "schedule": "prereq_mixed_pair_focus",
+  "seed": 45,
+  "training_hash": "69deccacbac6db25f7ffc8165f01545483d856855282ea640997f6660ce27c26",
+  "readout_epochs": 30,
+  "reader_lr": 0.001,
+  "batch_size": 128,
+  "variant_specs": {
+    "spatial_3x3_canonical": [
+      "spatial_3x3",
+      "canonical"
+    ],
+    "spatial_1x1_canonical": [
+      "spatial_1x1",
+      "canonical"
+    ],
+    "spatial_1x1_wide_canonical": [
+      "spatial_1x1_wide",
+      "canonical"
+    ],
+    "spatial_3x3_binding_heavy": [
+      "spatial_3x3",
+      "binding_heavy"
+    ],
+    "spatial_3x3_balanced": [
+      "spatial_3x3",
+      "balanced"
+    ],
+    "spatial_3x3_separate_heavy": [
+      "spatial_3x3",
+      "separate_heavy"
+    ]
+  },
+  "parameter_counts": {
+    "spatial_3x3": 2978,
+    "spatial_1x1": 418,
+    "spatial_1x1_wide": 3002
+  },
+  "environment": {
+    "python": "3.12.4",
+    "torch": "2.13.0+cu130",
+    "cuda_build": "13.0",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  },
+  "newly_fitted_variants": [
+    "spatial_1x1_canonical",
+    "spatial_1x1_wide_canonical",
+    "spatial_3x3_balanced",
+    "spatial_3x3_binding_heavy",
+    "spatial_3x3_canonical",
+    "spatial_3x3_separate_heavy"
+  ],
+  "evaluation_manifest_sha256": "bb6fe5b6e3078325331c88e8f84fa5894e46800bc1a89ef70405c2a291660d25",
+  "evaluation_environment": {
+    "python": "3.12.4",
+    "torch": "2.13.0+cu130",
+    "cuda_build": "13.0",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

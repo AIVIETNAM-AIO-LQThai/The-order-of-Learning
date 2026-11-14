@@ -1,0 +1,36 @@
+{
+  "G1": true,
+  "ordered": true,
+  "binding_heavy_minus_separate": {
+    "mean": 0.12639999999999998,
+    "low": 0.03445983240573153,
+    "high": 0.21834016759426844,
+    "n": 5
+  },
+  "mean_gaps": {
+    "balanced": 0.19519999999999998,
+    "binding_heavy": 0.2552,
+    "canonical": 0.2024,
+    "separate_heavy": 0.12880000000000003
+  },
+  "by_schedule": {
+    "mixed": {
+      "ordered": true,
+      "binding_heavy_minus_separate": {
+        "mean": 0.12239999999999998,
+        "low": 0.02271982051937811,
+        "high": 0.22208017948062186,
+        "n": 5
+      }
+    },
+    "prereq_mixed_pair_focus": {
+      "ordered": true,
+      "binding_heavy_minus_separate": {
+        "mean": 0.1304,
+        "low": 0.01908705591661826,
+        "high": 0.24171294408338173,
+        "n": 5
+      }
+    }
+  }
+}

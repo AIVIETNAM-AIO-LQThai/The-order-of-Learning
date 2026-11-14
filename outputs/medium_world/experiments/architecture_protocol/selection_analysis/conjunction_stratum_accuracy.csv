@@ -1,0 +1,4 @@
+stem,conjunction_bound_positive_correct,conjunction_separate_positive_correct,conjunction_shape_missing_correct,conjunction_color_missing_correct
+patchify,0.8573333333333334,0.8346666666666667,0.3093333333333333,1.0
+pointwise,0.7719999999999999,0.8106666666666666,0.3626666666666667,1.0
+conv_stem,0.8386666666666667,0.844,0.4453333333333333,1.0

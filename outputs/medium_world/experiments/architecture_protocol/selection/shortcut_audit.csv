@@ -1,0 +1,9 @@
+family,cv_balanced_accuracy,cv_sd,design_flag,note
+conjunction,0.5554214813900564,0.0303559036395464,False,
+binding,0.5,0.0,False,"paired by construction: nuisance features identical within pair, so 0.5 is exact"
+swaps,0.5,0.0,False,"paired by construction: nuisance features identical within pair, so 0.5 is exact"
+recolor,0.51,0.03657184709581947,False,
+ood,0.5,0.0,False,"paired by construction: nuisance features identical within pair, so 0.5 is exact"
+operator_three_case,0.3546666666666667,0.011925695879998885,False,
+conjunction_bound_vs_separate,0.5072591680694665,0.05748921499759708,False,
+operator_positive_vs_discordant,0.514,0.027018512172212617,False,

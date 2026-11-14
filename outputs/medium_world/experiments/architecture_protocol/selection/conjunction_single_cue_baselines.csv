@@ -1,0 +1,4 @@
+rule,accuracy
+color_only,0.75
+shape_only,0.75
+binding_like,0.75

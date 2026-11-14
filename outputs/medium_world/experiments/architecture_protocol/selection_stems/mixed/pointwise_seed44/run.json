@@ -1,0 +1,29 @@
+{
+  "stem": "pointwise",
+  "seed": 44,
+  "mode": "mixed",
+  "steps": 9000,
+  "batch_size": 50,
+  "lr": 0.0001,
+  "weight_decay": 0.0001,
+  "clip_norm": 1.0,
+  "augmentations": "independent-per-step matched D4",
+  "dataset_sha256": "69deccacbac6db25f7ffc8165f01545483d856855282ea640997f6660ce27c26",
+  "question_order_sha256": "f82e558a19930166dd4e26ed31608c3e9aaac3755edbebb5bb355e300f0b6c36",
+  "training_presentations": 450000,
+  "parameter_count": 71554,
+  "per_task_presentations": {
+    "conjunction": 112500,
+    "pair": 112500,
+    "color": 112500,
+    "shape": 112500
+  },
+  "profiled_flops_partial": 35907968,
+  "environment": {
+    "python": "3.12.4",
+    "torch": "2.13.0+cu130",
+    "cuda_build": "13.0",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

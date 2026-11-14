@@ -83,7 +83,8 @@ def sample_scene(rng: random.Random, kind: str, truth: tuple[int,int]|None=None,
     # Independent attribute/position sampling before oracle-conditional rejection.
     for _ in range(10000):
         a,b,c,_=rng.choice(configs)
-        xs=rng.sample(GRID,3);ys=rng.sample(GRID,3)
+        xs=rng.sample(GRID,3)
+        ys=rng.sample(GRID,3)
         coords=[(x+rng.randint(-1,1),y+rng.randint(-1,1)) for x,y in zip(xs,ys)]
         sizes=[rng.choice(SIZES) for _ in range(3)]
         s=Scene(*(Obj(pair[0],pair[1],sz,xy[0],xy[1]) for pair,sz,xy in zip((a,b,c),sizes,coords)))

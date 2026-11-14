@@ -1,0 +1,3 @@
+gate,value,evidence,note
+G1,True,0.12639999999999998,Frozen-readout incentive; does not identify encoder incentive
+D1,True,0.07333333333333336,Mixed Shape balanced-accuracy gain; requires safety constraints

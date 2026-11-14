@@ -1,0 +1,4 @@
+stem,seed,mode,step,train_loss,shape_balanced_accuracy,shape_recolor_both_correct,shape_recolor_both_correct_single_instance
+conv_stem,43,shape_only,750,0.611789882183075,0.6699999999999999,0.584,0.5145631067961165
+conv_stem,43,shape_only,1500,0.5370575785636902,0.7070000000000001,0.638,0.5242718446601942
+conv_stem,43,shape_only,2250,0.6359705328941345,0.735,0.686,0.5242718446601942

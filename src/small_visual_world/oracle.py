@@ -10,7 +10,9 @@ from src.small_visual_world.grammar import Query
 from src.small_visual_world.world import Scene
 
 def evaluate(s:Scene, q:Query) -> bool|object:
-    objs=s.objs(); op=q.op; args=q.args
+    objs=s.objs()
+    op=q.op
+    args=q.args
     if op=='REF':
         matches=[o for o in objs if (o.color,o.shape)==tuple(args)]
         if len(matches)!=1:raise ValueError(f'REF must resolve to exactly one object: {args}, count={len(matches)}')

@@ -1,0 +1,78 @@
+{
+  "design": "architecture_protocol_v1_count_controlled_v2",
+  "seed_map": {
+    "selection": 2026111401,
+    "confirmation": 2026111602
+  },
+  "sets": {
+    "selection": {
+      "conjunction": {
+        "rows": 1000,
+        "scenes": 1000,
+        "sha256": "17fea5734de5bcc4b04cb8a71036e689de5107505d89d0ef8bd1f176b404cc2e"
+      },
+      "binding": {
+        "rows": 1000,
+        "scenes": 1000,
+        "sha256": "6c87537477b09632ae48009b8908af2203fe0880c2379ba0c47fecb4a236d8e5"
+      },
+      "swaps": {
+        "rows": 4000,
+        "scenes": 1000,
+        "sha256": "cf3ed9c5574b5543f35f26a7d653b081f0767e32eade6003ff3b988ad0824e40"
+      },
+      "operator": {
+        "rows": 1500,
+        "scenes": 750,
+        "sha256": "28f665e39cbc90fb46f1c6cd94c3a71e7ba33cea019a4f31dbd193e53de233c6"
+      },
+      "recolor": {
+        "rows": 1000,
+        "scenes": 1000,
+        "sha256": "8481567c39781bdfe7d3bc31fa0570a5eb2ed0ce75cc8322d09fcaa4caa30495"
+      },
+      "ood": {
+        "rows": 1000,
+        "scenes": 1000,
+        "sha256": "900910dd16d3ba949eaa1380d767a4d9102f0842ce5bb64d38fbcd1fffb54b01"
+      }
+    },
+    "confirmation": {
+      "conjunction": {
+        "rows": 1000,
+        "scenes": 1000,
+        "sha256": "7ea82fd401ef2625b8968737fa4913490e3e7f216f3609c5141f41400dbed294"
+      },
+      "binding": {
+        "rows": 1000,
+        "scenes": 1000,
+        "sha256": "9eb144e8d74a430e70c6fa334a614d88aedd78a7f5d76ce149fa000c8cc7b53f"
+      },
+      "swaps": {
+        "rows": 4000,
+        "scenes": 1000,
+        "sha256": "dcfa331371e273b1ffe3fa49ae945e8eca969aa329f541551091728534efdb99"
+      },
+      "operator": {
+        "rows": 1500,
+        "scenes": 750,
+        "sha256": "ac3f0932c8935f9f4665028201b494ac4cca2821089f0aad217decbf0e82c13a"
+      },
+      "recolor": {
+        "rows": 1000,
+        "scenes": 1000,
+        "sha256": "fe98cb31eb26e08944f13489192f0ce5de28d9f2e08b463e2a2c48812511725b"
+      },
+      "ood": {
+        "rows": 1000,
+        "scenes": 1000,
+        "sha256": "3d0d7931bf4e93d75dbb35f87d97ee07a14eb222575f07e301d17bdeedad0c97"
+      }
+    }
+  },
+  "training_manifests": {
+    "train.jsonl": "69deccacbac6db25f7ffc8165f01545483d856855282ea640997f6660ce27c26",
+    "id_dev.jsonl": "ece4b831f1f7fe6efad42b18aca499f12c2d573baa76fc218864bb56fe24b11a",
+    "ood_dev.jsonl": "208a7566cc2082fa4438ec0d003430d0927c54bf82c55bb40fa885ef4961e0aa"
+  }
+}

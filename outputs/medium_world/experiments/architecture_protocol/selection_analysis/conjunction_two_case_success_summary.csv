@@ -1,0 +1,10 @@
+group,condition,n_seeds,separate_yes,shape_missing_no,two_case_surplus
+End-to-end stem,conv_stem,3,0.844,0.4453333333333333,0.2893333333333333
+End-to-end stem,patchify,3,0.8346666666666667,0.3093333333333333,0.1439999999999999
+End-to-end stem,pointwise,3,0.8106666666666666,0.3626666666666667,0.17333333333333342
+Frozen readout,balanced,5,0.6336,0.4556,0.08920000000000008
+Frozen readout,binding_heavy,5,0.5648,0.5168,0.08160000000000008
+Frozen readout,canonical,5,0.646,0.434,0.08000000000000007
+Frozen readout,separate_heavy,5,0.6888,0.4208,0.10959999999999996
+Frozen readout,spatial_1x1,5,0.8172,0.3244,0.14160000000000003
+Frozen readout,spatial_1x1_wide,5,0.784,0.3592,0.1432
